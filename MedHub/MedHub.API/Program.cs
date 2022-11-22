@@ -20,6 +20,9 @@ builder.Services.AddScoped<IRepository<Doctor>, DoctorRepository>();
 builder.Services.AddScoped<IRepository<Cabinet>, CabinetRepository>();
 builder.Services.AddScoped<IRepository<Allergen>, AllergenRepository>();
 builder.Services.AddScoped<IRepository<MedicalSpeciality>, MedicalSpecialityRepository>();
+builder.Services.AddScoped<IRepository<InvoiceLineItem>, InvoiceLineItemRepository>();
+builder.Services.AddScoped<IRepository<StockLineItem>, StockLineItemRepository>();
+builder.Services.AddScoped<IRepository<MedicalRecord>, MedicalRecordRepository>();
 
 var app = builder.Build();
 
