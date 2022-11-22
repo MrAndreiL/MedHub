@@ -1,4 +1,6 @@
-﻿namespace MedHub.Domain.Models
+﻿using MedHub.Domain.Helpers;
+
+namespace MedHub.Domain.Models
 {
     public class Patient : Person
     {
@@ -13,12 +15,14 @@
             MedicalHistory.Add(medicalRecord);
         }
 
-        public void PushMedicalHistory(ICollection<MedicalRecord> medicalRecordList)
+        public Result PushMedicalHistory(ICollection<MedicalRecord> medicalRecordList)
         {
             foreach (var medicalRecord in medicalRecordList)
             {
                 AddMedicalRecordToMedicalHistory(medicalRecord);
             }
+
+            return Result.Success();
         }
 
         public void MarkAllergyForAllergen(Allergen allergen)
@@ -26,12 +30,14 @@
             Allergies.Add(allergen);
         }
 
-        public void RecordAllergyList(ICollection<Allergen> allergens)
+        public Result RecordAllergyList(ICollection<Allergen> allergens)
         {
             foreach (var allergen in allergens)
             {
                 MarkAllergyForAllergen(allergen);
             }
+
+            return Result.Success();
         }
     }
 }

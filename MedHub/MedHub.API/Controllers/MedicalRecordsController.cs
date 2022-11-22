@@ -26,7 +26,7 @@ namespace MedHub.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] CreateMedicalRecordDto medicalRecordDto)
         {
-            var medicalRecord = new MedicalRecord(medicalRecordDto.MedicalNote, DateTime.Now);
+            var medicalRecord = new MedicalRecord(medicalRecordDto.MedicalNote);
             medicalRecordRepository.Add(medicalRecord);
             medicalRecordRepository.SaveChanges();
             return Created(nameof(Get), medicalRecord);

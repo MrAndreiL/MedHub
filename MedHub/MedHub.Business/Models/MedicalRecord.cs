@@ -10,11 +10,11 @@
         public Guid DoctorId { get; private set; }
         public DateTime Date { get; private set; }
 
-        public MedicalRecord(string medicalNote, DateTime date)
+        public MedicalRecord(string medicalNote)
         {
             Id = Guid.NewGuid();
             MedicalNote = medicalNote;
-            Date = date;
+            Date = DateTime.Now;
         }
 
         public void SetPatientToMedicalRecord(Patient patient)
