@@ -4,24 +4,37 @@ namespace MedHub.Domain.Models
 {
     public class Doctor : Person
     {
-        public List<MedicalSpeciality> SpecializationsList { get; private set; }
+        public ICollection<MedicalSpeciality> Specializations { get; private set; }
+        public Cabinet Cabinet { get; private set; }
+        public Guid CabinetId { get; private set; }
 
-        public Doctor(string firstName, string lastName, string email) : base(firstName, lastName, email)
+        public Doctor(string CNP, string firstName, string lastName, string email) : base(CNP, firstName, lastName, email)
         { }
 
-        public Result AddSpecialization(List<MedicalSpeciality> specializationsList)
+        public void AddSpecialization(MedicalSpeciality medicalSpeciality)
+        {
+            Specializations.Add(medicalSpeciality);
+        }
+
+        public Result AddSpecializations(ICollection<MedicalSpeciality> specializationsList)
         {
             if (!specializationsList.Any())
             {
                 return Result.Failure("The list of specialization cannot be empty!");
             }
 
-            specializationsList.ForEach(se =>
+            foreach (var specialization in specializationsList)
             {
-                SpecializationsList.Add(se);
-            });
+                AddSpecialization(specialization);
+            }
 
             return Result.Success();
+        }
+
+        public void SetCabinetToDoctor(Cabinet cabinet)
+        {
+            CabinetId = cabinet.Id;
+            Cabinet = cabinet;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MedHub.Domain.Models;
+﻿using MedHub.API.DTOs;
+using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,15 @@ namespace MedHub.API.Controllers
         public IActionResult Get()
         {
             return Ok(drugRepository.GetAll());
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateDrugDto drugDto)
+        {
+            var drug = new Drug(drugDto.Name, drugDto.Description, drugDto.Price);
+            drugRepository.Add(drug);
+            drugRepository.SaveChanges();
+            return Created(nameof(Get), drug);
         }
     }
 }

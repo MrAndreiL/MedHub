@@ -14,7 +14,6 @@
             return context.Add(entity).Entity;
         }
 
-        //chestia asta nu o sa functioneze pentru clasele derivate din person (care se identifica cu CNP)
         public virtual T Get(Guid id)
         {
             return context.Find<T>(id);

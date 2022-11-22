@@ -30,9 +30,14 @@ namespace MedHub.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid?>("PatientId")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DrugId");
+
+                    b.HasIndex("PatientId");
 
                     b.ToTable("Allergens");
                 });
@@ -58,6 +63,13 @@ namespace MedHub.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("CNP")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CabinetId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -72,6 +84,8 @@ namespace MedHub.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CabinetId");
+
                     b.ToTable("Doctors");
                 });
 
@@ -81,14 +95,8 @@ namespace MedHub.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("CabinetId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("InvoiceId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -100,10 +108,6 @@ namespace MedHub.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CabinetId");
-
-                    b.HasIndex("InvoiceId");
-
                     b.ToTable("Drugs");
                 });
 
@@ -113,14 +117,71 @@ namespace MedHub.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("BuyerId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("SellerId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BuyerId");
+
+                    b.HasIndex("SellerId");
+
+                    b.ToTable("Invoices");
+                });
+
+            modelBuilder.Entity("MedHub.Domain.Models.InvoiceLineItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DrugId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("InvoiceId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DrugId");
+
+                    b.HasIndex("InvoiceId");
+
+                    b.ToTable("InvoiceLineItems");
+                });
+
+            modelBuilder.Entity("MedHub.Domain.Models.MedicalRecord", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DoctorId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MedicalNote")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid>("PatientId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DoctorId");
+
                     b.HasIndex("PatientId");
 
-                    b.ToTable("Invoices");
+                    b.ToTable("MedicalRecords");
                 });
 
             modelBuilder.Entity("MedHub.Domain.Models.MedicalSpeciality", b =>
@@ -140,13 +201,17 @@ namespace MedHub.Infrastructure.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.ToTable("MedicalSpecialities");
+                    b.ToTable("MedicalSpecializations");
                 });
 
             modelBuilder.Entity("MedHub.Domain.Models.Patient", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CNP")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
@@ -166,31 +231,105 @@ namespace MedHub.Infrastructure.Migrations
                     b.ToTable("Patients");
                 });
 
+            modelBuilder.Entity("MedHub.Domain.Models.StockLineItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CabinetId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DrugId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CabinetId");
+
+                    b.HasIndex("DrugId");
+
+                    b.ToTable("StockLineItems");
+                });
+
             modelBuilder.Entity("MedHub.Domain.Models.Allergen", b =>
                 {
                     b.HasOne("MedHub.Domain.Models.Drug", null)
                         .WithMany("Allergens")
                         .HasForeignKey("DrugId");
+
+                    b.HasOne("MedHub.Domain.Models.Patient", null)
+                        .WithMany("Allergies")
+                        .HasForeignKey("PatientId");
                 });
 
-            modelBuilder.Entity("MedHub.Domain.Models.Drug", b =>
+            modelBuilder.Entity("MedHub.Domain.Models.Doctor", b =>
                 {
-                    b.HasOne("MedHub.Domain.Models.Cabinet", null)
-                        .WithMany("Drugs")
-                        .HasForeignKey("CabinetId");
+                    b.HasOne("MedHub.Domain.Models.Cabinet", "Cabinet")
+                        .WithMany("Doctors")
+                        .HasForeignKey("CabinetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("MedHub.Domain.Models.Invoice", null)
-                        .WithMany("Drugs")
-                        .HasForeignKey("InvoiceId");
+                    b.Navigation("Cabinet");
                 });
 
             modelBuilder.Entity("MedHub.Domain.Models.Invoice", b =>
                 {
-                    b.HasOne("MedHub.Domain.Models.Patient", "Patient")
+                    b.HasOne("MedHub.Domain.Models.Patient", "Buyer")
                         .WithMany()
+                        .HasForeignKey("BuyerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedHub.Domain.Models.Cabinet", "Seller")
+                        .WithMany()
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Buyer");
+
+                    b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("MedHub.Domain.Models.InvoiceLineItem", b =>
+                {
+                    b.HasOne("MedHub.Domain.Models.Drug", "Drug")
+                        .WithMany()
+                        .HasForeignKey("DrugId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedHub.Domain.Models.Invoice", "Invoice")
+                        .WithMany("Products")
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Drug");
+
+                    b.Navigation("Invoice");
+                });
+
+            modelBuilder.Entity("MedHub.Domain.Models.MedicalRecord", b =>
+                {
+                    b.HasOne("MedHub.Domain.Models.Doctor", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedHub.Domain.Models.Patient", "Patient")
+                        .WithMany("MedicalHistory")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Doctor");
 
                     b.Navigation("Patient");
                 });
@@ -198,18 +337,39 @@ namespace MedHub.Infrastructure.Migrations
             modelBuilder.Entity("MedHub.Domain.Models.MedicalSpeciality", b =>
                 {
                     b.HasOne("MedHub.Domain.Models.Doctor", null)
-                        .WithMany("SpecializationsList")
+                        .WithMany("Specializations")
                         .HasForeignKey("DoctorId");
+                });
+
+            modelBuilder.Entity("MedHub.Domain.Models.StockLineItem", b =>
+                {
+                    b.HasOne("MedHub.Domain.Models.Cabinet", "Cabinet")
+                        .WithMany("DrugsStock")
+                        .HasForeignKey("CabinetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedHub.Domain.Models.Drug", "Drug")
+                        .WithMany()
+                        .HasForeignKey("DrugId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cabinet");
+
+                    b.Navigation("Drug");
                 });
 
             modelBuilder.Entity("MedHub.Domain.Models.Cabinet", b =>
                 {
-                    b.Navigation("Drugs");
+                    b.Navigation("Doctors");
+
+                    b.Navigation("DrugsStock");
                 });
 
             modelBuilder.Entity("MedHub.Domain.Models.Doctor", b =>
                 {
-                    b.Navigation("SpecializationsList");
+                    b.Navigation("Specializations");
                 });
 
             modelBuilder.Entity("MedHub.Domain.Models.Drug", b =>
@@ -219,7 +379,14 @@ namespace MedHub.Infrastructure.Migrations
 
             modelBuilder.Entity("MedHub.Domain.Models.Invoice", b =>
                 {
-                    b.Navigation("Drugs");
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("MedHub.Domain.Models.Patient", b =>
+                {
+                    b.Navigation("Allergies");
+
+                    b.Navigation("MedicalHistory");
                 });
 #pragma warning restore 612, 618
         }

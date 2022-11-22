@@ -1,4 +1,5 @@
-﻿using MedHub.Domain.Models;
+﻿using MedHub.API.DTOs;
+using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,15 @@ namespace MedHub.API.Controllers
         public IActionResult Get()
         {
             return Ok(cabinetRepository.GetAll());
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateCabinetDto cabinetDto)
+        {
+            var cabinet = new Cabinet(cabinetDto.Address);
+            cabinetRepository.Add(cabinet);
+            cabinetRepository.SaveChanges();
+            return Created(nameof(Get), cabinet);
         }
     }
 }

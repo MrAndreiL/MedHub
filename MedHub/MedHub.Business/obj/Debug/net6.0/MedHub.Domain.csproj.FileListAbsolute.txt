@@ -1,0 +1,12 @@
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\MedHub.Domain.csproj.AssemblyReference.cache
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\MedHub.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\MedHub.Domain.AssemblyInfoInputs.cache
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\MedHub.Domain.AssemblyInfo.cs
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\MedHub.Domain.csproj.CoreCompileInputs.cache
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\bin\Debug\net6.0\MedHub.Domain.deps.json
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\bin\Debug\net6.0\MedHub.Domain.dll
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\bin\Debug\net6.0\MedHub.Domain.pdb
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\MedHub.Domain.dll
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\refint\MedHub.Domain.dll
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\MedHub.Domain.pdb
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Business\obj\Debug\net6.0\ref\MedHub.Domain.dll

@@ -1,0 +1,12 @@
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\bin\Debug\net6.0\MedHub.Application.deps.json
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\bin\Debug\net6.0\MedHub.Application.dll
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\bin\Debug\net6.0\MedHub.Application.pdb
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.csproj.AssemblyReference.cache
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.AssemblyInfoInputs.cache
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.AssemblyInfo.cs
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.csproj.CoreCompileInputs.cache
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.dll
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\refint\MedHub.Application.dll
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.pdb
+D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\ref\MedHub.Application.dll

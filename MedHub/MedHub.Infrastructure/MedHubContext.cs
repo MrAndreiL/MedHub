@@ -11,7 +11,10 @@ namespace MedHub.Infrastructure
         public DbSet<Doctor> Doctors => Set<Doctor>();
         public DbSet<Cabinet> Cabinets => Set<Cabinet>();
         public DbSet<Allergen> Allergens => Set<Allergen>();
-        public DbSet<MedicalSpeciality> MedicalSpecialities => Set<MedicalSpeciality>();
+        public DbSet<MedicalSpeciality> MedicalSpecializations => Set<MedicalSpeciality>();
+        public DbSet<InvoiceLineItem> InvoiceLineItems => Set<InvoiceLineItem>();
+        public DbSet<MedicalRecord> MedicalRecords => Set<MedicalRecord>();
+        public DbSet<StockLineItem> StockLineItems => Set<StockLineItem>();
 
         public void Save()
         {

@@ -20,5 +20,14 @@ namespace MedHub.API.Controllers
         {
             return Ok(invoiceRepository.GetAll());
         }
+
+        [HttpPost]
+        public IActionResult Create()
+        {
+            var invoice = new Invoice();
+            invoiceRepository.Add(invoice);
+            invoiceRepository.SaveChanges();
+            return Created(nameof(Get), invoice);
+        }
     }
 }

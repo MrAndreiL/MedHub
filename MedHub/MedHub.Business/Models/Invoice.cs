@@ -5,35 +5,42 @@ namespace MedHub.Domain.Models
     public class Invoice
     {
         public Guid Id { get; private set; }
-        public Patient Patient { get; private set; }
-        public Guid PatientId { get; private set; }
-        public List<Drug> Drugs { get; private set; }
-        //Aici cred ca trebuie adaugat ceva ca la partial (fiecare Drug sa aiba o cantitate)
-        public double Price => Drugs.Sum(drug => drug.Price);
+        public Cabinet Seller { get; private set; }
+        public Guid SellerId { get; private set; }
+        public Patient Buyer { get; private set; }
+        public Guid BuyerId { get; private set; }
+        public ICollection<InvoiceLineItem> Products { get; private set; }
+        public double Total => Products.Sum(product => product.Drug.Price * product.Quantity);
 
         public Invoice()
         {
             Id = Guid.NewGuid();
         }
 
-        public void AddPatientToInvoice(Patient patient)
+        public void AddSellerToInvoice(Cabinet cabinet)
         {
-            Patient = patient;
-            PatientId = patient.Id;
+            SellerId = cabinet.Id;
+            Seller = cabinet;
         }
 
-        public Result AddDrugsListToInvoice(List<Drug> drugs)
+        public void AddBuyerToInvoice(Patient patient)
         {
-            if (!drugs.Any())
+            BuyerId = patient.Id;
+            Buyer = patient;
+        }
+
+        public Result AddProductsToInvoice(ICollection<InvoiceLineItem> drugsPackage)
+        {
+            if (!drugsPackage.Any())
             {
-                return Result.Failure("Drugs should not be empty!");
+                return Result.Failure("Invoice drugs list should not be empty!");
             }
 
-            drugs.ForEach(drug =>
+            foreach (var item in drugsPackage)
             {
-                // cred ca ar trebui adaugata aici si in obiectul de tip Drug o referinta la invoice-ul asta
-                Drugs.Add(drug);
-            });
+                Products.Add(item);
+                item.SetInvoiceToInvoiceLineItem(this);
+            }
 
             return Result.Success();
         }

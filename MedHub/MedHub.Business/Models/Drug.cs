@@ -1,6 +1,4 @@
-﻿using MedHub.Domain.Helpers;
-
-namespace MedHub.Domain.Models
+﻿namespace MedHub.Domain.Models
 {
     public class Drug
     {
@@ -8,8 +6,7 @@ namespace MedHub.Domain.Models
         public string Name { get; private set; }
         public string Description { get; private set; }
         public double Price { get; private set; }
-        public List<Allergen> Allergens { get; private set; }
-        //Curency ?
+        public ICollection<Allergen> Allergens { get; private set; }
 
         public Drug(string name, string description, double price)
         {
@@ -19,19 +16,12 @@ namespace MedHub.Domain.Models
             Price = price;
         }
 
-        public Result AddListOfAllergens(List<Allergen> allergens)
+        public void AddListOfAllergens(ICollection<Allergen> allergens)
         {
-            if (!allergens.Any())
+            foreach (var allergen in allergens)
             {
-                return Result.Failure("Allergens list should not be empty!");
+                Allergens.Add(allergen);
             }
-
-            allergens.ForEach(a =>
-            {
-                Allergens.Add(a);
-            });
-
-            return Result.Success();
         }
     }
 }

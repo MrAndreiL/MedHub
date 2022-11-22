@@ -6,7 +6,8 @@ namespace MedHub.Domain.Models
     {
         public Guid Id { get; private set; }
         public string Address { get; private set; }
-        public List<Drug> Drugs { get; private set; }
+        public ICollection<StockLineItem> DrugsStock { get; private set; }
+        public ICollection<Doctor> Doctors { get; private set; }
 
         public Cabinet(string address)
         {
@@ -14,17 +15,39 @@ namespace MedHub.Domain.Models
             Address = address;
         }
 
-        public Result AddDrugsToCabinetStock(List<Drug> drugs)
+        public Result AddDrugsToCabinetStock(ICollection<StockLineItem> drugsPackage)
         {
-            if (!drugs.Any())
+            if (!drugsPackage.Any())
             {
-                return Result.Failure("You cannot add 0 drugs to cabinet stock!");
+                return Result.Failure("You should add at least one package to stock!");
             }
 
-            drugs.ForEach(drug =>
+            foreach (var item in drugsPackage)
             {
-                Drugs.Add(drug);
-            });
+                DrugsStock.Add(item);
+                item.SetCabinetForStockLineItem(this);
+            }
+
+            return Result.Success();
+        }
+
+        public void AddDoctorToCabinet(Doctor doctor)
+        {
+            Doctors.Add(doctor);
+            doctor.SetCabinetToDoctor(this);
+        }
+
+        public Result AddDoctorsListToCabinet(ICollection<Doctor> doctors)
+        {
+            if (!doctors.Any())
+            {
+                return Result.Failure("You should add at least one doctor to the list!");
+            }
+
+            foreach (Doctor doctor in doctors)
+            {
+                AddDoctorToCabinet(doctor);
+            }
 
             return Result.Success();
         }
