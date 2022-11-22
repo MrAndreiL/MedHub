@@ -15,6 +15,7 @@ namespace MedHub.Domain.Models
         public Invoice()
         {
             Id = Guid.NewGuid();
+            Products = new List<InvoiceLineItem>();
         }
 
         public void AddSellerToInvoice(Cabinet cabinet)

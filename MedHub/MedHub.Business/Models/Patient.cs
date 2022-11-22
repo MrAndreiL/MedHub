@@ -8,7 +8,10 @@ namespace MedHub.Domain.Models
         public ICollection<Allergen> Allergies { get; private set; }
 
         public Patient(string CNP, string firstName, string lastName, string email) : base(CNP, firstName, lastName, email)
-        { }
+        { 
+            MedicalHistory = new List<MedicalRecord>();
+            Allergies = new List<Allergen>();
+        }
 
         public void AddMedicalRecordToMedicalHistory(MedicalRecord medicalRecord)
         {

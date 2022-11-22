@@ -1363,19 +1363,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kriptex\\.nuget\\packages\\": {}
+    "C:\\Users\\Andrei\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev\\.NET\\Project\\MedHub\\MedHub\\MedHub.Infrastructure\\MedHub.Infrastructure.csproj",
+      "projectUniqueName": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Infrastructure\\MedHub.Infrastructure.csproj",
       "projectName": "MedHub.Infrastructure",
-      "projectPath": "D:\\Dev\\.NET\\Project\\MedHub\\MedHub\\MedHub.Infrastructure\\MedHub.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Kriptex\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev\\.NET\\Project\\MedHub\\MedHub\\MedHub.Infrastructure\\obj\\",
+      "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Infrastructure\\MedHub.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
+      "outputPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Kriptex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1383,14 +1388,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Dev\\.NET\\Project\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj": {
-              "projectPath": "D:\\Dev\\.NET\\Project\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj"
+            "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj": {
+              "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj"
             }
           }
         }
@@ -1442,7 +1448,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -13,6 +13,8 @@ namespace MedHub.Domain.Models
         {
             Id = Guid.NewGuid();
             Address = address;
+            DrugsStock = new List<StockLineItem>();
+            Doctors = new List<Doctor>();
         }
 
         public Result AddDrugsToCabinetStock(ICollection<StockLineItem> drugsPackage)

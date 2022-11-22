@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nAy5mjPGXS81ErGWRbs/xJBUDL2UpZlsR72xNWMu6yNFqWWLbkG5UlWJt/y0BxLLigc4EDemdV9YK1uXOsyPlA==",
+  "dgSpecHash": "ccfdid4dCYpl15/SY7fvXpoCJxhnivyH6i8GpcnixTh19y7zMFikaonM9OFitZYX8pylIlR93k/z0F4NStF4Yg==",
   "success": true,
-  "projectFilePath": "D:\\Dev\\.NET\\Project\\MedHub\\MedHub\\MedHub.Application\\MedHub.Application.csproj",
+  "projectFilePath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Application\\MedHub.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

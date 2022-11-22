@@ -10,3 +10,15 @@ D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.App
 D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\refint\MedHub.Application.dll
 D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.pdb
 D:\Dev\.NET\Project\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\ref\MedHub.Application.dll
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\bin\Debug\net6.0\MedHub.Application.deps.json
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\bin\Debug\net6.0\MedHub.Application.dll
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\bin\Debug\net6.0\MedHub.Application.pdb
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.csproj.AssemblyReference.cache
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.AssemblyInfoInputs.cache
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.AssemblyInfo.cs
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.csproj.CoreCompileInputs.cache
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.dll
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\refint\MedHub.Application.dll
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\MedHub.Application.pdb
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Application\obj\Debug\net6.0\ref\MedHub.Application.dll
