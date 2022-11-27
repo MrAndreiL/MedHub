@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "z09X1WB5OCNuhAHkDxfS9jeS7L8FGY1JQRWRvRgO864=",
+  "Source": "MedHub.API",
+  "BasePath": "_content/MedHub.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

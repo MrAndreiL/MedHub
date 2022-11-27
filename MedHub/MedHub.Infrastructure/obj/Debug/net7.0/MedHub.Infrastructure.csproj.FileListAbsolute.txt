@@ -1,0 +1,17 @@
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Infrastructure.deps.json
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Infrastructure.runtimeconfig.json
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Infrastructure.dll
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Infrastructure.pdb
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Domain.dll
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Domain.pdb
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.csproj.AssemblyReference.cache
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.AssemblyInfoInputs.cache
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.AssemblyInfo.cs
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.csproj.CoreCompileInputs.cache
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.csproj.CopyComplete
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.dll
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\refint\MedHub.Infrastructure.dll
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.pdb
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.genruntimeconfig.cache
+D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\ref\MedHub.Infrastructure.dll
