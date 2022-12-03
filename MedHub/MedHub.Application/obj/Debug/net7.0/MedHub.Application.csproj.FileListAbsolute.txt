@@ -1,0 +1,12 @@
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Application.deps.json
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Application.dll
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Application.pdb
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.csproj.AssemblyReference.cache
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.AssemblyInfoInputs.cache
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.AssemblyInfo.cs
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.csproj.CoreCompileInputs.cache
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.dll
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\refint\MedHub.Application.dll
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.pdb
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.Application\obj\Debug\net7.0\ref\MedHub.Application.dll

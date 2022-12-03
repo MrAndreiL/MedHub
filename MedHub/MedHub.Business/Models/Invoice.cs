@@ -11,11 +11,15 @@ namespace MedHub.Domain.Models
         public Guid BuyerId { get; private set; }
         public ICollection<InvoiceLineItem> Products { get; private set; }
         public double Total => Products.Sum(product => product.Drug.Price * product.Quantity);
-
-        public Invoice()
+        public static Result<Invoice> Create()
         {
-            Id = Guid.NewGuid();
-            Products = new List<InvoiceLineItem>();
+            var invoice = new Invoice
+            {
+                Id = Guid.NewGuid(),
+                Products = new List<InvoiceLineItem>()
+            };
+
+            return Result<Invoice>.Success(invoice);
         }
 
         public void AddSellerToInvoice(Cabinet cabinet)

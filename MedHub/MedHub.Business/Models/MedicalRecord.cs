@@ -1,4 +1,6 @@
-﻿namespace MedHub.Domain.Models
+﻿using MedHub.Domain.Helpers;
+
+namespace MedHub.Domain.Models
 {
     public class MedicalRecord
     {
@@ -9,12 +11,21 @@
         public Doctor Doctor { get; private set; }
         public Guid DoctorId { get; private set; }
         public DateTime Date { get; private set; }
-
-        public MedicalRecord(string medicalNote)
+        public static Result<MedicalRecord> Create(string medicalNote)
         {
-            Id = Guid.NewGuid();
-            MedicalNote = medicalNote;
-            Date = DateTime.Now;
+            if (String.IsNullOrEmpty(medicalNote))
+            {
+                return Result<MedicalRecord>.Failure("The medical note cannot be empty.");
+            }
+
+            var medicalRecord = new MedicalRecord
+            {
+                Id = Guid.NewGuid(),
+                MedicalNote = medicalNote,
+                Date = DateTime.Now
+            };
+
+            return Result<MedicalRecord>.Success(medicalRecord);
         }
 
         public void SetPatientToMedicalRecord(Patient patient)

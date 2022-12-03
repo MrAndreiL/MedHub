@@ -1,11 +1,12 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     [ApiController]
     public class DrugsController : ControllerBase
     {
@@ -25,10 +26,24 @@ namespace MedHub.API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateDrugDto drugDto)
         {
-            var drug = new Drug(drugDto.Name, drugDto.Description, drugDto.Price);
-            drugRepository.Add(drug);
-            drugRepository.SaveChanges();
-            return Created(nameof(Get), drug);
+            var drug = Drug.Create(drugDto.Name, drugDto.Description, drugDto.Price);
+
+            if (drug.IsSuccess)
+            {
+                drugRepository.Add(drug.Entity);
+
+                var fullDrug = new DrugDto
+                {
+                    Id = drug.Entity.Id,
+                    Name = drug.Entity.Name,
+                    Description = drug.Entity.Description,
+                    Price = drug.Entity.Price
+                };
+
+                return Created(nameof(Get), fullDrug);
+            }
+
+            return BadRequest(drug.Error);
         }
     }
 }

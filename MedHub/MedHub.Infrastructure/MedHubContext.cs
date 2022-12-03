@@ -15,15 +15,20 @@ namespace MedHub.Infrastructure
         public DbSet<InvoiceLineItem> InvoiceLineItems => Set<InvoiceLineItem>();
         public DbSet<MedicalRecord> MedicalRecords => Set<MedicalRecord>();
         public DbSet<StockLineItem> StockLineItems => Set<StockLineItem>();
+        public MedHubContext(DbContextOptions<MedHubContext> options) : base(options)
+        {
+            this.Database.EnsureCreated();
+        }
 
         public void Save()
         {
             SaveChanges();
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {}
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = MedHubApp.db");
+            // Some default data
         }
     }
 }

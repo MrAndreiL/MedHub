@@ -1,4 +1,6 @@
-﻿namespace MedHub.Domain.Models
+﻿using MedHub.Domain.Helpers;
+
+namespace MedHub.Domain.Models
 {
     public class Drug
     {
@@ -7,13 +9,22 @@
         public string Description { get; private set; }
         public double Price { get; private set; }
         public ICollection<Allergen> Allergens { get; private set; }
-
-        public Drug(string name, string description, double price)
+        public static Result<Drug> Create(string name, string description, double price)
         {
-            Id = Guid.NewGuid();
-            Name = name;
-            Description = description;
-            Price = price;
+            if (String.IsNullOrEmpty(name))
+            {
+                return Result<Drug>.Failure("The name cannot be empty.");
+            }
+
+            var drug = new Drug
+            {
+                Id = Guid.NewGuid(),
+                Name = name,
+                Description = description,
+                Price = price
+            };
+
+            return Result<Drug>.Success(drug);
         }
 
         public void AddListOfAllergens(ICollection<Allergen> allergens)

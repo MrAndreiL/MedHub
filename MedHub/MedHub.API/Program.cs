@@ -2,6 +2,7 @@ using MedHub.Domain.Models;
 using MedHub.Infrastructure;
 using MedHub.Infrastructure.Repositories;
 using MedHub.Infrastructure.Repositories.Generics;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<MedHubContext>();
+
+builder.Services.AddDbContext<MedHubContext>(
+    options => options.UseSqlite(
+        builder.Configuration.GetConnectionString("MedhubDatabase"), b => b.MigrationsAssembly(typeof(MedHubContext).Assembly.FullName)));
+
 builder.Services.AddScoped<IRepository<Patient>, PatientRepository>();
 builder.Services.AddScoped<IRepository<Invoice>, InvoiceRepository>();
 builder.Services.AddScoped<IRepository<Drug>, DrugRepository>();
@@ -23,6 +28,14 @@ builder.Services.AddScoped<IRepository<MedicalSpeciality>, MedicalSpecialityRepo
 builder.Services.AddScoped<IRepository<InvoiceLineItem>, InvoiceLineItemRepository>();
 builder.Services.AddScoped<IRepository<StockLineItem>, StockLineItemRepository>();
 builder.Services.AddScoped<IRepository<MedicalRecord>, MedicalRecordRepository>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("medhubCors", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 

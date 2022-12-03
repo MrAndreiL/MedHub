@@ -1,11 +1,12 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     [ApiController]
     public class CabinetsController : ControllerBase
     {
@@ -25,10 +26,21 @@ namespace MedHub.API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateCabinetDto cabinetDto)
         {
-            var cabinet = new Cabinet(cabinetDto.Address);
-            cabinetRepository.Add(cabinet);
-            cabinetRepository.SaveChanges();
-            return Created(nameof(Get), cabinet);
+            var cabinet = Cabinet.Create(cabinetDto.Address);
+            if (cabinet.IsSuccess)
+            {
+                cabinetRepository.Add(cabinet.Entity);
+
+                var fullCabinet = new CabinetDto
+                {
+                    Id = cabinet.Entity.Id,
+                    Address= cabinet.Entity.Address
+                };
+
+                return Created(nameof(Get), fullCabinet);
+            }
+
+            return BadRequest(cabinet.Error);
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     [ApiController]
     public class InvoicesController : ControllerBase
     {

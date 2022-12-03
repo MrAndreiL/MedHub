@@ -1,11 +1,12 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     [ApiController]
     public class MedicalRecordsController : ControllerBase
     {
@@ -23,12 +24,16 @@ namespace MedHub.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CreateMedicalRecordDto medicalRecordDto)
+        public IActionResult Create([FromBody] CreateMedicalRecordDto medicalRecordDto)
         {
-            var medicalRecord = new MedicalRecord(medicalRecordDto.MedicalNote);
-            medicalRecordRepository.Add(medicalRecord);
-            medicalRecordRepository.SaveChanges();
-            return Created(nameof(Get), medicalRecord);
+            var medicalRecord = MedicalRecord.Create(medicalRecordDto.MedicalNote);
+            if (medicalRecord.IsSuccess)
+            {
+                medicalRecordRepository.Add(medicalRecord.Entity);
+                return Created(nameof(Get), medicalRecord);
+            }
+
+            return BadRequest(medicalRecord.Error);
         }
     }
 }

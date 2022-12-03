@@ -8330,23 +8330,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Andrei\\.nuget\\packages\\": {},
+    "C:\\Users\\hazif\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.IntegrationTests\\MedHub.IntegrationTests.csproj",
+      "projectUniqueName": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.IntegrationTests\\MedHub.IntegrationTests.csproj",
       "projectName": "MedHub.IntegrationTests",
-      "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.IntegrationTests\\MedHub.IntegrationTests.csproj",
-      "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
-      "outputPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.IntegrationTests\\obj\\",
+      "projectPath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.IntegrationTests\\MedHub.IntegrationTests.csproj",
+      "packagesPath": "C:\\Users\\hazif\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.IntegrationTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hazif\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8362,8 +8362,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.API\\MedHub.API.csproj": {
-              "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.API\\MedHub.API.csproj"
+            "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.API\\MedHub.API.csproj": {
+              "projectPath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.API\\MedHub.API.csproj"
             }
           }
         }

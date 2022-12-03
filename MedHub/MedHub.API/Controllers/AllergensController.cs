@@ -1,11 +1,12 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     [ApiController]
     public class AllergensController : ControllerBase
     {
@@ -25,10 +26,22 @@ namespace MedHub.API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateAllergenDto allergenDto)
         {
-            var allergen = new Allergen(allergenDto.Name);
-            allergenRepository.Add(allergen);
-            allergenRepository.SaveChanges();
-            return Created(nameof(Get), allergen);
+            var allergen = Allergen.Create(allergenDto.Name);
+
+            if (allergen.IsSuccess)
+            {
+                allergenRepository.Add(allergen.Entity);
+
+                var fullAllergen = new AllergenDto
+                {
+                    Id = allergen.Entity.Id,
+                    Name = allergen.Entity.Name
+                };
+
+                return Created(nameof(Get), fullAllergen);
+            }
+
+            return BadRequest(allergen.Error);
         }
     }
 }

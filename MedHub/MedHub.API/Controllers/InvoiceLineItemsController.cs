@@ -1,10 +1,11 @@
 ﻿using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     [ApiController]
     public class InvoiceLineItemsController : ControllerBase
     {

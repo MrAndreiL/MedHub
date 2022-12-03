@@ -8,13 +8,22 @@ namespace MedHub.Domain.Models
         public string Address { get; private set; }
         public ICollection<StockLineItem> DrugsStock { get; private set; }
         public ICollection<Doctor> Doctors { get; private set; }
-
-        public Cabinet(string address)
+        public static Result<Cabinet> Create(string address)
         {
-            Id = Guid.NewGuid();
-            Address = address;
-            DrugsStock = new List<StockLineItem>();
-            Doctors = new List<Doctor>();
+            if (String.IsNullOrEmpty(address))
+            {
+                return Result<Cabinet>.Failure("The address cannot be empty.");
+            }
+
+            var cabinet = new Cabinet
+            {
+                Id = Guid.NewGuid(),
+                Address = address,
+                DrugsStock = new List<StockLineItem>(),
+                Doctors = new List<Doctor>()
+            };
+
+            return Result<Cabinet>.Success(cabinet);
         }
 
         public Result AddDrugsToCabinetStock(ICollection<StockLineItem> drugsPackage)

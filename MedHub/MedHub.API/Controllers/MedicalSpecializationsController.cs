@@ -1,11 +1,12 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     [ApiController]
     public class MedicalSpecializationsController : ControllerBase
     {
@@ -25,10 +26,22 @@ namespace MedHub.API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateMedicalSpecialityDto medicalSpecialyDto)
         {
-            var medicalSpeciality = new MedicalSpeciality(medicalSpecialyDto.SpecializationName);
-            medicalSpecialityRepository.Add(medicalSpeciality);
-            medicalSpecialityRepository.SaveChanges();
-            return Created(nameof(Get), medicalSpeciality);
+            var medicalSpeciality = MedicalSpeciality.Create(medicalSpecialyDto.SpecializationName);
+
+            if (medicalSpeciality.IsSuccess)
+            {
+                medicalSpecialityRepository.Add(medicalSpeciality.Entity);
+
+                var fullMedicalSpeciality = new MedicalSpecialityDto
+                {
+                    Id = medicalSpeciality.Entity.Id,
+                    SpecializationName = medicalSpeciality.Entity.SpecializationName
+                };
+                
+                return Created(nameof(Get), fullMedicalSpeciality);
+            }
+
+            return BadRequest(medicalSpeciality.Error);
         }
     }
 }

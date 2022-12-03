@@ -1,11 +1,14 @@
 ﻿using MedHub.API.DTOs;
+using MedHub.Domain.Interfaces;
 using MedHub.Domain.Models;
+using MedHub.Infrastructure.Repositories;
 using MedHub.Infrastructure.Repositories.Generics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     [ApiController]
     public class PatientsController : ControllerBase
     {
@@ -13,66 +16,89 @@ namespace MedHub.API.Controllers
         private readonly IRepository<MedicalRecord> medicalRecordRepository;
         private readonly IRepository<Allergen> allergenRepository;
 
-        public PatientsController(IRepository<Patient> patientRepository)
+        public PatientsController(IRepository<Patient> patientRepository, IRepository<MedicalRecord> medicalRecordRepository, IRepository<Allergen> allergenRepository)
         {
             this.patientRepository = patientRepository;
+            this.medicalRecordRepository= medicalRecordRepository;
+            this.allergenRepository= allergenRepository;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAllPatients()
         {
-            return Ok(patientRepository.GetAll());
+            var patients = patientRepository.GetAll().Select(p => new PatientDto()
+            {
+                Id = p.Id,
+                CNP = p.CNP,
+                FirstName= p.FirstName,
+                LastName= p.LastName,
+                Email = p.Email
+            });
+
+            return Ok(patients);
         }
 
         [HttpPost]
         public IActionResult Create([FromBody] CreatePatientDto patientDto)
         {
-            var patient = new Patient(patientDto.CNP, patientDto.FirstName, patientDto.LastName, patientDto.Email);
-            patientRepository.Add(patient);
-            patientRepository.SaveChanges();
-            return Created(nameof(Get), patient);
+            var patient = Patient.Create(patientDto.CNP, patientDto.FirstName, patientDto.LastName, patientDto.Email);
+
+            if (patient.IsSuccess)
+            {
+                patientRepository.Add(patient.Entity);
+                patientRepository.SaveChanges();
+
+                return Created(nameof(GetAllPatients), patient);
+            }
+
+            return BadRequest(patient.Error);
         }
 
         [HttpPost("{patientId}/add-medical-history")]
-        public IActionResult RegisterMedicalHistory(Guid patientId, [FromBody] List<CreateMedicalRecordDto> medicalRecordDtos)
+        public IActionResult RegisterMedicalHistory(Guid patientId, [FromBody] List<MedicalRecordDto> medicalRecordDtos)
         {
-            var medicalHistory = medicalRecordDtos.Select(medicalRecord => new MedicalRecord(medicalRecord.MedicalNote)).ToList();
-            if (medicalHistory.Any(medicalRecord => medicalRecord == null))
+            var medicalRecords = medicalRecordDtos.Select(medicalRecord => MedicalRecord.Create(medicalRecord.MedicalNote)).ToList();
+
+            if (medicalRecords.Any(m => m.IsFailure))
             {
                 return BadRequest();
             }
-            var patient = patientRepository.Get(patientId);
+
+            var patient = patientRepository.GetAll().Single(p => p.Id == patientId);
+
             if (patient == null)
             {
                 return NotFound();
             }
 
-            var result = patient.PushMedicalHistory(medicalHistory);
-            medicalHistory.ForEach(medicalRecord => medicalRecordRepository.Add(medicalRecord));
+            var result = patient.PushMedicalHistory(medicalRecords.Select(m => m.Entity).ToList());
 
-            patientRepository.SaveChanges();
+            medicalRecords.ForEach(m => medicalRecordRepository.Add(m.Entity));
             medicalRecordRepository.SaveChanges();
 
             return result.IsSuccess ? NoContent() : BadRequest(result.Error);
         }
 
         [HttpPost("{patientId}/add-allergens")]
-        public IActionResult AddAllergensToPatient(Guid patientId, [FromBody] List<CreateAllergenDto> allergensDtos)
+        public IActionResult AddAllergensToPatient(Guid patientId, [FromBody] List<AllergenDto> allergensDtos)
         {
-            var allergens = allergensDtos.Select(allergen => new Allergen(allergen.Name)).ToList();
-            if (allergens.Any(allergen => allergen == null))
+            var allergens = allergensDtos.Select(allergen => Allergen.Create(allergen.Name)).ToList();
+
+            if (allergens.Any(a => a.IsFailure))
             {
                 return BadRequest();
             }
-            var patient = patientRepository.Get(patientId);
+
+            var patient = patientRepository.GetAll().Single(p => p.Id == patientId);
+
             if (patient == null)
             {
                 return NotFound();
             }
 
-            var result = patient.RecordAllergyList(allergens);
-            allergens.ForEach(allergen => allergenRepository.Add(allergen));
+            var result = patient.RecordAllergyList(allergens.Select(a => a.Entity).ToList());
 
+            allergens.ForEach(a => allergenRepository.Add(a.Entity));
             patientRepository.SaveChanges();
             allergenRepository.SaveChanges();
 
