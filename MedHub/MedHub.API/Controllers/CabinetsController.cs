@@ -30,6 +30,7 @@ namespace MedHub.API.Controllers
             if (cabinet.IsSuccess)
             {
                 cabinetRepository.Add(cabinet.Entity);
+                cabinetRepository.SaveChanges();
 
                 var fullCabinet = new CabinetDto
                 {

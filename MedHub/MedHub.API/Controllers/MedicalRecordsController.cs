@@ -30,6 +30,7 @@ namespace MedHub.API.Controllers
             if (medicalRecord.IsSuccess)
             {
                 medicalRecordRepository.Add(medicalRecord.Entity);
+                medicalRecordRepository.SaveChanges();
                 return Created(nameof(Get), medicalRecord);
             }
 

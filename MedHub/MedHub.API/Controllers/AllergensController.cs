@@ -31,6 +31,7 @@ namespace MedHub.API.Controllers
             if (allergen.IsSuccess)
             {
                 allergenRepository.Add(allergen.Entity);
+                allergenRepository.SaveChanges();
 
                 var fullAllergen = new AllergenDto
                 {

@@ -31,6 +31,7 @@ namespace MedHub.API.Controllers
             if (doctor.IsSuccess)
             {
                 doctorRepository.Add(doctor.Entity);
+                doctorRepository.SaveChanges();
 
                 var fullDoctor = new DoctorDto
                 {

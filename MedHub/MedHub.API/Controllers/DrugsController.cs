@@ -31,6 +31,7 @@ namespace MedHub.API.Controllers
             if (drug.IsSuccess)
             {
                 drugRepository.Add(drug.Entity);
+                drugRepository.SaveChanges();
 
                 var fullDrug = new DrugDto
                 {

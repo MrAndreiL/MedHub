@@ -31,6 +31,7 @@ namespace MedHub.API.Controllers
             if (medicalSpeciality.IsSuccess)
             {
                 medicalSpecialityRepository.Add(medicalSpeciality.Entity);
+                medicalSpecialityRepository.SaveChanges();
 
                 var fullMedicalSpeciality = new MedicalSpecialityDto
                 {
