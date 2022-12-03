@@ -17,9 +17,14 @@ namespace MedHub.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAllAllergens()
         {
-            return Ok(allergenRepository.GetAll());
+            var allergens = allergenRepository.GetAll().Select(a => new AllergenDto()
+            {
+                Id = a.Id,
+                Name = a.Name
+            });
+            return Ok(allergens);
         }
 
         [HttpPost]
@@ -38,7 +43,7 @@ namespace MedHub.API.Controllers
                     Name = allergen.Entity.Name
                 };
 
-                return Created(nameof(Get), fullAllergen);
+                return Created(nameof(GetAllAllergens), fullAllergen);
             }
 
             return BadRequest(allergen.Error);

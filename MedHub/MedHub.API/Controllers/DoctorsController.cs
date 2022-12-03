@@ -2,6 +2,7 @@
 using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.AspNetCore.Mvc;
+using System.Numerics;
 
 namespace MedHub.API.Controllers
 {
@@ -17,9 +18,17 @@ namespace MedHub.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAllDoctors()
         {
-            return Ok(doctorRepository.GetAll());
+            var doctors = doctorRepository.GetAll().Select(d => new DoctorDto()
+            {
+                Id = d.Id,
+                CNP = d.CNP,
+                FirstName = d.FirstName,
+                LastName = d.LastName,
+                Email = d.Email
+            });
+            return Ok(doctors);
         }
 
         [HttpPost]
@@ -35,13 +44,13 @@ namespace MedHub.API.Controllers
                 var fullDoctor = new DoctorDto
                 {
                     Id = doctor.Entity.Id,
-                    CNP= doctor.Entity.CNP,
-                    FirstName= doctor.Entity.FirstName,
-                    LastName= doctor.Entity.LastName,
-                    Email= doctor.Entity.Email
+                    CNP = doctor.Entity.CNP,
+                    FirstName = doctor.Entity.FirstName,
+                    LastName = doctor.Entity.LastName,
+                    Email = doctor.Entity.Email
                 };
 
-                return Created(nameof(Get), fullDoctor);
+                return Created(nameof(GetAllDoctors), fullDoctor);
             }
 
             return BadRequest(doctor.Error);
