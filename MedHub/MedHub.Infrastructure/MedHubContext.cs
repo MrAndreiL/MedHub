@@ -17,7 +17,8 @@ namespace MedHub.Infrastructure
         public DbSet<StockLineItem> StockLineItems => Set<StockLineItem>();
         public MedHubContext(DbContextOptions<MedHubContext> options) : base(options)
         {
-            this.Database.EnsureCreated();
+            //this.Database.EnsureCreated();
+            this.Database.Migrate();
         }
 
         public void Save()

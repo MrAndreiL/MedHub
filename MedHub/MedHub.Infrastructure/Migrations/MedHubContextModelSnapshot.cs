@@ -17,6 +17,36 @@ namespace MedHub.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
+            modelBuilder.Entity("CabinetDoctor", b =>
+                {
+                    b.Property<Guid>("CabinetId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DoctorsId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CabinetId", "DoctorsId");
+
+                    b.HasIndex("DoctorsId");
+
+                    b.ToTable("CabinetDoctor");
+                });
+
+            modelBuilder.Entity("DoctorMedicalSpeciality", b =>
+                {
+                    b.Property<Guid>("DoctorsId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("SpecializationsId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("DoctorsId", "SpecializationsId");
+
+                    b.HasIndex("SpecializationsId");
+
+                    b.ToTable("DoctorMedicalSpeciality");
+                });
+
             modelBuilder.Entity("MedHub.Domain.Models.Allergen", b =>
                 {
                     b.Property<Guid>("Id")
@@ -67,9 +97,6 @@ namespace MedHub.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CabinetId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -83,8 +110,6 @@ namespace MedHub.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CabinetId");
 
                     b.ToTable("Doctors");
                 });
@@ -190,16 +215,11 @@ namespace MedHub.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("DoctorId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("SpecializationName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DoctorId");
 
                     b.ToTable("MedicalSpecializations");
                 });
@@ -255,6 +275,36 @@ namespace MedHub.Infrastructure.Migrations
                     b.ToTable("StockLineItems");
                 });
 
+            modelBuilder.Entity("CabinetDoctor", b =>
+                {
+                    b.HasOne("MedHub.Domain.Models.Cabinet", null)
+                        .WithMany()
+                        .HasForeignKey("CabinetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedHub.Domain.Models.Doctor", null)
+                        .WithMany()
+                        .HasForeignKey("DoctorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DoctorMedicalSpeciality", b =>
+                {
+                    b.HasOne("MedHub.Domain.Models.Doctor", null)
+                        .WithMany()
+                        .HasForeignKey("DoctorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedHub.Domain.Models.MedicalSpeciality", null)
+                        .WithMany()
+                        .HasForeignKey("SpecializationsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MedHub.Domain.Models.Allergen", b =>
                 {
                     b.HasOne("MedHub.Domain.Models.Drug", null)
@@ -264,17 +314,6 @@ namespace MedHub.Infrastructure.Migrations
                     b.HasOne("MedHub.Domain.Models.Patient", null)
                         .WithMany("Allergies")
                         .HasForeignKey("PatientId");
-                });
-
-            modelBuilder.Entity("MedHub.Domain.Models.Doctor", b =>
-                {
-                    b.HasOne("MedHub.Domain.Models.Cabinet", "Cabinet")
-                        .WithMany("Doctors")
-                        .HasForeignKey("CabinetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cabinet");
                 });
 
             modelBuilder.Entity("MedHub.Domain.Models.Invoice", b =>
@@ -334,13 +373,6 @@ namespace MedHub.Infrastructure.Migrations
                     b.Navigation("Patient");
                 });
 
-            modelBuilder.Entity("MedHub.Domain.Models.MedicalSpeciality", b =>
-                {
-                    b.HasOne("MedHub.Domain.Models.Doctor", null)
-                        .WithMany("Specializations")
-                        .HasForeignKey("DoctorId");
-                });
-
             modelBuilder.Entity("MedHub.Domain.Models.StockLineItem", b =>
                 {
                     b.HasOne("MedHub.Domain.Models.Cabinet", "Cabinet")
@@ -362,14 +394,7 @@ namespace MedHub.Infrastructure.Migrations
 
             modelBuilder.Entity("MedHub.Domain.Models.Cabinet", b =>
                 {
-                    b.Navigation("Doctors");
-
                     b.Navigation("DrugsStock");
-                });
-
-            modelBuilder.Entity("MedHub.Domain.Models.Doctor", b =>
-                {
-                    b.Navigation("Specializations");
                 });
 
             modelBuilder.Entity("MedHub.Domain.Models.Drug", b =>

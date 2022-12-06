@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MedHub.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initialize : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,6 +21,21 @@ namespace MedHub.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cabinets", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Doctors",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CNP = table.Column<string>(type: "TEXT", nullable: false),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Doctors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -53,25 +68,45 @@ namespace MedHub.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Doctors",
+                name: "CabinetDoctor",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    CNP = table.Column<string>(type: "TEXT", nullable: false),
-                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
-                    LastName = table.Column<string>(type: "TEXT", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: false),
-                    CabinetId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    CabinetId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    DoctorsId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Doctors", x => x.Id);
+                    table.PrimaryKey("PK_CabinetDoctor", x => new { x.CabinetId, x.DoctorsId });
                     table.ForeignKey(
-                        name: "FK_Doctors_Cabinets_CabinetId",
+                        name: "FK_CabinetDoctor_Cabinets_CabinetId",
                         column: x => x.CabinetId,
                         principalTable: "Cabinets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CabinetDoctor_Doctors_DoctorsId",
+                        column: x => x.DoctorsId,
+                        principalTable: "Doctors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MedicalSpecializations",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    SpecializationName = table.Column<string>(type: "TEXT", nullable: false),
+                    DoctorId = table.Column<Guid>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MedicalSpecializations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MedicalSpecializations_Doctors_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "Doctors",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -177,24 +212,6 @@ namespace MedHub.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MedicalSpecializations",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    SpecializationName = table.Column<string>(type: "TEXT", nullable: false),
-                    DoctorId = table.Column<Guid>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MedicalSpecializations", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_MedicalSpecializations_Doctors_DoctorId",
-                        column: x => x.DoctorId,
-                        principalTable: "Doctors",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "InvoiceLineItems",
                 columns: table => new
                 {
@@ -231,9 +248,9 @@ namespace MedHub.Infrastructure.Migrations
                 column: "PatientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Doctors_CabinetId",
-                table: "Doctors",
-                column: "CabinetId");
+                name: "IX_CabinetDoctor_DoctorsId",
+                table: "CabinetDoctor",
+                column: "DoctorsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InvoiceLineItems_DrugId",
@@ -288,6 +305,9 @@ namespace MedHub.Infrastructure.Migrations
                 name: "Allergens");
 
             migrationBuilder.DropTable(
+                name: "CabinetDoctor");
+
+            migrationBuilder.DropTable(
                 name: "InvoiceLineItems");
 
             migrationBuilder.DropTable(
@@ -309,10 +329,10 @@ namespace MedHub.Infrastructure.Migrations
                 name: "Drugs");
 
             migrationBuilder.DropTable(
-                name: "Patients");
+                name: "Cabinets");
 
             migrationBuilder.DropTable(
-                name: "Cabinets");
+                name: "Patients");
         }
     }
 }

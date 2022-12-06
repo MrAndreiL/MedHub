@@ -17,7 +17,7 @@ namespace MedHub.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAllSpecializations()
         {
             return Ok(medicalSpecialityRepository.GetAll());
         }
@@ -38,7 +38,7 @@ namespace MedHub.API.Controllers
                     SpecializationName = medicalSpeciality.Entity.SpecializationName
                 };
                 
-                return Created(nameof(Get), fullMedicalSpeciality);
+                return Created(nameof(GetAllSpecializations), fullMedicalSpeciality);
             }
 
             return BadRequest(medicalSpeciality.Error);

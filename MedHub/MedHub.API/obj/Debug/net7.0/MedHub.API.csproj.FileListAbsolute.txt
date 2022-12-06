@@ -74,6 +74,7 @@ C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.AssemblyInfoInputs.cache
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.AssemblyInfo.cs
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.csproj.CoreCompileInputs.cache
+C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\bin\Debug\net7.0\appsettings.json
@@ -125,7 +126,6 @@ C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\bin\Debug\net7.0\MedHub.Dom
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\bin\Debug\net7.0\MedHub.Infrastructure.dll
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\bin\Debug\net7.0\MedHub.Infrastructure.pdb
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\bin\Debug\net7.0\MedHub.Domain.pdb
-C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\staticwebassets\msbuild.MedHub.API.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\staticwebassets\msbuild.build.MedHub.API.props
 C:\Users\hazif\source\repos\MedHub\MedHub\MedHub.API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.MedHub.API.props

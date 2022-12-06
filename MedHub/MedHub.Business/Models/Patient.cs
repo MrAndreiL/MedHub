@@ -10,8 +10,8 @@ namespace MedHub.Domain.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public ICollection<MedicalRecord> MedicalHistory { get; private set; }
-        public ICollection<Allergen> Allergies { get; private set; }
+        public List<MedicalRecord> MedicalHistory { get; private set; }
+        public List<Allergen> Allergies { get; private set; }
         public static Result<Patient> Create(string cNP, string firstName, string lastName, string email)
         {
             if (String.IsNullOrEmpty(cNP))
@@ -48,7 +48,7 @@ namespace MedHub.Domain.Models
         {
             MedicalHistory.Add(medicalRecord);
         }
-        public Result PushMedicalHistory(ICollection<MedicalRecord> medicalRecordList)
+        public Result PushMedicalHistory(List<MedicalRecord> medicalRecordList)
         {
             foreach (var medicalRecord in medicalRecordList)
             {
@@ -61,7 +61,7 @@ namespace MedHub.Domain.Models
         {
             Allergies.Add(allergen);
         }
-        public Result RecordAllergyList(ICollection<Allergen> allergens)
+        public Result RecordAllergyList(List<Allergen> allergens)
         {
             foreach (var allergen in allergens)
             {

@@ -1,5 +1,7 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
+using MedHub.Infrastructure;
+using MedHub.Infrastructure.Repositories;
 using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.AspNetCore.Mvc;
 using System.Numerics;
@@ -11,10 +13,12 @@ namespace MedHub.API.Controllers
     public class DoctorsController : ControllerBase
     {
         private readonly IRepository<Doctor> doctorRepository;
+        private readonly IRepository<MedicalSpeciality> medicalSpecialityRepository;
 
-        public DoctorsController(IRepository<Doctor> doctorRepository)
+        public DoctorsController(IRepository<Doctor> doctorRepository, IRepository<MedicalSpeciality> medicalSpecialityRepository)
         {
             this.doctorRepository = doctorRepository;
+            this.medicalSpecialityRepository = medicalSpecialityRepository;
         }
 
         [HttpGet]
@@ -26,8 +30,11 @@ namespace MedHub.API.Controllers
                 CNP = d.CNP,
                 FirstName = d.FirstName,
                 LastName = d.LastName,
-                Email = d.Email
+                Email = d.Email,
+                Specializations = d.Specializations,
+                Cabinet = d.Cabinet
             });
+
             return Ok(doctors);
         }
 
@@ -54,6 +61,41 @@ namespace MedHub.API.Controllers
             }
 
             return BadRequest(doctor.Error);
+        }
+
+        [HttpPost("{doctorId:guid}/add-specializations")]
+        public IActionResult AddSpecializationsToDoctor(Guid doctorId, [FromBody] MedicalSpecialitiesDto specializationsDto)
+        {
+            if (!specializationsDto.Ids.Any())
+            {
+                return BadRequest("Please submit specialization IDs!");
+            }
+
+            foreach(Guid specialityId in specializationsDto.Ids) {
+                if (medicalSpecialityRepository.GetById(specialityId) == null)
+                {
+                    return BadRequest($"The Id {specialityId} does not exist in the database.");
+                }
+            }
+
+            var doctor = doctorRepository.GetAll().Single(p => p.Id == doctorId);
+
+            specializationsDto.Ids.ForEach(id =>
+            {
+                var specialization = medicalSpecialityRepository.GetById(id);
+
+                doctor.AddSpecialization(specialization);
+                specialization.Doctors.Add(doctor);
+
+                medicalSpecialityRepository.Update(specialization);
+            });
+
+            doctorRepository.Update(doctor);
+            doctorRepository.SaveChanges();
+
+            medicalSpecialityRepository.SaveChanges();
+
+            return NoContent();
         }
     }
 }

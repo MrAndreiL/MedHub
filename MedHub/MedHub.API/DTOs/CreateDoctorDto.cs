@@ -1,4 +1,6 @@
-﻿namespace MedHub.API.DTOs
+﻿using MedHub.Domain.Models;
+
+namespace MedHub.API.DTOs
 {
     public class CreateDoctorDto
     {

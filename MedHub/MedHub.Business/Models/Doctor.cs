@@ -1,5 +1,6 @@
 ﻿using MedHub.Domain.Helpers;
 using MedHub.Domain.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace MedHub.Domain.Models
 {
@@ -10,9 +11,8 @@ namespace MedHub.Domain.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public ICollection<MedicalSpeciality> Specializations { get; private set; }
-        public Cabinet Cabinet { get; private set; }
-        public Guid CabinetId { get; private set; }
+        public HashSet<MedicalSpeciality> Specializations { get; private set; } = new HashSet<MedicalSpeciality>();
+        public HashSet<Cabinet> Cabinet { get; private set; } = new HashSet<Cabinet>();
         public static Result<Doctor> Create(string cNP, string firstName, string lastName, string email)
         {
             if (String.IsNullOrEmpty(cNP))
@@ -49,25 +49,9 @@ namespace MedHub.Domain.Models
             Specializations.Add(medicalSpeciality);
         }
 
-        public Result AddSpecializations(ICollection<MedicalSpeciality> specializationsList)
-        {
-            if (!specializationsList.Any())
-            {
-                return Result.Failure("The list of specialization cannot be empty!");
-            }
-
-            foreach (var specialization in specializationsList)
-            {
-                AddSpecialization(specialization);
-            }
-
-            return Result.Success();
-        }
-
         public void SetCabinetToDoctor(Cabinet cabinet)
         {
-            CabinetId = cabinet.Id;
-            Cabinet = cabinet;
+            Cabinet.Add(cabinet);
         }
     }
 }

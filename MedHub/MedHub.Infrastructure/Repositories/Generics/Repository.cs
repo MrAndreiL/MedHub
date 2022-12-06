@@ -1,4 +1,6 @@
-﻿namespace MedHub.Infrastructure.Repositories.Generics
+﻿using MedHub.Domain.Models;
+
+namespace MedHub.Infrastructure.Repositories.Generics
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
@@ -14,7 +16,7 @@
             return context.Add(entity).Entity;
         }
 
-        public virtual T Get(Guid id)
+        public virtual T GetById(Guid id)
         {
             return context.Find<T>(id);
         }

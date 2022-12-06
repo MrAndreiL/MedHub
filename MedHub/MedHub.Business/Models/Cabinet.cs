@@ -6,8 +6,8 @@ namespace MedHub.Domain.Models
     {
         public Guid Id { get; private set; }
         public string Address { get; private set; }
-        public ICollection<StockLineItem> DrugsStock { get; private set; }
-        public ICollection<Doctor> Doctors { get; private set; }
+        public List<StockLineItem> DrugsStock { get; private set; }
+        public List<Doctor> Doctors { get; private set; }
         public static Result<Cabinet> Create(string address)
         {
             if (String.IsNullOrEmpty(address))
@@ -26,7 +26,7 @@ namespace MedHub.Domain.Models
             return Result<Cabinet>.Success(cabinet);
         }
 
-        public Result AddDrugsToCabinetStock(ICollection<StockLineItem> drugsPackage)
+        public Result AddDrugsToCabinetStock(List<StockLineItem> drugsPackage)
         {
             if (!drugsPackage.Any())
             {
@@ -36,7 +36,7 @@ namespace MedHub.Domain.Models
             foreach (var item in drugsPackage)
             {
                 DrugsStock.Add(item);
-                item.SetCabinetForStockLineItem(this);
+                item.SetCabinet(this);
             }
 
             return Result.Success();
@@ -48,7 +48,7 @@ namespace MedHub.Domain.Models
             doctor.SetCabinetToDoctor(this);
         }
 
-        public Result AddDoctorsListToCabinet(ICollection<Doctor> doctors)
+        public Result AddDoctorsListToCabinet(List<Doctor> doctors)
         {
             if (!doctors.Any())
             {
