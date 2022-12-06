@@ -1,0 +1,39 @@
+﻿@page "/patientoverview"
+<h3>PatientOverview</h3>
+
+@if(Patients == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-light">
+        <thead class="table-primary"> 
+            <th>Patient Id</th>
+            <th>CNP</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Medical History</th>
+            <th>Allergies</th>
+        </thead>
+        <tbody>
+            @foreach (var patient in Patients)
+            {
+                <tr>
+                    <td>@patient.Id</td>
+                    <td>@patient.CNP</td>
+                    <td>@patient.FirstName</td>
+                    <td>@patient.LastName</td>
+                    <td>@patient.Email</td>
+                    <td>@patient.MedicalHistory</td>
+                    <td>@patient.Allergies</td>
+                </tr>
+                
+            }
+        </tbody>
+
+
+    </table>
+}
+

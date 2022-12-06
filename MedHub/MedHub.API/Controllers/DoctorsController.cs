@@ -1,5 +1,6 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
+using MedHub.Infrastructure.Repositories;
 using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +12,13 @@ namespace MedHub.API.Controllers
     {
         private readonly IRepository<Doctor> doctorRepository;
         private readonly IRepository<MedicalSpeciality> medicalSpecialityRepository;
+        private readonly IRepository<Cabinet> cabinetRepository;
 
-        public DoctorsController(IRepository<Doctor> doctorRepository, IRepository<MedicalSpeciality> medicalSpecialityRepository)
+        public DoctorsController(IRepository<Doctor> doctorRepository, IRepository<MedicalSpeciality> medicalSpecialityRepository, IRepository<Cabinet> cabinetRepository)
         {
             this.doctorRepository = doctorRepository;
             this.medicalSpecialityRepository = medicalSpecialityRepository;
+            this.cabinetRepository = cabinetRepository;
         }
 
         [HttpGet]
@@ -58,6 +61,32 @@ namespace MedHub.API.Controllers
             }
 
             return BadRequest(doctor.Error);
+        }
+        [HttpPatch("{doctorId:guid}/change-cabinet")]
+        public IActionResult ChangeDoctorCabinet(Guid doctorId, [FromBody] CabinetDto cabinetDto)
+        {
+            var doctor = doctorRepository.GetAll().Single(p => p.Id == doctorId);
+            var cabinet = cabinetRepository.GetAll().Single(p => p.Id == cabinetDto.Id);
+
+            if (doctor== null)
+            {
+                return NotFound();
+            }
+            if (cabinet == null)
+            {
+                return NotFound();
+            }
+            doctor.SetCabinetToDoctor(cabinet);
+            //not sure if i need to update cabinet doctor list
+            cabinet.AddDoctorToCabinet(doctor);
+            doctorRepository.Update(doctor);
+            cabinetRepository.Update(cabinet);
+            doctorRepository.SaveChanges();
+            cabinetRepository.SaveChanges();
+            //not sure what it should return
+            return Ok();
+            //did not removed doctor from old cabinet 
+
         }
 
         [HttpPost("{doctorId:guid}/add-specializations")]

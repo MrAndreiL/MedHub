@@ -1,6 +1,7 @@
 ﻿using MedHub.API.DTOs;
 using FluentAssertions;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace MedHub.IntegrationTests
 {
@@ -32,7 +33,31 @@ namespace MedHub.IntegrationTests
             registerSpecializationsResponse.EnsureSuccessStatusCode();
             registerSpecializationsResponse.Content.Should().Be(System.Net.HttpStatusCode.NoContent);
         }
+        [Fact]
+        public async void WhenChangingDoctorCabinet_ThenCabinetShouldBeUpdated()
+        {
+            //Arrange
+            var doctorDto= CreateSUT();
+            var cabinetDto = new CreateCabinetDto() { Address = "Strada Carol nr 12" };
+            var createDoctorResponse = await HttpClient.PostAsJsonAsync(ApiURL, doctorDto);
+            var createCabinetResponse= await HttpClient.PostAsJsonAsync("v1/api/cabinets", cabinetDto);
 
+            var doctor = createDoctorResponse.Content.ReadFromJsonAsync<DoctorDto>();
+            var cabinet= createCabinetResponse.Content.ReadFromJsonAsync<CabinetDto>();
+            //Act
+
+            var updateDoctorCabinetResponse = await HttpClient.PostAsJsonAsync(
+                $"{ApiURL}/{doctor.Id}/change-cabinet", cabinet);
+            //Assert
+
+            createCabinetResponse.StatusCode.Should().Be(System.Net.HttpStatusCode.Created);
+            createDoctorResponse.StatusCode.Should().Be(System.Net.HttpStatusCode.Created);
+
+            updateDoctorCabinetResponse.EnsureSuccessStatusCode();
+            updateDoctorCabinetResponse.Content.Should().Be(System.Net.HttpStatusCode.OK);//idk if it should be smth else or ok
+
+
+        }
         private static CreateDoctorDto CreateSUT()
         {
             // Arrange
