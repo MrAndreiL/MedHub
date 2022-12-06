@@ -4,9 +4,9 @@ namespace MedHub.Domain.Models
 {
     public class StockLineItem : ILineItem
     {
-        public Guid Id { get; }
-        public Drug Drug { get; set; }
-        public int Quantity { get; set; }
+        public Guid Id { get; private set; }
+        public Drug Drug { get; private set; }
+        public int Quantity { get; private set; }
         public Cabinet Cabinet { get; private set; }
 
         public StockLineItem() : base()

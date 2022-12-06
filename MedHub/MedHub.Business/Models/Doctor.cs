@@ -1,16 +1,15 @@
 ﻿using MedHub.Domain.Helpers;
 using MedHub.Domain.Interfaces;
-using System.ComponentModel.DataAnnotations;
 
 namespace MedHub.Domain.Models
 {
     public class Doctor : IPerson
     {
-        public Guid Id { get; set; }
-        public string CNP { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
+        public Guid Id { get; private set; }
+        public string CNP { get; private set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string Email { get; private set; }
         public HashSet<MedicalSpeciality> Specializations { get; private set; } = new HashSet<MedicalSpeciality>();
         public HashSet<Cabinet> Cabinet { get; private set; } = new HashSet<Cabinet>();
         public static Result<Doctor> Create(string cNP, string firstName, string lastName, string email)

@@ -1,6 +1,4 @@
-﻿using MedHub.Domain.Models;
-
-namespace MedHub.Infrastructure.Repositories.Generics
+﻿namespace MedHub.Infrastructure.Repositories.Generics
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {

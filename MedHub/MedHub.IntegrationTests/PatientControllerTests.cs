@@ -1,6 +1,5 @@
 using FluentAssertions;
 using MedHub.API.DTOs;
-using MedHub.Domain.Models;
 
 using System.Net.Http.Json;
 
@@ -34,7 +33,28 @@ namespace MedHub.IntegrationTests
             registerMedicalHistoryResponse.Content.Should().Be(System.Net.HttpStatusCode.NoContent);
 
         }
+        [Fact]
+        public async void When_AddingAllergensToPatient_ThenPatientAllergiesShouldBeUpdated()
+        {
+            //Arange
+            var allergies = new List<CreateAllergenDto>()
+            {
+                new CreateAllergenDto() { Name= "cat hair"},
+                new CreateAllergenDto() { Name= "pollen"}
+            };
+            var patientDto = CreateSUT();
 
+            var createPatientResponse = await HttpClient.PostAsJsonAsync(ApiURL, patientDto);
+            var patient = createPatientResponse.Content.ReadFromJsonAsync<PatientDto>();
+            //Act
+            var addAllergensToPatientResponse= await HttpClient.PostAsJsonAsync(
+                 $"{ApiURL}/{patient.Id}/add-allergens", allergies);
+            //Asert
+            createPatientResponse.StatusCode.Should().Be(System.Net.HttpStatusCode.Created);
+            addAllergensToPatientResponse.EnsureSuccessStatusCode();
+            addAllergensToPatientResponse.Content.Should().Be(System.Net.HttpStatusCode.NoContent);
+
+        }
         private static CreatePatientDto CreateSUT()
         {
             // Arrange

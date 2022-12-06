@@ -2,10 +2,10 @@
 {
     public interface IPerson
     {
-        public Guid Id { get; set; }
-        public string CNP { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
+        public Guid Id { get; }
+        public string CNP { get; }
+        public string FirstName { get; }
+        public string LastName { get; }
+        public string Email { get; }
     }
 }

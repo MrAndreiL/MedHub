@@ -1,10 +1,7 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
-using MedHub.Infrastructure;
-using MedHub.Infrastructure.Repositories;
 using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.AspNetCore.Mvc;
-using System.Numerics;
 
 namespace MedHub.API.Controllers
 {

@@ -1,6 +1,4 @@
 ﻿using FluentAssertions;
-using MedHub.Domain.Helpers;
-using MedHub.Domain.Interfaces;
 using MedHub.Domain.Models;
 
 namespace MedHub.UnitTests
