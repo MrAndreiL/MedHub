@@ -8,7 +8,7 @@ namespace MedHub.Domain.Models
         public string Name { get; private set; }
         public string Description { get; private set; }
         public double Price { get; private set; }
-        public ICollection<Allergen> Allergens { get; private set; }
+        public HashSet<Allergen> Allergens { get; private set; } = new HashSet<Allergen>();
         public static Result<Drug> Create(string name, string description, double price)
         {
             if (String.IsNullOrEmpty(name))

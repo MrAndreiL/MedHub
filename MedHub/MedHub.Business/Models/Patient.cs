@@ -10,8 +10,8 @@ namespace MedHub.Domain.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public List<MedicalRecord> MedicalHistory { get; private set; }
-        public List<Allergen> Allergies { get; private set; }
+        public List<MedicalRecord> MedicalHistory { get; private set; } = new List<MedicalRecord>();
+        public List<Allergen> Allergies { get; private set; } = new List<Allergen>();
         public static Result<Patient> Create(string cNP, string firstName, string lastName, string email)
         {
             if (String.IsNullOrEmpty(cNP))
@@ -37,9 +37,7 @@ namespace MedHub.Domain.Models
                 CNP = cNP,
                 FirstName = firstName,
                 LastName = lastName,
-                Email = email,
-                MedicalHistory = new List<MedicalRecord>(),
-                Allergies = new List<Allergen>()
+                Email = email
             };
 
             return Result<Patient>.Success(patient);

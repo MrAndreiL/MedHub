@@ -1,10 +1,7 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
-using MedHub.Infrastructure;
-using MedHub.Infrastructure.Repositories;
-using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.AspNetCore.Mvc;
-using System.Numerics;
+using MyShop.Infrastructure;
 
 namespace MedHub.API.Controllers
 {
@@ -12,19 +9,17 @@ namespace MedHub.API.Controllers
     [ApiController]
     public class DoctorsController : ControllerBase
     {
-        private readonly IRepository<Doctor> doctorRepository;
-        private readonly IRepository<MedicalSpeciality> medicalSpecialityRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public DoctorsController(IRepository<Doctor> doctorRepository, IRepository<MedicalSpeciality> medicalSpecialityRepository)
+        public DoctorsController(IUnitOfWork unitOfWork)
         {
-            this.doctorRepository = doctorRepository;
-            this.medicalSpecialityRepository = medicalSpecialityRepository;
+            this.unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public IActionResult GetAllDoctors()
         {
-            var doctors = doctorRepository.GetAll().Select(d => new DoctorDto()
+            var doctors = unitOfWork.DoctorRepository.GetAll().Select(d => new DoctorDto()
             {
                 Id = d.Id,
                 CNP = d.CNP,
@@ -32,7 +27,7 @@ namespace MedHub.API.Controllers
                 LastName = d.LastName,
                 Email = d.Email,
                 Specializations = d.Specializations,
-                Cabinet = d.Cabinet
+                Cabinets = d.Cabinets
             });
 
             return Ok(doctors);
@@ -45,8 +40,8 @@ namespace MedHub.API.Controllers
 
             if (doctor.IsSuccess)
             {
-                doctorRepository.Add(doctor.Entity);
-                doctorRepository.SaveChanges();
+                unitOfWork.DoctorRepository.Add(doctor.Entity);
+                unitOfWork.DoctorRepository.SaveChanges();
 
                 var fullDoctor = new DoctorDto
                 {
@@ -72,30 +67,57 @@ namespace MedHub.API.Controllers
             }
 
             foreach(Guid specialityId in specializationsDto.Ids) {
-                if (medicalSpecialityRepository.GetById(specialityId) == null)
+                if (unitOfWork.MedicalSpecialityRepository.GetById(specialityId) == null)
                 {
                     return BadRequest($"The Id {specialityId} does not exist in the database.");
                 }
             }
 
-            var doctor = doctorRepository.GetAll().Single(p => p.Id == doctorId);
+            var doctor = unitOfWork.DoctorRepository.GetAll().Single(p => p.Id == doctorId);
 
             specializationsDto.Ids.ForEach(id =>
             {
-                var specialization = medicalSpecialityRepository.GetById(id);
+                var specialization = unitOfWork.MedicalSpecialityRepository.GetById(id);
 
                 doctor.AddSpecialization(specialization);
-                specialization.Doctors.Add(doctor);
+                specialization.Doctor.Add(doctor);
 
-                medicalSpecialityRepository.Update(specialization);
+                unitOfWork.MedicalSpecialityRepository.Update(specialization);
             });
 
-            doctorRepository.Update(doctor);
-            doctorRepository.SaveChanges();
+            unitOfWork.DoctorRepository.Update(doctor);
+            unitOfWork.DoctorRepository.SaveChanges();
 
-            medicalSpecialityRepository.SaveChanges();
+            unitOfWork.MedicalSpecialityRepository.SaveChanges();
 
             return NoContent();
+        }
+
+
+        [HttpPost("{doctorId:guid}/{patientId:guid}/add-medical-history")]
+        public IActionResult RegisterMedicalHistoryToPatient(Guid doctorId, Guid patientId, [FromBody] List<MedicalRecordDto> medicalRecordDtos)
+        {
+            var doctor = unitOfWork.DoctorRepository.GetAll().Single(p => p.Id == doctorId);
+            var patient = unitOfWork.PatientRepository.GetAll().Single(p => p.Id == patientId);
+
+            if (doctor == null || patient == null)
+            {
+                return NotFound();
+            }
+
+            var medicalRecords = medicalRecordDtos.Select(m => MedicalRecord.Create(doctor, patient, m.MedicalNote)).ToList();
+
+            if (medicalRecords.Any(m => m.IsFailure))
+            {
+                return BadRequest();
+            }
+
+            var result = patient.PushMedicalHistory(medicalRecords.Select(m => m.Entity).ToList());
+
+            medicalRecords.ForEach(m => unitOfWork.MedicalRecordRepository.Add(m.Entity));
+            unitOfWork.MedicalRecordRepository.SaveChanges();
+
+            return result.IsSuccess ? NoContent() : BadRequest(result.Error);
         }
     }
 }

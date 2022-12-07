@@ -6,10 +6,8 @@ namespace MedHub.Domain.Models
     {
         public Guid Id { get; private set; }
         public Cabinet Seller { get; private set; }
-        public Guid SellerId { get; private set; }
         public Patient Buyer { get; private set; }
-        public Guid BuyerId { get; private set; }
-        public ICollection<InvoiceLineItem> Products { get; private set; }
+        public List<InvoiceLineItem> Products { get; set; } = new List<InvoiceLineItem>();
         public double Total => Products.Sum(product => product.Drug.Price * product.Quantity);
         public static Result<Invoice> Create()
         {
@@ -24,13 +22,11 @@ namespace MedHub.Domain.Models
 
         public void AddSellerToInvoice(Cabinet cabinet)
         {
-            SellerId = cabinet.Id;
             Seller = cabinet;
         }
 
         public void AddBuyerToInvoice(Patient patient)
         {
-            BuyerId = patient.Id;
             Buyer = patient;
         }
 

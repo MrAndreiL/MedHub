@@ -3,12 +3,17 @@ using MedHub.Infrastructure;
 using MedHub.Infrastructure.Repositories;
 using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.EntityFrameworkCore;
+using MyShop.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling =
+    Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -28,6 +33,7 @@ builder.Services.AddScoped<IRepository<MedicalSpeciality>, MedicalSpecialityRepo
 builder.Services.AddScoped<IRepository<InvoiceLineItem>, InvoiceLineItemRepository>();
 builder.Services.AddScoped<IRepository<StockLineItem>, StockLineItemRepository>();
 builder.Services.AddScoped<IRepository<MedicalRecord>, MedicalRecordRepository>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddCors(options =>
 {

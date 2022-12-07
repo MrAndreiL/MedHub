@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace MedHub.Infrastructure.Repositories.Generics
+﻿namespace MedHub.Infrastructure.Repositories.Generics
 {
     public interface IRepository<T>
     {

@@ -1,13 +1,14 @@
 ﻿using MedHub.Domain.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace MedHub.Domain.Models
 {
     public class StockLineItem : ILineItem
     {
-        public Guid Id { get; }
+        public Guid Id { get; set; }
         public Drug Drug { get; set; }
         public int Quantity { get; set; }
-        public Cabinet Cabinet { get; private set; }
+        public Cabinet Cabinet { get; set; }
 
         public StockLineItem() : base()
         {

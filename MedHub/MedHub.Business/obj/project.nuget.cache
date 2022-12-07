@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "pC9TD6bEtCFg6MZuIEgKHJhIphB/TCidGTVFENTlwCStx5eSHFD2zpDLYCNjmuw7PoDOXJ1bsL7h6EcciVjvWA==",
+  "dgSpecHash": "8ryavoAnWJbMfwnbEd6jzHkBBd2ux+62vGCi4J53OogUsw5B2EQ/GOywjb59lnrWMcsCoDP5+sPLsX49kOXF5g==",
   "success": true,
   "projectFilePath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\hazif\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

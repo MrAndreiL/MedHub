@@ -17,8 +17,8 @@ namespace MedHub.Infrastructure
         public DbSet<StockLineItem> StockLineItems => Set<StockLineItem>();
         public MedHubContext(DbContextOptions<MedHubContext> options) : base(options)
         {
-            //this.Database.EnsureCreated();
-            this.Database.Migrate();
+            this.Database.EnsureCreated();
+            //this.Database.Migrate();
         }
 
         public void Save()
@@ -29,6 +29,10 @@ namespace MedHub.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Doctor>().HasKey(x => x.Id);
+            modelBuilder.Entity<Patient>().HasKey(p => p.Id);
+            modelBuilder.Entity<StockLineItem>().HasKey(x => x.Id);
+            modelBuilder.Entity<MedicalRecord>().HasKey(x => x.Id);
             // Some default data
         }
     }

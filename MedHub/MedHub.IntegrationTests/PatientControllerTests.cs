@@ -1,6 +1,5 @@
 using FluentAssertions;
 using MedHub.API.DTOs;
-using MedHub.Domain.Models;
 
 using System.Net.Http.Json;
 
@@ -9,7 +8,7 @@ namespace MedHub.IntegrationTests
     public class PatientControllerTests: BaseIntegrationTests, IDisposable
     {
         private const string ApiURL = "v1/api/patients";
-
+        /*
         [Fact]
         public async void When_RegisteringMedicalHistoryToPatient_ThenPatientMedicalHistoryShouldBeUpdated()
         {
@@ -18,6 +17,7 @@ namespace MedHub.IntegrationTests
                 new CreateMedicalRecordDto() { MedicalNote = "a medical note from a real doctor"},
                 new CreateMedicalRecordDto() { MedicalNote = "another medical note from a real doctor"},
             };
+
             var patientDto = CreateSUT();
 
             var createPatientResponse = await HttpClient.PostAsJsonAsync(ApiURL, patientDto);
@@ -34,7 +34,7 @@ namespace MedHub.IntegrationTests
             registerMedicalHistoryResponse.Content.Should().Be(System.Net.HttpStatusCode.NoContent);
 
         }
-
+        */
         private static CreatePatientDto CreateSUT()
         {
             // Arrange

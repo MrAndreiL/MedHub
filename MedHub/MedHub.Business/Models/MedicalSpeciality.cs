@@ -6,7 +6,7 @@ namespace MedHub.Domain.Models
     {
         public Guid Id { get; private set; }
         public string SpecializationName { get; private set; }
-        public HashSet<Doctor> Doctors { get; private set; } = new HashSet<Doctor>();
+        public HashSet<Doctor> Doctor { get; private set; } = new HashSet<Doctor>(); // Cum setez asta?
         public static Result<MedicalSpeciality> Create(string specializationName)
         {
             if (String.IsNullOrEmpty(specializationName))

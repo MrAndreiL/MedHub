@@ -9,16 +9,12 @@ namespace MedHub.Domain.Models
         public Drug Drug { get; set; }
         public Guid DrugId { get; set; }
         public int Quantity { get; set; }
-        public Invoice Invoice { get; private set; }
-        public Guid InvoiceId { get; private set; }
-        public static Result<InvoiceLineItem> Create()
-        {
-            var invoiceLineItem = new InvoiceLineItem
-            {
-                Id = Guid.NewGuid()
-            };
+        public Invoice Invoice { get; set; }
+        public Guid InvoiceId { get; set; }
 
-            return Result<InvoiceLineItem>.Success(invoiceLineItem);
+        public InvoiceLineItem()
+        {
+            Id = Guid.NewGuid();
         }
         public void SetInvoiceToInvoiceLineItem(Invoice invoice)
         {

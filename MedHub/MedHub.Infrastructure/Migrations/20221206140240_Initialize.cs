@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -53,6 +52,18 @@ namespace MedHub.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MedicalSpecializations",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    SpecializationName = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MedicalSpecializations", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Patients",
                 columns: table => new
                 {
@@ -71,15 +82,15 @@ namespace MedHub.Infrastructure.Migrations
                 name: "CabinetDoctor",
                 columns: table => new
                 {
-                    CabinetId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CabinetsId = table.Column<Guid>(type: "TEXT", nullable: false),
                     DoctorsId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CabinetDoctor", x => new { x.CabinetId, x.DoctorsId });
+                    table.PrimaryKey("PK_CabinetDoctor", x => new { x.CabinetsId, x.DoctorsId });
                     table.ForeignKey(
-                        name: "FK_CabinetDoctor_Cabinets_CabinetId",
-                        column: x => x.CabinetId,
+                        name: "FK_CabinetDoctor_Cabinets_CabinetsId",
+                        column: x => x.CabinetsId,
                         principalTable: "Cabinets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -89,24 +100,6 @@ namespace MedHub.Infrastructure.Migrations
                         principalTable: "Doctors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MedicalSpecializations",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    SpecializationName = table.Column<string>(type: "TEXT", nullable: false),
-                    DoctorId = table.Column<Guid>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MedicalSpecializations", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_MedicalSpecializations_Doctors_DoctorId",
-                        column: x => x.DoctorId,
-                        principalTable: "Doctors",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -131,6 +124,30 @@ namespace MedHub.Infrastructure.Migrations
                         name: "FK_StockLineItems_Drugs_DrugId",
                         column: x => x.DrugId,
                         principalTable: "Drugs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DoctorMedicalSpeciality",
+                columns: table => new
+                {
+                    DoctorId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    SpecializationsId = table.Column<Guid>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoctorMedicalSpeciality", x => new { x.DoctorId, x.SpecializationsId });
+                    table.ForeignKey(
+                        name: "FK_DoctorMedicalSpeciality_Doctors_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "Doctors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DoctorMedicalSpeciality_MedicalSpecializations_SpecializationsId",
+                        column: x => x.SpecializationsId,
+                        principalTable: "MedicalSpecializations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -253,6 +270,11 @@ namespace MedHub.Infrastructure.Migrations
                 column: "DoctorsId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DoctorMedicalSpeciality_SpecializationsId",
+                table: "DoctorMedicalSpeciality",
+                column: "SpecializationsId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_InvoiceLineItems_DrugId",
                 table: "InvoiceLineItems",
                 column: "DrugId");
@@ -283,11 +305,6 @@ namespace MedHub.Infrastructure.Migrations
                 column: "PatientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MedicalSpecializations_DoctorId",
-                table: "MedicalSpecializations",
-                column: "DoctorId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_StockLineItems_CabinetId",
                 table: "StockLineItems",
                 column: "CabinetId");
@@ -308,16 +325,19 @@ namespace MedHub.Infrastructure.Migrations
                 name: "CabinetDoctor");
 
             migrationBuilder.DropTable(
+                name: "DoctorMedicalSpeciality");
+
+            migrationBuilder.DropTable(
                 name: "InvoiceLineItems");
 
             migrationBuilder.DropTable(
                 name: "MedicalRecords");
 
             migrationBuilder.DropTable(
-                name: "MedicalSpecializations");
+                name: "StockLineItems");
 
             migrationBuilder.DropTable(
-                name: "StockLineItems");
+                name: "MedicalSpecializations");
 
             migrationBuilder.DropTable(
                 name: "Invoices");

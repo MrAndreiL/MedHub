@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedHub.Infrastructure.Migrations
 {
     [DbContext(typeof(MedHubContext))]
-    [Migration("20221205154122_FixedSpeciatityIssue")]
-    partial class FixedSpeciatityIssue
+    [Migration("20221206140240_Initialize")]
+    partial class Initialize
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,13 +22,13 @@ namespace MedHub.Infrastructure.Migrations
 
             modelBuilder.Entity("CabinetDoctor", b =>
                 {
-                    b.Property<Guid>("CabinetId")
+                    b.Property<Guid>("CabinetsId")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("DoctorsId")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("CabinetId", "DoctorsId");
+                    b.HasKey("CabinetsId", "DoctorsId");
 
                     b.HasIndex("DoctorsId");
 
@@ -37,13 +37,13 @@ namespace MedHub.Infrastructure.Migrations
 
             modelBuilder.Entity("DoctorMedicalSpeciality", b =>
                 {
-                    b.Property<Guid>("DoctorsId")
+                    b.Property<Guid>("DoctorId")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("SpecializationsId")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("DoctorsId", "SpecializationsId");
+                    b.HasKey("DoctorId", "SpecializationsId");
 
                     b.HasIndex("SpecializationsId");
 
@@ -282,7 +282,7 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Domain.Models.Cabinet", null)
                         .WithMany()
-                        .HasForeignKey("CabinetId")
+                        .HasForeignKey("CabinetsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -297,7 +297,7 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Domain.Models.Doctor", null)
                         .WithMany()
-                        .HasForeignKey("DoctorsId")
+                        .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

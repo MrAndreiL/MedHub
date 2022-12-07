@@ -74,16 +74,14 @@ namespace MedHub.UnitTests
             foreach (var doctor in cabinet.Doctors)
             {
                 doctor.Should().NotBeNull();
-                doctor.Cabinet.Should().Contain(cabinet);
+                doctor.Cabinets.Should().Contain(cabinet);
             }
 
             // Assert
             cabinet.Doctors.Should().Contain(doctors);
-            doctors[0].Cabinet.Should().Contain(cabinet);
-            doctors[1].Cabinet.Should().Contain(cabinet);
+            doctors[0].Cabinets.Should().Contain(cabinet);
+            doctors[1].Cabinets.Should().Contain(cabinet);
         }
-
-        [Fact]
         private Tuple<string> CreateSUT()
         {
             Tuple<string> sut = new Tuple<string>("sat Pildesti, com. Cordun, jud. Neamt");

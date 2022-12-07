@@ -39,6 +39,14 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.0": {
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51807"
+          }
+        }
+      },
       "Microsoft.NET.Test.Sdk/17.4.0": {
         "dependencies": {
           "Microsoft.CodeCoverage": "17.4.0",
@@ -1061,6 +1069,9 @@
       },
       "xunit.runner.visualstudio/2.4.5": {},
       "MedHub.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.0"
+        },
         "runtime": {
           "MedHub.Domain.dll": {}
         }
@@ -1093,6 +1104,13 @@
       "sha512": "sha512-2oZbSVTC2nAvQ2DnbXLlXS+c25ZyZdWeNd+znWwAxwGaPh9dwQ5NBsYyqQB7sKmJKIUdkKGmN3rzFzjVC81Dtg==",
       "path": "microsoft.codecoverage/17.4.0",
       "hashPath": "microsoft.codecoverage.17.4.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Pfu3Zjj5+d2Gt27oE9dpGiF/VobBB+s5ogrfI9sBsXQE1SG49RqVz5+IyeNnzhyejFrPIQsPDRMchhcojy4Hbw==",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.0",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512"
     },
     "Microsoft.NET.Test.Sdk/17.4.0": {
       "type": "package",

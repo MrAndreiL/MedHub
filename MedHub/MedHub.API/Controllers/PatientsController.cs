@@ -29,7 +29,9 @@ namespace MedHub.API.Controllers
                 CNP = p.CNP,
                 FirstName= p.FirstName,
                 LastName= p.LastName,
-                Email = p.Email
+                Email = p.Email,
+                MedicalHistory = p.MedicalHistory,
+                Allergies = p.Allergies
             });
 
             return Ok(patients);
@@ -45,35 +47,10 @@ namespace MedHub.API.Controllers
                 patientRepository.Add(patient.Entity);
                 patientRepository.SaveChanges();
 
-                return Created(nameof(GetAllPatients), patient);
+                return Created(nameof(GetAllPatients), patient.Entity);
             }
 
             return BadRequest(patient.Error);
-        }
-
-        [HttpPost("{patientId}/add-medical-history")]
-        public IActionResult RegisterMedicalHistory(Guid patientId, [FromBody] List<MedicalRecordDto> medicalRecordDtos)
-        {
-            var medicalRecords = medicalRecordDtos.Select(medicalRecord => MedicalRecord.Create(medicalRecord.MedicalNote)).ToList();
-
-            if (medicalRecords.Any(m => m.IsFailure))
-            {
-                return BadRequest();
-            }
-
-            var patient = patientRepository.GetAll().Single(p => p.Id == patientId);
-
-            if (patient == null)
-            {
-                return NotFound();
-            }
-
-            var result = patient.PushMedicalHistory(medicalRecords.Select(m => m.Entity).ToList());
-
-            medicalRecords.ForEach(m => medicalRecordRepository.Add(m.Entity));
-            medicalRecordRepository.SaveChanges();
-
-            return result.IsSuccess ? NoContent() : BadRequest(result.Error);
         }
 
         [HttpPost("{patientId}/add-allergens")]

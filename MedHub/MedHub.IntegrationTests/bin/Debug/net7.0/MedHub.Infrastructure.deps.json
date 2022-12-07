@@ -396,6 +396,9 @@
         }
       },
       "MedHub.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.0"
+        },
         "runtime": {
           "MedHub.Domain.dll": {}
         }

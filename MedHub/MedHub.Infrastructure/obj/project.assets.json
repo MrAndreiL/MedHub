@@ -563,6 +563,9 @@
       "MedHub.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.0"
+        },
         "compile": {
           "bin/placeholder/MedHub.Domain.dll": {}
         },

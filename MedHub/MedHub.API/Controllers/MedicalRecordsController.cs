@@ -1,7 +1,7 @@
-﻿using MedHub.API.DTOs;
-using MedHub.Domain.Models;
+﻿using MedHub.Domain.Models;
 using MedHub.Infrastructure.Repositories.Generics;
 using Microsoft.AspNetCore.Mvc;
+using MyShop.Infrastructure;
 
 namespace MedHub.API.Controllers
 {
@@ -9,31 +9,18 @@ namespace MedHub.API.Controllers
     [ApiController]
     public class MedicalRecordsController : ControllerBase
     {
-        private readonly IRepository<MedicalRecord> medicalRecordRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public MedicalRecordsController(IRepository<MedicalRecord> medicalRecordRepository)
+        public MedicalRecordsController(IUnitOfWork unitOfWork)
         {
-            this.medicalRecordRepository = medicalRecordRepository;
+            this.unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(medicalRecordRepository.GetAll());
-        }
-
-        [HttpPost]
-        public IActionResult Create([FromBody] CreateMedicalRecordDto medicalRecordDto)
-        {
-            var medicalRecord = MedicalRecord.Create(medicalRecordDto.MedicalNote);
-            if (medicalRecord.IsSuccess)
-            {
-                medicalRecordRepository.Add(medicalRecord.Entity);
-                medicalRecordRepository.SaveChanges();
-                return Created(nameof(Get), medicalRecord);
-            }
-
-            return BadRequest(medicalRecord.Error);
+            var result = unitOfWork.MedicalRecordRepository.GetAll;
+            return Ok(result);
         }
     }
 }
