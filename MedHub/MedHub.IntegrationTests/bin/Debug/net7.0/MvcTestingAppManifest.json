@@ -1,5 +1,5 @@
 {
-  "MedHub.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.API",
-  "MedHub.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Business",
-  "MedHub.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Infrastructure"
+  "MedHub.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.API",
+  "MedHub.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business",
+  "MedHub.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Infrastructure"
 }

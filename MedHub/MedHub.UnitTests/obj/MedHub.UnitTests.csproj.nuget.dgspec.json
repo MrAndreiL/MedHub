@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.UnitTests\\MedHub.UnitTests.csproj": {}
+    "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.UnitTests\\MedHub.UnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj": {
+    "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj",
+        "projectUniqueName": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj",
         "projectName": "MedHub.Domain",
-        "projectPath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj",
-        "packagesPath": "C:\\Users\\hazif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Business\\obj\\",
+        "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj",
+        "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
+        "outputPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hazif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -70,20 +70,20 @@
         }
       }
     },
-    "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.UnitTests\\MedHub.UnitTests.csproj": {
+    "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.UnitTests\\MedHub.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.UnitTests\\MedHub.UnitTests.csproj",
+        "projectUniqueName": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.UnitTests\\MedHub.UnitTests.csproj",
         "projectName": "MedHub.UnitTests",
-        "projectPath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.UnitTests\\MedHub.UnitTests.csproj",
-        "packagesPath": "C:\\Users\\hazif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.UnitTests\\obj\\",
+        "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.UnitTests\\MedHub.UnitTests.csproj",
+        "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
+        "outputPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hazif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -99,8 +99,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj": {
-                "projectPath": "C:\\Users\\hazif\\source\\repos\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj"
+              "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj": {
+                "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj"
               }
             }
           }
