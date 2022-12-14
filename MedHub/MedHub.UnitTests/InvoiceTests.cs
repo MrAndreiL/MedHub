@@ -28,7 +28,7 @@ namespace MedHub.UnitTests
             invoice.AddSellerToInvoice(cabinet.Entity);
 
             invoice.Seller.Should().NotBeNull();
-            invoice.Seller.Should().Be(cabinet);
+            invoice.Seller.Should().Be(cabinet.Entity);
         }
 
         
@@ -43,7 +43,7 @@ namespace MedHub.UnitTests
             invoice.AddBuyerToInvoice(patient.Entity);
 
             invoice.Seller.Should().NotBeNull();
-            invoice.Seller.Should().Be(patient);
+            invoice.Seller.Should().Be(patient.Entity);
         }
         private static Result<Cabinet> CreateSUTCabinet()
         {
