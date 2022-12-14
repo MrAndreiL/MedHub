@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "YPsAeR0UcFwHprV/gjf6YwRfmQqO93IpJT8q+W4L6oaaUFEILyrqieAN9swTofGZ0SLmoew+yjzpxXhMaFUkqA==",
-=======
-  "dgSpecHash": "iVAGA45KXrcfz45AeadEaXlswqhsN7UWcsi5S43m8XtDkpRh7cEk7tWp4yeEPju2wCN/aq7mKeinYxhRvgOUzg==",
->>>>>>> 2aa811498f7d3498bf46cf9664d47e7dca614533
+  "dgSpecHash": "NbOp29Dt24W4Jh26CGvXVXi0fmseI9PN3D6Cgfvma3I3xAWjts1lzfzjs7cPkNPqfC1+EiaGyJ9G9wTTJ8cE8g==",
   "success": true,
   "projectFilePath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Infrastructure\\MedHub.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -38,5 +34,12 @@
     "C:\\Users\\Andrei\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\Andrei\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

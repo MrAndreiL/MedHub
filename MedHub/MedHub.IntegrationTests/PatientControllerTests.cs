@@ -8,14 +8,15 @@ namespace MedHub.IntegrationTests
     public class PatientControllerTests: BaseIntegrationTests, IDisposable
     {
         private const string ApiURL = "v1/api/patients";
-        /*
+        
         [Fact]
         public async void When_RegisteringMedicalHistoryToPatient_ThenPatientMedicalHistoryShouldBeUpdated()
         {
+            
             // Arrange
-            var medicalRecordDtos = new List<CreateMedicalRecordDto>() {
-                new CreateMedicalRecordDto() { MedicalNote = "a medical note from a real doctor"},
-                new CreateMedicalRecordDto() { MedicalNote = "another medical note from a real doctor"},
+            var medicalRecordDtos = new List<MedicalRecordDto>() {
+                new MedicalRecordDto() { MedicalNote = "a medical note from a real doctor"},
+                new MedicalRecordDto() { MedicalNote = "another medical note from a real doctor"},
             };
 
             var patientDto = CreateSUT();
@@ -34,9 +35,7 @@ namespace MedHub.IntegrationTests
             registerMedicalHistoryResponse.Content.Should().Be(System.Net.HttpStatusCode.NoContent);
 
         }
-<<<<<<< HEAD
-        */
-=======
+       
         [Fact]
         public async void When_AddingAllergensToPatient_ThenPatientAllergiesShouldBeUpdated()
         {
@@ -59,7 +58,6 @@ namespace MedHub.IntegrationTests
             addAllergensToPatientResponse.Content.Should().Be(System.Net.HttpStatusCode.NoContent);
 
         }
->>>>>>> 2aa811498f7d3498bf46cf9664d47e7dca614533
         private static CreatePatientDto CreateSUT()
         {
             // Arrange

@@ -1,5 +1,4 @@
-﻿using MedHub.Domain.Helpers;
-using MedHub.Domain.Interfaces;
+﻿using MedHub.Domain.Interfaces;
 
 namespace MedHub.Domain.Models
 {

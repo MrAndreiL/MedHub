@@ -22,7 +22,7 @@ namespace MedHub.UI.Pages.Services
                 });
         }
 
-        public Task<Patient> GetDetails(Guid id)
+        public async Task<Patient> GetDetails(Guid id)
         {
             throw new NotImplementedException();
         }

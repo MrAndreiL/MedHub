@@ -31,9 +31,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "Integra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedHub.IntegrationTests", "MedHub.IntegrationTests\MedHub.IntegrationTests.csproj", "{CDF62516-F5B4-4E78-ABA7-D42FE9313B31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedHub.UI", "MedHub.UI\MedHub.UI.csproj", "{3B6AA1BA-B10E-4D6E-8F33-31AB83C200BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedHub.UI", "MedHub.UI\MedHub.UI.csproj", "{3B6AA1BA-B10E-4D6E-8F33-31AB83C200BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedHub.Shared", "MedHub.Shared\MedHub.Shared.csproj", "{3C15BDE6-40FD-40E7-84D4-48F20576EBE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedHub.Shared", "MedHub.Shared\MedHub.Shared.csproj", "{3C15BDE6-40FD-40E7-84D4-48F20576EBE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

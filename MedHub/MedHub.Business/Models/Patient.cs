@@ -5,15 +5,7 @@ namespace MedHub.Domain.Models
 {
     public class Patient : IPerson
     {
-<<<<<<< HEAD
-        public Guid Id { get; set; }
-        public string CNP { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public List<MedicalRecord> MedicalHistory { get; private set; } = new List<MedicalRecord>();
-        public List<Allergen> Allergies { get; private set; } = new List<Allergen>();
-=======
+
         public Guid Id { get; private set; }
         public string CNP { get; private set; }
         public string FirstName { get; private set; }
@@ -21,7 +13,6 @@ namespace MedHub.Domain.Models
         public string Email { get; private set; }
         public List<MedicalRecord> MedicalHistory { get; private set; }
         public List<Allergen> Allergies { get; private set; }
->>>>>>> 2aa811498f7d3498bf46cf9664d47e7dca614533
         public static Result<Patient> Create(string cNP, string firstName, string lastName, string email)
         {
             if (String.IsNullOrEmpty(cNP))

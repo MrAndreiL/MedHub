@@ -39,7 +39,16 @@ namespace MedHub.Domain.Models
 
             return Result.Success();
         }
-
+        public Result AddDoctorToCabinet(Doctor doctor)
+        {
+            if( doctor == null)
+            {
+                return Result.Failure("Doctor can not be null");
+            }
+            Doctors.Add(doctor);
+            doctor.SetCabinetToDoctor(this);
+            return Result.Success();
+        }
         public Result AddDoctorsListToCabinet(List<Doctor> doctors)
         {
             if (!doctors.Any())

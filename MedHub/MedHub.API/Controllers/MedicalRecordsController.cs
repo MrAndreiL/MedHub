@@ -1,6 +1,4 @@
-﻿using MedHub.Domain.Models;
-using MedHub.Infrastructure.Repositories.Generics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyShop.Infrastructure;
 
 namespace MedHub.API.Controllers

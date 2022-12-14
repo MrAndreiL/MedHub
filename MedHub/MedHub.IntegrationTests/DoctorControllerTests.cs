@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿using FluentAssertions;
 using MedHub.API.DTOs;
 using System.Net.Http.Json;
@@ -31,30 +30,6 @@ namespace MedHub.IntegrationTests
             doctors.Should().NotBeNull();
         }
 
-        private static CreateDoctorDto CreateSUT()
-        {
-            return new CreateDoctorDto
-            {
-                CNP = "1950430000000",
-                FirstName = "Doctor",
-                LastName = "Sex",
-                Email = "haziflorinmarian@gmail.com",
-            };
-        }
-
-=======
-﻿using MedHub.API.DTOs;
-using FluentAssertions;
-using System.Net.Http.Json;
-using Microsoft.AspNetCore.Http.HttpResults;
-
-namespace MedHub.IntegrationTests
-{
-    public class DoctorControllerTests: BaseIntegrationTests, IDisposable
-    {
-
-        private const string ApiURL = "v1/api/doctors";
-
         [Fact]
         public async void WhenAddingSpecializationsToDoctor_ThenShouldUpdateDoctorSpecializations()
         {
@@ -82,13 +57,13 @@ namespace MedHub.IntegrationTests
         public async void WhenChangingDoctorCabinet_ThenCabinetShouldBeUpdated()
         {
             //Arrange
-            var doctorDto= CreateSUT();
+            var doctorDto = CreateSUT();
             var cabinetDto = new CreateCabinetDto() { Address = "Strada Carol nr 12" };
             var createDoctorResponse = await HttpClient.PostAsJsonAsync(ApiURL, doctorDto);
-            var createCabinetResponse= await HttpClient.PostAsJsonAsync("v1/api/cabinets", cabinetDto);
+            var createCabinetResponse = await HttpClient.PostAsJsonAsync("v1/api/cabinets", cabinetDto);
 
             var doctor = createDoctorResponse.Content.ReadFromJsonAsync<DoctorDto>();
-            var cabinet= createCabinetResponse.Content.ReadFromJsonAsync<CabinetDto>();
+            var cabinet = createCabinetResponse.Content.ReadFromJsonAsync<CabinetDto>();
             //Act
 
             var updateDoctorCabinetResponse = await HttpClient.PostAsJsonAsync(
@@ -114,10 +89,9 @@ namespace MedHub.IntegrationTests
                 Email = "haziflorinmarian@gmail.com",
             };
         }
->>>>>>> 2aa811498f7d3498bf46cf9664d47e7dca614533
         public void Dispose()
         {
             CleanDatabases();
         }
-    }
+    }   
 }

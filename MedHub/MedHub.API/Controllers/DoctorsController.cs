@@ -1,13 +1,7 @@
 ﻿using MedHub.API.DTOs;
 using MedHub.Domain.Models;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Mvc;
 using MyShop.Infrastructure;
-=======
-using MedHub.Infrastructure.Repositories;
-using MedHub.Infrastructure.Repositories.Generics;
-using Microsoft.AspNetCore.Mvc;
->>>>>>> 2aa811498f7d3498bf46cf9664d47e7dca614533
 
 namespace MedHub.API.Controllers
 {
@@ -15,24 +9,12 @@ namespace MedHub.API.Controllers
     [ApiController]
     public class DoctorsController : ControllerBase
     {
-<<<<<<< HEAD
         private readonly IUnitOfWork unitOfWork;
 
         public DoctorsController(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-=======
-        private readonly IRepository<Doctor> doctorRepository;
-        private readonly IRepository<MedicalSpeciality> medicalSpecialityRepository;
-        private readonly IRepository<Cabinet> cabinetRepository;
-
-        public DoctorsController(IRepository<Doctor> doctorRepository, IRepository<MedicalSpeciality> medicalSpecialityRepository, IRepository<Cabinet> cabinetRepository)
-        {
-            this.doctorRepository = doctorRepository;
-            this.medicalSpecialityRepository = medicalSpecialityRepository;
-            this.cabinetRepository = cabinetRepository;
->>>>>>> 2aa811498f7d3498bf46cf9664d47e7dca614533
-        }
+        }       
 
         [HttpGet]
         public IActionResult GetAllDoctors()
@@ -78,10 +60,10 @@ namespace MedHub.API.Controllers
         [HttpPatch("{doctorId:guid}/change-cabinet")]
         public IActionResult ChangeDoctorCabinet(Guid doctorId, [FromBody] CabinetDto cabinetDto)
         {
-            var doctor = doctorRepository.GetAll().Single(p => p.Id == doctorId);
-            var cabinet = cabinetRepository.GetAll().Single(p => p.Id == cabinetDto.Id);
+            var doctor = unitOfWork.DoctorRepository.GetAll().Single(p => p.Id == doctorId);
+            var cabinet = unitOfWork.CabinetRepository.GetAll().Single(p => p.Id == cabinetDto.Id);
 
-            if (doctor== null)
+            if (doctor == null)
             {
                 return NotFound();
             }
@@ -90,15 +72,12 @@ namespace MedHub.API.Controllers
                 return NotFound();
             }
             doctor.SetCabinetToDoctor(cabinet);
-            //not sure if i need to update cabinet doctor list
             cabinet.AddDoctorToCabinet(doctor);
-            doctorRepository.Update(doctor);
-            cabinetRepository.Update(cabinet);
-            doctorRepository.SaveChanges();
-            cabinetRepository.SaveChanges();
-            //not sure what it should return
+            unitOfWork.DoctorRepository.Update(doctor);
+            unitOfWork.CabinetRepository.Update(cabinet);
+            unitOfWork.DoctorRepository.SaveChanges();
+            unitOfWork.CabinetRepository.SaveChanges();
             return Ok();
-            //did not removed doctor from old cabinet 
 
         }
 
@@ -110,7 +89,8 @@ namespace MedHub.API.Controllers
                 return BadRequest("Please submit specialization IDs!");
             }
 
-            foreach(Guid specialityId in specializationsDto.Ids) {
+            foreach (Guid specialityId in specializationsDto.Ids)
+            {
                 if (unitOfWork.MedicalSpecialityRepository.GetById(specialityId) == null)
                 {
                     return BadRequest($"The Id {specialityId} does not exist in the database.");
