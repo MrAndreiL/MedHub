@@ -99,6 +99,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -111,6 +115,10 @@
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[5.2.3, )"
             }
           },
           "imports": [

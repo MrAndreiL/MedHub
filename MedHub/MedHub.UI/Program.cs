@@ -15,9 +15,6 @@ builder.Services.AddHttpClient<IDataService<Patient>, PatientDataService>(
 builder.Services.AddHttpClient<IDataService<Doctor>, DoctorDataService>(
     client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
     );
-builder.Services.AddHttpClient<IDataService<Cabinet>, CabinetDataService>(
-    client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
-    );
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 await builder.Build().RunAsync();
