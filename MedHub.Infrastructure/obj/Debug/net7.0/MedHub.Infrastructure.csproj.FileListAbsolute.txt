@@ -1,0 +1,17 @@
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Infrastructure.deps.json
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Infrastructure.runtimeconfig.json
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Infrastructure.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Infrastructure.pdb
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Core.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\bin\Debug\net7.0\MedHub.Core.pdb
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.csproj.AssemblyReference.cache
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.AssemblyInfoInputs.cache
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.AssemblyInfo.cs
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.csproj.CopyComplete
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\refint\MedHub.Infrastructure.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.pdb
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\MedHub.Infrastructure.genruntimeconfig.cache
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\obj\Debug\net7.0\ref\MedHub.Infrastructure.dll

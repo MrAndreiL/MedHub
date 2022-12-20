@@ -1,0 +1,17 @@
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Application.deps.json
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Application.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Application.pdb
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Core.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Infrastructure.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Core.pdb
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\bin\Debug\net7.0\MedHub.Infrastructure.pdb
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.csproj.AssemblyReference.cache
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.AssemblyInfoInputs.cache
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.AssemblyInfo.cs
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.csproj.CoreCompileInputs.cache
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.csproj.CopyComplete
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\refint\MedHub.Application.dll
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\MedHub.Application.pdb
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\obj\Debug\net7.0\ref\MedHub.Application.dll
