@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedHub.Core.Entities.Tests", "MedHub.Core.Entities.Tests\MedHub.Core.Entities.Tests.csproj", "{31E577DF-86E7-47DB-BF6E-C430A1908412}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{F37737D2-AFCC-4E5C-9170-A10997E053B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,7 @@ Global
 		{B5FDA75A-B1F3-4EEE-AE97-98CBD8138144} = {3C75E64B-360E-48BC-8B58-63AD9042203D}
 		{9D9F9841-0D08-4396-858F-A060D8BAB760} = {996CC337-F560-491E-A98A-F471E9926935}
 		{31E577DF-86E7-47DB-BF6E-C430A1908412} = {9D9F9841-0D08-4396-858F-A060D8BAB760}
+		{F37737D2-AFCC-4E5C-9170-A10997E053B9} = {996CC337-F560-491E-A98A-F471E9926935}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CE72EB5-BBC1-406E-92BF-48868F7DA34D}

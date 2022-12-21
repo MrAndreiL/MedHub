@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MedHub.Application.Commands;
-using MedHub.Application.Response;
+using MedHub.Application.DTOs;
 using MedHub.Core.Entities;
 
 namespace MedHub.Application.Mappers
@@ -9,7 +9,7 @@ namespace MedHub.Application.Mappers
     {
         public AllergenMappingProfile()
         {
-            CreateMap<Allergen, AllergenResponse>().ReverseMap();
+            CreateMap<Allergen, AllergenDto>().ReverseMap();
             CreateMap<Allergen, CreateAllergenCommand>().ReverseMap();
             CreateMap<Allergen, UpdateAllergenCommand>().ReverseMap();
         }

@@ -1,12 +1,14 @@
-﻿namespace MedHub.Core.Repositories.Base
+﻿using System.Linq.Expressions;
+
+namespace MedHub.Core.Repositories.Base
 {
     public interface IRepository<T> where T : class
     {
         Task<T> AddAsync(T entity);
-        Task<T> GetByIdAsync(Guid id);
+        Task<T> FindFirst(Expression<Func<T, bool>> predicate);
         Task<IReadOnlyCollection<T>> GetAllAsync();
-        Task<T> Update(T entity);
-        Task<T> Delete(T entity);
-        //void SaveChanges();
+        T Update(T entity);
+        T Delete(T entity);
+        Task SaveChangesAsync();
     }
 }

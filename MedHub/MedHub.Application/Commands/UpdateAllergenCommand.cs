@@ -1,9 +1,10 @@
-﻿using MedHub.Application.Response;
+﻿using MedHub.Application.DTOs;
+using MedHub.Application.Helpers;
 using MediatR;
 
 namespace MedHub.Application.Commands
 {
-    public class UpdateAllergenCommand : IRequest<AllergenResponse>
+    public class UpdateAllergenCommand : IRequest<Response<AllergenDto>>
     {
         public Guid Id { get; set; }
         public string Name { get; private set; }

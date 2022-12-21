@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using MedHub.Application.Commands;
-using MedHub.Application.Mappers;
+﻿using MedHub.Application.Commands;
+using MedHub.Application.DTOs;
+using MedHub.Application.Helpers;
 using MedHub.Application.Queries;
-using MedHub.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,33 +20,66 @@ namespace MedHub.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AllergenResponse>> Create([FromBody] CreateAllergenCommand command)
+        public async Task<ActionResult<AllergenDto>> Create([FromBody] CreateAllergenCommand command)
         {
-            return Ok(await mediator.Send(command));
+            var result = await mediator.Send(command);
+            
+            switch(result.Status)
+            {
+                case OperationState.MappingError: return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                default: return Created(nameof(GetAll), result.Entity);
+            }
         }
 
         [HttpGet("{allergenId:Guid}")]
-        public async Task<ActionResult<AllergenResponse>> GetById(Guid allergenId)
+        public async Task<ActionResult<AllergenDto>> GetById(Guid allergenId)
         {
-            return Ok(await mediator.Send(new GetAllergenByIdQuery(allergenId)));
+            var result = await mediator.Send(new GetAllergenByIdQuery(allergenId));
+            
+            switch(result.Status)
+            {
+                case OperationState.NotFound: return NotFound();
+                case OperationState.MappingError: return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                default: return Ok(result.Entity);
+            }
         }
 
         [HttpGet]
-        public async Task<List<AllergenResponse>> GetAll()
+        public async Task<ActionResult<List<AllergenDto>>> GetAll()
         {
-            return await mediator.Send(new GetAllAllergensQuery());
+            var result = await mediator.Send(new GetAllAllergensQuery());
+
+            switch (result.Status)
+            {
+                case OperationState.MappingError: return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                default: return Ok(result.Entity);
+            }
         }
 
         [HttpPut("{allergenId:Guid}")]
-        public async Task<ActionResult<AllergenResponse>> Update([FromBody] CreateAllergenCommand command, Guid allergenId)
+        public async Task<ActionResult<AllergenDto>> Update([FromBody] CreateAllergenCommand command, Guid allergenId)
         {
-            return Ok(await mediator.Send(new UpdateAllergenCommand(command, allergenId)));
-        }
+            var result = await mediator.Send(new UpdateAllergenCommand(command, allergenId));
 
+            switch (result.Status)
+            {
+                case OperationState.NotFound: return NotFound();
+                case OperationState.MappingError: return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                default: return Ok(result.Entity);
+            }
+        }
+        
         [HttpDelete("{allergenId:Guid}")]
-        public async Task<ActionResult<AllergenResponse>> Delete(Guid allergenId)
+        public async Task<ActionResult<AllergenDto>> Delete(Guid allergenId)
         {
-            return Ok(await mediator.Send(new DeleteAllergenCommand(allergenId)));
+            var result = await mediator.Send(new DeleteAllergenCommand(allergenId));
+
+            switch (result.Status)
+            {
+                case OperationState.NotFound: return NotFound();
+                case OperationState.MappingError: return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                default: return Ok(result.Entity);
+            }
         }
     }
 }

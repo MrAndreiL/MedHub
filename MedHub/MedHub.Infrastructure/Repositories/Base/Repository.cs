@@ -1,6 +1,7 @@
 ﻿using MedHub.Core.Repositories.Base;
 using MedHub.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace MedHub.Infrastructure.Repositories.Base
 {
@@ -16,32 +17,34 @@ namespace MedHub.Infrastructure.Repositories.Base
         public async Task<T> AddAsync(T entity)
         {
             await medHubContext.Set<T>().AddAsync(entity);
-            await medHubContext.SaveChangesAsync();
             return entity;
         }
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public async Task<T> FindFirst(Expression<Func<T, bool>> predicate)
         {
-            return await medHubContext.Set<T>().FindAsync(id);
+            return await medHubContext.Set<T>().AsNoTracking().AsQueryable().Where(predicate).FirstOrDefaultAsync();
         }
 
         public async Task<IReadOnlyCollection<T>> GetAllAsync()
         {
-            return await medHubContext.Set<T>().ToListAsync();
+            return await medHubContext.Set<T>().AsNoTracking().ToListAsync();
         }
 
-        public async Task<T> Update(T entity)
+        public T Update(T entity)
         {
             medHubContext.Set<T>().Update(entity);
-            await medHubContext.SaveChangesAsync();
             return entity;
         }
         
-        public async Task<T> Delete(T entity)
+        public T Delete(T entity)
         {
             medHubContext.Set<T>().Remove(entity);
-            await medHubContext.SaveChangesAsync();
             return entity;
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await medHubContext.SaveChangesAsync();
         }
     }
 }
