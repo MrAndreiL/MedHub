@@ -1,0 +1,29 @@
+Product projects
+---------------------------------------
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Core\MedHub.Core.csproj
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\MedHub.API.csproj
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Infrastructure\MedHub.Infrastructure.csproj
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Application\MedHub.Application.csproj
+
+
+Test projects
+---------------------------------------
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.Core.UnitTests\MedHub.Core.UnitTests.csproj
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API.IntegrationTests\MedHub.API.IntegrationTests.csproj
+
+
+Invalid projects
+---------------------------------------
+{none}
+
+
+Skipped projects
+---------------------------------------
+{none}
+
+
+Excluded projects
+---------------------------------------
+{none}
+
+

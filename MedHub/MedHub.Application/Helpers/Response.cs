@@ -17,35 +17,5 @@
         {
             return new Response<TEntity> { Status = status, Entity = entity, Message = message };
         }
-
-        /*
-        public static Response<TEntity> Done(TEntity entity)
-        {
-            return new Response<TEntity> 
-            {
-                Entity = entity,
-                Result = OperationResult.Done
-            };
-        }
-
-        public static Response<TEntity> CreateFor(OperationResult result, TEntity entity)
-        {
-            return new Response<TEntity>
-            {
-                Entity = entity,
-                Result = result
-            };
-        }
-
-        public static Response<TEntity> CreateFor(OperationResult result, string message, TEntity entity)
-        {
-            return new Response<TEntity>
-            {
-                Entity = entity,
-                Result = result,
-                Message = message
-            };
-        }
-        */
     }
 }

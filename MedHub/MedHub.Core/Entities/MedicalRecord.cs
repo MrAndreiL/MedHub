@@ -10,7 +10,7 @@ namespace MedHub.Core.Entities
         public string MedicalNote { get; private set; } = null!;
         public DateTime RegistrationDate { get; private set; }
 
-        public static Result<MedicalRecord> Create(string medicalNote)
+        public static Result<MedicalRecord> Create(string? medicalNote)
         {
             if (string.IsNullOrEmpty(medicalNote))
             {
@@ -25,7 +25,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AttachPatientToMedicalRecord(Patient patient)
+        public Result AttachPatientToMedicalRecord(Patient? patient)
         {
             if (patient == null)
             {
@@ -37,7 +37,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AttachDoctorToMedicalRecord(Doctor doctor)
+        public Result AttachDoctorToMedicalRecord(Doctor? doctor)
         {
             if (doctor == null)
             {

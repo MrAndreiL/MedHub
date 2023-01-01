@@ -4,7 +4,7 @@ namespace MedHub.Core.Entities
 {
     public class Service : Product
     {
-        public static Result<Service> Create(string name, decimal price, string description = "No Description.")
+        public static Result<Service> Create(string? name, decimal price, string description = "No Description.")
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -25,7 +25,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AttachInvoiceItemToService(InvoiceItem invoiceItem)
+        public Result AttachInvoiceItemToService(InvoiceItem? invoiceItem)
         {
             if (invoiceItem == null)
             {

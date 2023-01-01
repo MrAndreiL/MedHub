@@ -1,38 +1,37 @@
-﻿using MedHub.Application.Commands;
-using MedHub.Application.Mappers;
+﻿using MedHub.Application.Mappers;
 using MedHub.Application.DTOs;
 using MedHub.Core.Entities;
 using MedHub.Core.Repositories.Base;
 using MediatR;
 using MedHub.Application.Helpers;
+using MedHub.Application.Commands;
 
 namespace MedHub.Application.Handlers
 {
     public class UpdateAllergenCommandHandler : IRequestHandler<UpdateAllergenCommand, Response<AllergenDto>>
     {
-        private readonly IRepository<Allergen> repository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public UpdateAllergenCommandHandler(IRepository<Allergen> repository)
+        public UpdateAllergenCommandHandler(IUnitOfWork unitOfWork)
         {
-            this.repository = repository;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<Response<AllergenDto>> Handle(UpdateAllergenCommand request, CancellationToken cancellationToken)
         {
-            var allergenEntity = await repository.FindFirst(allergen => allergen.Id == request.Id);
-            if (allergenEntity == null)
-            {
-                return Response<AllergenDto>.Create(OperationState.NotFound);
-            }
-
-            allergenEntity = MedHubMapper.Mapper.Map<Allergen>(request);
+            var allergenEntity = MedHubMapper.Mapper.Map<Allergen>(request);
             if (allergenEntity == null)
             {
                 return Response<AllergenDto>.Create(OperationState.MappingError, "An error occured while mapping object of type UpdateAllergenCommand to Allergen.");
             }
 
-            repository.Update(allergenEntity);
-            await repository.SaveChangesAsync();
+            var result = await unitOfWork.AllergenRepository.UpdateAsync(allergenEntity.Id, allergenEntity);
+            if (result == null)
+            {
+                return Response<AllergenDto>.Create(OperationState.NotFound);
+            }
+
+            await unitOfWork.SaveChangesAsync();
 
             var allergenDto = MedHubMapper.Mapper.Map<AllergenDto>(allergenEntity);
             if (allergenDto == null)

@@ -8,7 +8,7 @@ namespace MedHub.Application.Mappers
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.ShouldMapProperty = p => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
+                cfg.ShouldMapProperty = p => p.GetMethod != null && (p.GetMethod.IsPublic || p.GetMethod.IsAssembly);
                 cfg.AddProfile<AllergenMappingProfile>();
             });
             var mapper = config.CreateMapper();
@@ -16,5 +16,7 @@ namespace MedHub.Application.Mappers
         });
 
         public static IMapper Mapper => Lazy.Value;
+
+        protected MedHubMapper() { }
     }
 }

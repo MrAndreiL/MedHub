@@ -6,6 +6,6 @@ namespace MedHub.Application.Commands
 {
     public class CreateAllergenCommand : IRequest<Response<AllergenDto>>
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 }

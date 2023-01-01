@@ -8,7 +8,7 @@ namespace MedHub.Core.Entities
         public HashSet<Allergen> Allergies { get; private set; } = null!;
         public HashSet<Appointment> Appointments { get; private set; } = null!;
 
-        public static Result<Patient> Create(string cNP, string firstName, string lastName, string email, string phoneNumber)
+        public static Result<Patient> Create(string? cNP, string? firstName, string? lastName, string? email, string? phoneNumber)
         {
             if (string.IsNullOrEmpty(cNP))
             {
@@ -45,7 +45,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AddAllergies(List<Allergen> allergies)
+        public Result AddAllergies(List<Allergen>? allergies)
         {
             if (allergies == null) 
             {
@@ -65,7 +65,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddMedicalHistory(List<MedicalRecord> medicalHistory) 
+        public Result AddMedicalHistory(List<MedicalRecord>? medicalHistory) 
         {
             if (medicalHistory == null) 
             {
@@ -84,7 +84,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddAppointmentToPatient(Appointment appointment)
+        public Result AddAppointmentToPatient(Appointment? appointment)
         {
             if (appointment == null)
             {

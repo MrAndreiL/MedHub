@@ -9,7 +9,7 @@ namespace MedHub.Core.Entities
         public HashSet<MedicalRecord> MedicalRecordIssued { get; private set; } = null!;
         public HashSet<Appointment> Appointments { get; private set; } = null!;
 
-        public static Result<Doctor> Create(string cNP, string firstName, string lastName, string email, string phoneNumber)
+        public static Result<Doctor> Create(string? cNP, string? firstName, string? lastName, string? email, string? phoneNumber)
         {
             if (string.IsNullOrEmpty(cNP))
             {
@@ -47,7 +47,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AddCabinetToDoctor(Cabinet cabinet)
+        public Result AddCabinetToDoctor(Cabinet? cabinet)
         {
             if (cabinet == null)
             {
@@ -59,7 +59,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddSpecializations(List<MedicalSpeciality> specializations)
+        public Result AddSpecializations(List<MedicalSpeciality>? specializations)
         {
             if (specializations == null)
             {
@@ -79,7 +79,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result IssueMedicalRecord(MedicalRecord medicalRecord)
+        public Result IssueMedicalRecord(MedicalRecord? medicalRecord)
         {
             if (medicalRecord == null)
             {
@@ -91,7 +91,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddAppointmentToDoctor(Appointment appointment) 
+        public Result AddAppointmentToDoctor(Appointment? appointment) 
         {
             if (appointment == null)
             {

@@ -21,7 +21,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AttachProductToInvoiceItem(Product product)
+        public Result AttachProductToInvoiceItem(Product? product)
         {
             if (product == null)
             {
@@ -42,7 +42,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AttachInvoiceToItem(Invoice invoice)
+        public Result AttachInvoiceToItem(Invoice? invoice)
         {
             if (invoice == null)
             {

@@ -1,50 +1,63 @@
 ﻿using MedHub.Core.Repositories.Base;
 using MedHub.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
 
 namespace MedHub.Infrastructure.Repositories.Base
 {
+    /* Sources:
+     * - https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
+     * - https://stackoverflow.com/questions/54169736/what-is-better-way-to-update-data-in-ef-core
+     * - https://stackoverflow.com/questions/48086507/how-to-handle-updates-in-a-rest-api
+    */
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly MedHubContext medHubContext;
+        protected readonly MedHubContext context;
 
-        public Repository(MedHubContext medHubContext)
+        public Repository(MedHubContext context)
         {
-            this.medHubContext = medHubContext;
+            this.context = context;
         }
 
         public async Task<T> AddAsync(T entity)
         {
-            await medHubContext.Set<T>().AddAsync(entity);
+            await context.Set<T>().AddAsync(entity);
             return entity;
         }
 
-        public async Task<T> FindFirst(Expression<Func<T, bool>> predicate)
+        public async Task<T?> FindByIdAsync(Guid id)
         {
-            return await medHubContext.Set<T>().AsNoTracking().AsQueryable().Where(predicate).FirstOrDefaultAsync();
+            return await context.Set<T>().FindAsync(id);
         }
 
         public async Task<IReadOnlyCollection<T>> GetAllAsync()
         {
-            return await medHubContext.Set<T>().AsNoTracking().ToListAsync();
+            return await context.Set<T>().ToListAsync();
         }
 
-        public T Update(T entity)
+        public async Task<T?> UpdateAsync(Guid id, T entity)
         {
-            medHubContext.Set<T>().Update(entity);
-            return entity;
+            T? exist = await context.Set<T>().FindAsync(id);
+            if (exist == null) 
+            {
+                return null;
+            }
+
+            context.Entry(exist).CurrentValues.SetValues(entity);
+            
+            return exist;
         }
         
-        public T Delete(T entity)
+        public async Task<T?> DeleteAsync(Guid id)
         {
-            medHubContext.Set<T>().Remove(entity);
-            return entity;
-        }
+            T? exist = await context.Set<T>().FindAsync(id);
+            if (exist == null)
+            {
+                return null;
+            }
 
-        public async Task SaveChangesAsync()
-        {
-            await medHubContext.SaveChangesAsync();
+            context.Set<T>().Remove(exist);
+
+            return exist;
         }
     }
 }

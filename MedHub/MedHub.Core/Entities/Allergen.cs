@@ -9,7 +9,7 @@ namespace MedHub.Core.Entities
         public HashSet<Patient> AffectedPatients { get; private set; } = null!;
         public HashSet<Drug> InfestedDrugs { get; private set; } = null!;
 
-        public static Result<Allergen> Create(string name)
+        public static Result<Allergen> Create(string? name)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -25,7 +25,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AddAffectedPatient(Patient patient) 
+        public Result AddAffectedPatient(Patient? patient) 
         {
             if (patient == null)
             {
@@ -37,7 +37,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddInfestedDrug(Drug drug)
+        public Result AddInfestedDrug(Drug? drug)
         {
             if (drug == null)
             {

@@ -20,7 +20,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AttachCabinetToStockItem(Cabinet cabinet)
+        public Result AttachCabinetToStockItem(Cabinet? cabinet)
         {
             if (cabinet == null)
             {
@@ -32,7 +32,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AttachDrugToStockItem(Drug drug) { 
+        public Result AttachDrugToStockItem(Drug? drug) { 
             if (drug == null)
             {
                 return Result.Failure("The drug that you want to attach to the stock item cannot be null.");

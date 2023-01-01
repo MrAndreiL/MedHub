@@ -28,7 +28,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AttachCabinetToAppointment(Cabinet cabinet)
+        public Result AttachCabinetToAppointment(Cabinet? cabinet)
         {
             if (cabinet == null)
             {
@@ -41,7 +41,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AttachPatientToAppointment(Patient patient)
+        public Result AttachPatientToAppointment(Patient? patient)
         {
             if (patient == null)
             {
@@ -54,7 +54,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AttachDoctorToAppointment(Doctor doctor)
+        public Result AttachDoctorToAppointment(Doctor? doctor)
         {
             if (doctor == null)
             {

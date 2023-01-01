@@ -13,7 +13,7 @@ namespace MedHub.Core.Entities
         public HashSet<Appointment> CreatedAppointments { get; private set; } = null!;
         public HashSet<Invoice> IssuedInvoices { get; private set; } = null!;
 
-        public static Result<Cabinet> Create(string address, string phoneNumber)
+        public static Result<Cabinet> Create(string? address, string? phoneNumber)
         {
             if (string.IsNullOrEmpty(address))
             {
@@ -36,7 +36,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AttachSpecialityToCabinet(MedicalSpeciality medicalSpeciality)
+        public Result AttachSpecialityToCabinet(MedicalSpeciality? medicalSpeciality)
         {
             if (medicalSpeciality == null)
             {
@@ -49,7 +49,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddDoctorsToCabinet(List<Doctor> doctors)
+        public Result AddDoctorsToCabinet(List<Doctor>? doctors)
         {
             if (doctors == null)
             {
@@ -69,7 +69,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddDrugsToCabinet(List<StockItem> stockItems)
+        public Result AddDrugsToCabinet(List<StockItem>? stockItems)
         {
             if (stockItems == null) 
             {
@@ -89,7 +89,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result BindAppointmentToCabinet(Appointment appointment)
+        public Result BindAppointmentToCabinet(Appointment? appointment)
         {
             if (appointment == null)
             {
@@ -101,7 +101,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result BindInvoiceToCabinet(Invoice invoice)
+        public Result BindInvoiceToCabinet(Invoice? invoice)
         {
             if (invoice == null)
             {

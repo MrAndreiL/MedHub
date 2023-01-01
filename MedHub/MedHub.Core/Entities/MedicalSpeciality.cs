@@ -9,7 +9,7 @@ namespace MedHub.Core.Entities
         public HashSet<Doctor> Doctors { get; private set; } = null!;
         public HashSet<Cabinet> Cabinets { get; private set; } = null!;
 
-        public static Result<MedicalSpeciality> Create(string specializationName)
+        public static Result<MedicalSpeciality> Create(string? specializationName)
         {
             if (string.IsNullOrEmpty(specializationName))
             {
@@ -25,7 +25,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AddDoctorToMedicalSpeciality(Doctor doctor)
+        public Result AddDoctorToMedicalSpeciality(Doctor? doctor)
         {
             if (doctor == null)
             {
@@ -37,7 +37,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddCabinetToMedicalSpeciality(Cabinet cabinet) 
+        public Result AddCabinetToMedicalSpeciality(Cabinet? cabinet) 
         {
             if (cabinet == null)
             {

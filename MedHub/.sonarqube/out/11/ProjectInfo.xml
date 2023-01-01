@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>MedHub.API.IntegrationTests</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Test</ProjectType>
+  <ProjectGuid>10204a07-3640-4eb1-a9b1-7f63887da84e</ProjectGuid>
+  <FullPath>D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API.IntegrationTests\MedHub.API.IntegrationTests.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="D:\Dev\.NET\ProjectRemakeV2\MedHub\.sonarqube\conf\11\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">D:\Dev\.NET\ProjectRemakeV2\MedHub\.sonarqube\out\11\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">D:\Dev\.NET\ProjectRemakeV2\MedHub\.sonarqube\out\11</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>net7.0</TargetFramework>
+</ProjectInfo>

@@ -1,25 +1,24 @@
 ﻿using MedHub.Application.Mappers;
-using MedHub.Application.Queries;
 using MedHub.Application.DTOs;
-using MedHub.Core.Entities;
 using MedHub.Core.Repositories.Base;
 using MediatR;
 using MedHub.Application.Helpers;
+using MedHub.Application.Queries;
 
 namespace MedHub.Application.Handlers
 {
     public class GetAllergenByIdQueryHandler : IRequestHandler<GetAllergenByIdQuery, Response<AllergenDto>>
     {
-        private readonly IRepository<Allergen> repository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public GetAllergenByIdQueryHandler(IRepository<Allergen> repository)
+        public GetAllergenByIdQueryHandler(IUnitOfWork unitOfWork)
         {
-            this.repository = repository;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<Response<AllergenDto>> Handle(GetAllergenByIdQuery request, CancellationToken cancellationToken)
         {
-            var searchedAllergen = await repository.FindFirst(allergen => allergen.Id == request.AllergenId);
+            var searchedAllergen = await unitOfWork.AllergenRepository.FindByIdAsync(request.AllergenId);
             if (searchedAllergen == null)
             {
                 return Response<AllergenDto>.Create(OperationState.NotFound);

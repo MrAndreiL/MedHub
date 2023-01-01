@@ -12,7 +12,12 @@ namespace MedHub.Infrastructure
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddDbContext<MedHubContext>(m => m.UseSqlite(configuration.GetConnectionString("MedHubDB")));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddDbContext<MedHubContext>(options => 
+            options
+            .UseSqlite(configuration.GetConnectionString("MedHubDB"))
+            .EnableSensitiveDataLogging());
+
             return services;
         }
     }

@@ -6,7 +6,7 @@ namespace MedHub.Core.Entities
     {
         public HashSet<Allergen> Allergens { get; private set; } = null!;
 
-        public static Result<Drug> Create(string name, decimal price, string description = "No Description.")
+        public static Result<Drug> Create(string? name, decimal price, string description = "No Description.")
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -28,7 +28,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AddAllergens(List<Allergen> allergens)
+        public Result AddAllergens(List<Allergen>? allergens)
         {
             if (allergens == null)
             {
@@ -48,7 +48,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AttachStockItemToDrug(StockItem stockItem)
+        public Result AttachStockItemToDrug(StockItem? stockItem)
         {
             if (stockItem == null)
             {
@@ -60,7 +60,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AttachInvoiceItemToDrug(InvoiceItem invoiceItem)
+        public Result AttachInvoiceItemToDrug(InvoiceItem? invoiceItem)
         {
             if (invoiceItem == null)
             {

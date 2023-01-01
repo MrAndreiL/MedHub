@@ -19,32 +19,6 @@ namespace MedHub.Infrastructure.Data
         public DbSet<Service> Services { get; set; }
         public DbSet<StockItem> StockItems { get; set; }
 
-        public MedHubContext(DbContextOptions<MedHubContext> options) : base(options)
-        {
-            //this.Database.EnsureCreated();
-            //this.Database.Migrate();
-        }
-
-        public void Save()
-        {
-            SaveChanges();
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //modelBuilder.Entity<Doctor>().HasKey(x => x.Id);
-            //modelBuilder.Entity<Patient>().HasKey(p => p.Id);
-            //modelBuilder.Entity<StockItem>().HasKey(x => x.Id);
-            //modelBuilder.Entity<MedicalRecord>().HasKey(x => x.Id);
-            // Some default data
-
-            /*
-            var allergen1 = Allergen.Create("Gluten").Entity;
-            var allergen2 = Allergen.Create("Lactoza").Entity;
-
-            modelBuilder.Entity<Allergen>().HasData(new List<Allergen> { allergen1, allergen2 });
-            */
-        }
+        public MedHubContext(DbContextOptions<MedHubContext> options) : base(options) { }
     }
 }

@@ -10,11 +10,11 @@ namespace MedHub.Application.Handlers
 {
     public class CreateAllergenCommandHandler : IRequestHandler<CreateAllergenCommand, Response<AllergenDto>>
     {
-        private readonly IRepository<Allergen> repository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public CreateAllergenCommandHandler(IRepository<Allergen> repository)
+        public CreateAllergenCommandHandler(IUnitOfWork unitOfWork)
         {
-            this.repository = repository;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<Response<AllergenDto>> Handle(CreateAllergenCommand request, CancellationToken cancellationToken)
@@ -25,8 +25,8 @@ namespace MedHub.Application.Handlers
                 return Response<AllergenDto>.Create(OperationState.MappingError, "An error occured while mapping object of type CreateAllergenCommand to Allergen.");
             }
 
-            var createdAllergen = await repository.AddAsync(allergenEntity);
-            await repository.SaveChangesAsync();
+            var createdAllergen = await unitOfWork.AllergenRepository.AddAsync(allergenEntity);
+            await unitOfWork.SaveChangesAsync();
 
             var createdAllergenDto = MedHubMapper.Mapper.Map<AllergenDto>(createdAllergen);
             if (createdAllergenDto == null)

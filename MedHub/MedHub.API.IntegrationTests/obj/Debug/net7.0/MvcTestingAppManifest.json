@@ -1,0 +1,6 @@
+{
+  "MedHub.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Dev\\.NET\\ProjectRemakeV2\\MedHub\\MedHub.API",
+  "MedHub.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Dev\\.NET\\ProjectRemakeV2\\MedHub\\MedHub.Application",
+  "MedHub.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Dev\\.NET\\ProjectRemakeV2\\MedHub\\MedHub.Core",
+  "MedHub.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Dev\\.NET\\ProjectRemakeV2\\MedHub\\MedHub.Infrastructure"
+}

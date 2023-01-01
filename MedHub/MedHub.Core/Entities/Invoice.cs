@@ -21,7 +21,7 @@ namespace MedHub.Core.Entities
             });
         }
 
-        public Result AddSellerToTheInvoice(Cabinet seller)
+        public Result AddSellerToTheInvoice(Cabinet? seller)
         {
             if (seller == null)
             {
@@ -33,7 +33,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddBuyerToTheInvoice(Patient buyer)
+        public Result AddBuyerToTheInvoice(Patient? buyer)
         {
             if (buyer == null)
             {
@@ -45,7 +45,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddItemsToTheInvoice(List<InvoiceItem> invoiceItems)
+        public Result AddItemsToTheInvoice(List<InvoiceItem>? invoiceItems)
         {
             if (invoiceItems == null)
             {

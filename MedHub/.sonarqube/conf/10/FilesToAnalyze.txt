@@ -1,0 +1,12 @@
+﻿D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\Controllers\AllergensController.cs
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\Program.cs
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.GlobalUsings.g.cs
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.AssemblyInfo.cs
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\obj\Debug\net7.0\MedHub.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\appsettings.Development.json
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\appsettings.json
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\MedHub.db
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\MedHub.db-shm
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\MedHub.db-wal
+D:\Dev\.NET\ProjectRemakeV2\MedHub\MedHub.API\Properties\launchSettings.json
