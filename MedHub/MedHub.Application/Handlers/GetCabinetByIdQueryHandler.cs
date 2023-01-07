@@ -7,7 +7,6 @@ using MedHub.Application.Queries;
 
 namespace MedHub.Application.Handlers
 {
-    /*
     public class GetCabinetByIdQueryHandler : IRequestHandler<GetCabinetByIdQuery, Response<CabinetDto>>
     {
         private readonly IUnitOfWork unitOfWork;
@@ -25,7 +24,7 @@ namespace MedHub.Application.Handlers
                 return Response<CabinetDto>.Create(OperationState.NotFound);
             }
 
-            var cabinetDto = MedHubMapper.Mapper.Map<AllergenDto>(searchedCabinet);
+            var cabinetDto = MedHubMapper.Mapper.Map<CabinetDto>(searchedCabinet);
             if (cabinetDto == null)
             {
                 return Response<CabinetDto>.Create(OperationState.MappingError, "An error occured while mapping object of type Cabinet to CabinetDto.");
@@ -34,5 +33,4 @@ namespace MedHub.Application.Handlers
             return Response<CabinetDto>.Create(OperationState.Done, cabinetDto);
         }
     }
-    */
 }

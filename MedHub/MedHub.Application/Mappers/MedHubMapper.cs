@@ -13,6 +13,7 @@ namespace MedHub.Application.Mappers
                 cfg.AddProfile<AllergenMappingProfile>();
                 cfg.AddProfile<AppointmentMappingProfile>();
                 cfg.AddProfile<CabinetMappingProfile>();
+                cfg.AddProfile<DoctorMappingProfile>();
             });
             var mapper = config.CreateMapper();
             return mapper;

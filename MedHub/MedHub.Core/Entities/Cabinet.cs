@@ -7,7 +7,7 @@ namespace MedHub.Core.Entities
         public Guid Id { get; private set; }
         public string Address { get; private set; } = null!;
         public string PhoneNumber { get; private set; } = null!;
-        public MedicalSpeciality Speciality { get; private set; } = null!;
+        public MedicalSpeciality? Speciality { get; private set; }
         public HashSet<StockItem> DrugStock { get; private set; } = null!;
         public HashSet<Doctor> Doctors { get; private set; } = null!;
         public HashSet<Appointment> CreatedAppointments { get; private set; } = null!;

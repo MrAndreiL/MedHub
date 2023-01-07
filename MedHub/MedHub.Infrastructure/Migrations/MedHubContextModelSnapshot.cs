@@ -141,7 +141,7 @@ namespace MedHub.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("SpecialityId")
+                    b.Property<Guid?>("SpecialityId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -462,9 +462,7 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Core.Entities.MedicalSpeciality", "Speciality")
                         .WithMany("Cabinets")
-                        .HasForeignKey("SpecialityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SpecialityId");
 
                     b.Navigation("Speciality");
                 });

@@ -70,7 +70,7 @@ namespace MedHub.API.Controllers
             }
         }
 
-        [HttpDelete("{CabinetId:Guid}")]
+        [HttpDelete("{cabinetId:Guid}")]
         public async Task<ActionResult<CabinetDto>> Delete(Guid cabinetId)
         {
             var result = await mediator.Send(new DeleteCabinetCommand(cabinetId));
