@@ -27,7 +27,7 @@ namespace MedHub.Application.Handlers
             var allergenDto = MedHubMapper.Mapper.Map<AllergenDto>(searchedAllergen);
             if (allergenDto == null)
             {
-                return Response<AllergenDto>.Create(OperationState.MappingError, "An error occured while mapping object of type CreateAllergenCommand to Allergen.");
+                return Response<AllergenDto>.Create(OperationState.MappingError, "An error occured while mapping object of type Allergen to AllergenDto.");
             }
 
             return Response<AllergenDto>.Create(OperationState.Done, allergenDto);

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MedHub.Core.Entities;
 
 namespace MedHub.Application.Mappers
 {
@@ -10,6 +11,8 @@ namespace MedHub.Application.Mappers
             {
                 cfg.ShouldMapProperty = p => p.GetMethod != null && (p.GetMethod.IsPublic || p.GetMethod.IsAssembly);
                 cfg.AddProfile<AllergenMappingProfile>();
+                cfg.AddProfile<AppointmentMappingProfile>();
+                cfg.AddProfile<CabinetMappingProfile>();
             });
             var mapper = config.CreateMapper();
             return mapper;

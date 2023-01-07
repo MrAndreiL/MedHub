@@ -98,19 +98,19 @@ namespace MedHub.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CabinetId")
+                    b.Property<Guid?>("CabinetId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("DoctorId")
+                    b.Property<Guid?>("DoctorId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("PatientId")
+                    b.Property<Guid?>("PatientId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("StartTime")
@@ -441,21 +441,15 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Core.Entities.Cabinet", "Cabinet")
                         .WithMany("CreatedAppointments")
-                        .HasForeignKey("CabinetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CabinetId");
 
                     b.HasOne("MedHub.Core.Entities.Doctor", "Doctor")
                         .WithMany("Appointments")
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DoctorId");
 
                     b.HasOne("MedHub.Core.Entities.Patient", "Patient")
                         .WithMany("Appointments")
-                        .HasForeignKey("PatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PatientId");
 
                     b.Navigation("Cabinet");
 

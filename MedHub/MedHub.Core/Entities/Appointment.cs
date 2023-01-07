@@ -5,9 +5,9 @@ namespace MedHub.Core.Entities
     public class Appointment
     {
         public Guid Id { get; private set; }
-        public Cabinet Cabinet { get; private set; } = null!;
-        public Patient Patient { get; private set; } = null!;
-        public Doctor Doctor { get; private set; } = null!;
+        public Cabinet? Cabinet { get; private set; }
+        public Patient? Patient { get; private set; }
+        public Doctor? Doctor { get; private set; }
         public DateTime StartTime { get; private set; }
         public DateTime EndTime { get; private set; }
         public string? Comment { get; private set; }
