@@ -5,8 +5,8 @@ namespace MedHub.Core.Entities
     public class MedicalRecord
     {
         public Guid Id { get; private set; }
-        public Patient Patient { get; private set; } = null!;
-        public Doctor Doctor { get; private set; } = null!;
+        public Patient? Patient { get; private set; } = null!;
+        public Doctor? Doctor { get; private set; } = null!;
         public string MedicalNote { get; private set; } = null!;
         public DateTime RegistrationDate { get; private set; }
 

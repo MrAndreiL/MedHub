@@ -239,14 +239,14 @@ namespace MedHub.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("DoctorId")
+                    b.Property<Guid?>("DoctorId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MedicalNote")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("PatientId")
+                    b.Property<Guid?>("PatientId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("RegistrationDate")
@@ -495,15 +495,11 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Core.Entities.Doctor", "Doctor")
                         .WithMany("MedicalRecordIssued")
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DoctorId");
 
                     b.HasOne("MedHub.Core.Entities.Patient", "Patient")
                         .WithMany("MedicalHistory")
-                        .HasForeignKey("PatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PatientId");
 
                     b.Navigation("Doctor");
 

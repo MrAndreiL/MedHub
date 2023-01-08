@@ -4,7 +4,7 @@ namespace MedHub.Core.Entities
 {
     public class StockItem : LineItem
     {
-        public Cabinet Cabinet { get; private set; } = null!;
+        public Cabinet? Cabinet { get; private set; }
 
         public static Result<StockItem> Create(int quantity)
         {

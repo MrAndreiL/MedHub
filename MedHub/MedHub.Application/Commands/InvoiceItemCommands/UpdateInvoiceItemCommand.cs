@@ -10,9 +10,9 @@ namespace MedHub.Application.Commands.InvoiceItemCommands
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
 
-        public UpdateInvoiceItemCommand(CreateInvoiceItemCommand command, Guid invoiceId)
+        public UpdateInvoiceItemCommand(CreateInvoiceItemCommand command, Guid invoiceItemId)
         {
-            Id = invoiceId;
+            Id = invoiceItemId;
             Quantity = command.Quantity;
             UnitPrice = command.UnitPrice;
         }

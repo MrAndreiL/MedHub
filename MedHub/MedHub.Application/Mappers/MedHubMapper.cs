@@ -16,6 +16,11 @@ namespace MedHub.Application.Mappers
                 cfg.AddProfile<DrugMappingProfile>();
                 cfg.AddProfile<InvoiceMappingProfile>();
                 cfg.AddProfile<InvoiceItemMappingProfile>();
+                cfg.AddProfile<MedicalRecordMappingProfile>();
+                cfg.AddProfile<MedicalSpecialityMappingProfile>();
+                cfg.AddProfile<PatientMappingProfile>();
+                cfg.AddProfile<ServiceMappingProfile>();
+                cfg.AddProfile<StockItemMappingProfile>();
             });
             var mapper = config.CreateMapper();
             return mapper;
