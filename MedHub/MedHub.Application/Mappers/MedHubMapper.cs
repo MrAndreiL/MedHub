@@ -14,6 +14,7 @@ namespace MedHub.Application.Mappers
                 cfg.AddProfile<AppointmentMappingProfile>();
                 cfg.AddProfile<CabinetMappingProfile>();
                 cfg.AddProfile<DoctorMappingProfile>();
+                cfg.AddProfile<DrugMappingProfile>();
             });
             var mapper = config.CreateMapper();
             return mapper;
