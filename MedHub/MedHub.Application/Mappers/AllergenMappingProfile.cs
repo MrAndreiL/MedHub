@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MedHub.Application.Commands;
+using MedHub.Application.Commands.AllergenCommands;
 using MedHub.Application.DTOs;
 using MedHub.Core.Entities;
 

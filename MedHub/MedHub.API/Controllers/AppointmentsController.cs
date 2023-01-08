@@ -1,9 +1,8 @@
-﻿using MedHub.Application.Commands;
+﻿using MedHub.Application.Commands.AppointmentCommands;
 using MedHub.Application.DTOs;
 using MedHub.Application.Helpers;
-using MedHub.Application.Queries;
+using MedHub.Application.Queries.AppointmentQueries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
@@ -57,7 +56,7 @@ namespace MedHub.API.Controllers
             }
         }
 
-        [HttpPut("{appointmentId:Guid}")]
+        [HttpPatch("{appointmentId:Guid}")]
         public async Task<ActionResult<AppointmentDto>> Update([FromBody] CreateAppointmentCommand command, Guid appointmentId)
         {
             var result = await mediator.Send(new UpdateAppointmentCommand(command, appointmentId));

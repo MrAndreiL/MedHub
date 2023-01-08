@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MedHub.Core.Entities;
 
 namespace MedHub.Application.Mappers
 {
@@ -15,6 +14,8 @@ namespace MedHub.Application.Mappers
                 cfg.AddProfile<CabinetMappingProfile>();
                 cfg.AddProfile<DoctorMappingProfile>();
                 cfg.AddProfile<DrugMappingProfile>();
+                cfg.AddProfile<InvoiceMappingProfile>();
+                cfg.AddProfile<InvoiceItemMappingProfile>();
             });
             var mapper = config.CreateMapper();
             return mapper;

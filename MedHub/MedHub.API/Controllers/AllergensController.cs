@@ -1,7 +1,7 @@
-﻿using MedHub.Application.Commands;
+﻿using MedHub.Application.Commands.AllergenCommands;
 using MedHub.Application.DTOs;
 using MedHub.Application.Helpers;
-using MedHub.Application.Queries;
+using MedHub.Application.Queries.AllergenQueries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,7 +56,7 @@ namespace MedHub.API.Controllers
             }
         }
 
-        [HttpPut("{allergenId:Guid}")]
+        [HttpPatch("{allergenId:Guid}")]
         public async Task<ActionResult<AllergenDto>> Update([FromBody] CreateAllergenCommand command, Guid allergenId)
         {
             var result = await mediator.Send(new UpdateAllergenCommand(command, allergenId));

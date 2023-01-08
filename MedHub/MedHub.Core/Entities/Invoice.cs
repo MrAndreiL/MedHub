@@ -5,8 +5,8 @@ namespace MedHub.Core.Entities
     public class Invoice
     {
         public Guid Id { get; private set; }
-        public Cabinet Seller { get; private set; } = null!;
-        public Patient Buyer { get; private set; } = null!;
+        public Cabinet? Seller { get; private set; }
+        public Patient? Buyer { get; private set; }
         public DateTime IssuedDate { get; private set; }
         public HashSet<InvoiceItem> Items { get; private set; } = null!;
         public decimal Total => Items.Sum(item => item.UnitPrice * item.Quantity);

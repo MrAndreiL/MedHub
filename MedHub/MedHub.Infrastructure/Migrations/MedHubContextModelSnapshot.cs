@@ -188,13 +188,13 @@ namespace MedHub.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("BuyerId")
+                    b.Property<Guid?>("BuyerId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("IssuedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("SellerId")
+                    b.Property<Guid?>("SellerId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -216,7 +216,7 @@ namespace MedHub.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<Guid?>("ProductId")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Quantity")
@@ -340,7 +340,7 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasBaseType("MedHub.Core.Entities.LineItem");
 
-                    b.Property<Guid>("InvoiceId")
+                    b.Property<Guid?>("InvoiceId")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("UnitPrice")
@@ -471,15 +471,11 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Core.Entities.Patient", "Buyer")
                         .WithMany()
-                        .HasForeignKey("BuyerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BuyerId");
 
                     b.HasOne("MedHub.Core.Entities.Cabinet", "Seller")
                         .WithMany("IssuedInvoices")
-                        .HasForeignKey("SellerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SellerId");
 
                     b.Navigation("Buyer");
 
@@ -490,9 +486,7 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Core.Entities.Product", "Product")
                         .WithMany("LineItems")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
@@ -520,9 +514,7 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Core.Entities.Invoice", "Invoice")
                         .WithMany("Items")
-                        .HasForeignKey("InvoiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InvoiceId");
 
                     b.Navigation("Invoice");
                 });

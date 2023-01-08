@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using MedHub.API.Controllers;
-using MedHub.Application.Commands;
+using MedHub.Application.Commands.AllergenCommands;
 using MedHub.Core.Entities;
 using System.Net.Http.Json;
 

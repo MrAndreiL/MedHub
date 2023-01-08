@@ -1,9 +1,8 @@
-﻿using MedHub.Application.Commands;
+﻿using MedHub.Application.Commands.CabinetCommands;
 using MedHub.Application.DTOs;
 using MedHub.Application.Helpers;
-using MedHub.Application.Queries;
+using MedHub.Application.Queries.CabinetQueries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
@@ -57,7 +56,7 @@ namespace MedHub.API.Controllers
             }
         }
 
-        [HttpPut("{cabinetId:Guid}")]
+        [HttpPatch("{cabinetId:Guid}")]
         public async Task<ActionResult<CabinetDto>> Update([FromBody] CreateCabinetCommand command, Guid cabinetId)
         {
             var result = await mediator.Send(new UpdateCabinetCommand(command, cabinetId));

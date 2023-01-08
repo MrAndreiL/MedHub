@@ -5,7 +5,7 @@ namespace MedHub.Core.Entities
     public class InvoiceItem : LineItem
     {
         public decimal UnitPrice { get; private set; }
-        public Invoice Invoice { get; private set; } = null!;
+        public Invoice? Invoice { get; private set; }
 
         public static Result<InvoiceItem> Create(int quantity)
         {

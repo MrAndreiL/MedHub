@@ -1,9 +1,8 @@
-﻿using MedHub.Application.Commands;
+﻿using MedHub.Application.Commands.DoctorCommands;
 using MedHub.Application.DTOs;
 using MedHub.Application.Helpers;
-using MedHub.Application.Queries;
+using MedHub.Application.Queries.DoctorQueries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedHub.API.Controllers
@@ -57,7 +56,7 @@ namespace MedHub.API.Controllers
             }
         }
 
-        [HttpPut("{doctorId:Guid}")]
+        [HttpPatch("{doctorId:Guid}")]
         public async Task<ActionResult<DoctorDto>> Update([FromBody] CreateDoctorCommand command, Guid doctorId)
         {
             var result = await mediator.Send(new UpdateDoctorCommand(command, doctorId));
