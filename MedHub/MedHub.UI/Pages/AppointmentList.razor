@@ -1,0 +1,51 @@
+﻿@page "/appointmentlist"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient _httpClient
+
+<h3>Allergens Overview</h3>
+
+<p>
+    <input type="button"
+           class="btn btn-primary"
+           value="Add New Appointment"
+           onclick="location.href='/addappointment'" />
+</p>
+
+<div>
+    @if (appointmentList != null)
+    {
+        <table class="table table-light">
+            <thead class="table-primary">
+            <th>Appointment Id</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Comment</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach (var appointment in appointmentList)
+                {
+                    <tr>
+                        <td>@appointment.Id</td>
+                        <td>@appointment.StartTime</td>
+                        <td>@appointment.EndTime</td>
+                        <td>@appointment.Comment</td>
+                        <td>
+                            <a href="/editappointment/@appointment.Id">Edit</a> |
+                            <a href="/deleteappointment/@appointment.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    List<AppointmentViewModel> appointmentList = new List<AppointmentViewModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await _httpClient.GetAsync("https://localhost:7260/api/v1/Appointments");
+        response.EnsureSuccessStatusCode();
+        appointmentList = await response.Content.ReadFromJsonAsync<List<AppointmentViewModel>>();
+    }
+}

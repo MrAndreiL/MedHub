@@ -1,0 +1,42 @@
+﻿@page "/deleteallergen/{Id}"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Delete Allergen</h2>
+@if (allergen != null)
+{
+    <p>Are you sure you want to delete this allergen with Name: <b>@allergen.Name</b>?</p>
+}
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Delete" value="Delete" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    AllergenViewModel allergen = new AllergenViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+        allergen = await Http.GetFromJsonAsync<AllergenViewModel>("https://localhost:7260/api/v1/Allergens/" + Id);
+    }
+    protected async Task Delete()
+    {
+        var response = await Http.DeleteAsync("https://localhost:7260/api/v1/Allergens/" + Id);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Deleted Successfully!");
+            NavigationManager.NavigateTo("allergenlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("allergenlist");
+    }
+}

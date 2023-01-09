@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedHub.API.IntegrationTests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedHub.Core.UnitTests", "MedHub.Core.UnitTests\MedHub.Core.UnitTests.csproj", "{889D3259-DA96-436D-80A5-B5794CB069C9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedHub.UI", "..\..\..\..\Downloads\MedHub-Popa-Ioan-Serban_project-refactory\MedHub\MedHub.UI\MedHub.UI.csproj", "{49822480-1CDD-48BA-B46A-EF7F5BF27C77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{889D3259-DA96-436D-80A5-B5794CB069C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{889D3259-DA96-436D-80A5-B5794CB069C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{889D3259-DA96-436D-80A5-B5794CB069C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49822480-1CDD-48BA-B46A-EF7F5BF27C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49822480-1CDD-48BA-B46A-EF7F5BF27C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49822480-1CDD-48BA-B46A-EF7F5BF27C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49822480-1CDD-48BA-B46A-EF7F5BF27C77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

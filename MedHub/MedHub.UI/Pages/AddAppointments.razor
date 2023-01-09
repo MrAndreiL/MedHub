@@ -1,0 +1,63 @@
+﻿@page "/addappointment"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Add Appointment</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="StartTime"> Start Time *</label>
+            <input form="StartTime" class="form-control" @bind="@appointment.StartTime" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="EndTime"> End Time *</label>
+            <input form="EndTime" class="form-control" @bind="@appointment.EndTime" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Comment"> Comment *</label>
+            <input form="Comment" class="form-control" @bind="@appointment.Comment" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    AppointmentViewModel appointment = new AppointmentViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("https://localhost:7260/api/v1/Appointments", appointment);
+        AppointmentViewModel appointmentResponse = await response.Content.ReadFromJsonAsync<AppointmentViewModel>();
+        if (!(Guid.Empty == appointmentResponse?.Id))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("appointmentlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("appointmentlist");
+    }
+}

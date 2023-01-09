@@ -1,0 +1,62 @@
+﻿@page "/adddoctor"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Add Doctor</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="PersonalIdentificationNumber"> Personal Identification Number *</label>
+            <input form="PersonalIdentificationNumber" class="form-control" @bind="@doctor.CNP" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="FirstName"> First Name *</label>
+            <input form="FirstName" class="form-control" @bind="@doctor.FirstName" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="LastName"> Last Name *</label>
+            <input form="LastName" class="form-control" @bind="@doctor.LastName" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Email"> Email *</label>
+            <input form="Email" class="form-control" @bind="@doctor.Email" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    DoctorViewModel doctor = new DoctorViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("https://localhost:7058/v1/api/Doctor", @doctor);
+        DoctorViewModel doctorResponse = await response.Content.ReadFromJsonAsync<DoctorViewModel>();
+        if (!(Guid.Empty == doctorResponse?.Id))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("doctorlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("doctorlist");
+    }
+}

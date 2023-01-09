@@ -1,0 +1,47 @@
+﻿@page "/allergenlist"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient _httpClient
+
+<h3>Allergens Overview</h3>
+
+<p>
+    <input type="button"
+           class="btn btn-primary"
+           value="Add New Allergen"
+           onclick="location.href='/addallergen'" />
+</p>
+
+<div>
+    @if (allergenList != null)
+    {
+        <table class="table table-light">
+            <thead class="table-primary">
+            <th>Allergen Id</th>
+            <th>Name</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach (var allergen in allergenList)
+                {
+                    <tr>
+                        <td>@allergen.Id</td>
+                        <td>@allergen.Name</td>
+                        <td>
+                            <a href="/editallergen/@allergen.Id">Edit</a> |
+                            <a href="/deleteallergen/@allergen.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    List<AllergenViewModel> allergenList = new List<AllergenViewModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await _httpClient.GetAsync("https://localhost:7260/api/v1/Allergens");
+        response.EnsureSuccessStatusCode();
+        allergenList = await response.Content.ReadFromJsonAsync<List<AllergenViewModel>>();
+    }
+}

@@ -1,0 +1,45 @@
+﻿@page "/addallergen"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Add Allergen</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Name"> Allergen Name *</label>
+            <input form="Name" class="form-control" @bind="@allergen.Name" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    AllergenViewModel allergen = new AllergenViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("https://localhost:7260/api/v1/Allergens", @allergen);
+        AllergenViewModel allergenResponse = await response.Content.ReadFromJsonAsync<AllergenViewModel>();
+        if (!(Guid.Empty == allergenResponse?.Id))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("allergenlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("allergenlist");
+    }
+}

@@ -27,6 +27,9 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddHealthChecks();
 
+// Florin - Enable Cors
+builder.Services.AddCors();
+
 var app = builder.Build();
 app.UseHealthChecks("/health");
 // Configure the HTTP request pipeline.
@@ -41,5 +44,14 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Florin - Configure Cors
+// Shows UseCors with CorsPolicyBuilder.
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
 
 app.Run();

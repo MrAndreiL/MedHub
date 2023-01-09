@@ -1,0 +1,71 @@
+﻿@page "/doctorlist"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient _httpClient
+
+<h3>Doctor Overview</h3>
+
+<p><a href="/adddoctor">Add New Doctor</a></p>
+
+<div>
+    @if (doctorList != null)
+    {
+        <table class="table table-light">
+            <thead class="table-primary">
+            <th>Doctor Id</th>
+            <th>CNP</th>
+            <th>Full Name</th>
+            <th>Email</th>
+                @*<th>Specializations</th>*@
+                @*<th>Cabinet</th>*@
+            <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach (var doctor in doctorList)
+                {
+                    <tr>
+                        <td>@doctor.Id</td>
+                        <td>@doctor.CNP</td>
+                        <td>@doctor.FirstName @doctor.LastName</td>
+                        <td>@doctor.Email</td>
+                        @*<td>
+                @foreach (var specialization in @doctor.Specializations)
+                {
+                <p>@specialization.SpecializationName</p>
+                }
+                </td>
+                <td>@doctor.Cabinet</td>
+                <td>
+                <form method="post" asp-page-handler="DoctorCabinet">
+                <label for="cabinets"> New Cabinet:</label>
+                <input type="hidden" name="doctorId" value="@doctor.Id">
+                <select id="cabinets" name="cabinets">
+                @foreach (var cabinet in Cabinets)
+                {
+                <option>
+                <p>@cabinet.Id </p>
+                <p>@cabinet.Address </p>
+                </option>
+                }
+                </select>
+                <input type="submit" value="Submit" >
+                </form>
+                </td>*@
+                        <td>
+                            <a href="/editdoctor/@doctor.Id">Edit</a> |
+                            <a href="/deletedoctor/@doctor.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    List<DoctorViewModel> doctorList = new List<DoctorViewModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await _httpClient.GetAsync("https://localhost:7058/v1/api/Doctor");
+        response.EnsureSuccessStatusCode();
+        doctorList = await response.Content.ReadFromJsonAsync<List<DoctorViewModel>>();
+    }
+}
