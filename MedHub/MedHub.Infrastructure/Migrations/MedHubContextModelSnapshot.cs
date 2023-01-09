@@ -355,7 +355,7 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasBaseType("MedHub.Core.Entities.LineItem");
 
-                    b.Property<Guid>("CabinetId")
+                    b.Property<Guid?>("CabinetId")
                         .HasColumnType("TEXT");
 
                     b.HasIndex("CabinetId");
@@ -519,9 +519,7 @@ namespace MedHub.Infrastructure.Migrations
                 {
                     b.HasOne("MedHub.Core.Entities.Cabinet", "Cabinet")
                         .WithMany("DrugStock")
-                        .HasForeignKey("CabinetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CabinetId");
 
                     b.Navigation("Cabinet");
                 });

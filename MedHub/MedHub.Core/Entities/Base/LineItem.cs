@@ -1,6 +1,6 @@
-﻿namespace MedHub.Core.Entities
+﻿namespace MedHub.Core.Entities.Base
 {
-    public class LineItem
+    public abstract class LineItem
     {
         public Guid Id { get; protected set; }
         public Product? Product { get; protected set; }

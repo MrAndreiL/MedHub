@@ -1,4 +1,5 @@
-﻿using MedHub.Core.Helpers;
+﻿using MedHub.Core.Entities.Base;
+using MedHub.Core.Helpers;
 
 namespace MedHub.Core.Entities
 {

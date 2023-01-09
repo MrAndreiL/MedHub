@@ -1,4 +1,5 @@
 ﻿using MedHub.Core.Entities;
+using MedHub.Core.Entities.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace MedHub.Infrastructure.Data

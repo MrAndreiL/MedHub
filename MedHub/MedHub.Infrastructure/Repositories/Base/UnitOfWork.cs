@@ -1,4 +1,5 @@
 ﻿using MedHub.Core.Entities;
+using MedHub.Core.Entities.Base;
 using MedHub.Core.Repositories.Base;
 using MedHub.Infrastructure.Data;
 

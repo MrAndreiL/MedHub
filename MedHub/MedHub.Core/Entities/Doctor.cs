@@ -1,4 +1,5 @@
-﻿using MedHub.Core.Helpers;
+﻿using MedHub.Core.Entities.Base;
+using MedHub.Core.Helpers;
 
 namespace MedHub.Core.Entities
 {
@@ -65,7 +66,7 @@ namespace MedHub.Core.Entities
             {
                 return Result.Failure("The specialization list cannot be null.");
             }
-            if (!specializations.Any()) 
+            if (!specializations.Any())
             {
                 return Result.Failure("The specialization list cannot be empty.");
             }
@@ -91,7 +92,7 @@ namespace MedHub.Core.Entities
             return Result.Success();
         }
 
-        public Result AddAppointmentToDoctor(Appointment? appointment) 
+        public Result AddAppointmentToDoctor(Appointment? appointment)
         {
             if (appointment == null)
             {

@@ -1,12 +1,6 @@
-﻿namespace MedHub.Application.DTOs
+﻿using MedHub.Application.DTOs.Base;
+
+namespace MedHub.Application.DTOs
 {
-    public class DoctorDto
-    {
-        public Guid Id { get; set; }
-        public string CNP { get; set; } = null!;
-        public string FirstName { get; set; } = null!;
-        public string LastName { get; set; } = null!;
-        public string Email { get; set; } = null!;
-        public string PhoneNumber { get; set; } = null!;
-    }
+    public class DoctorDto : PersonDto { }
 }

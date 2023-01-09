@@ -1,6 +1,6 @@
-﻿namespace MedHub.Core.Entities
+﻿namespace MedHub.Core.Entities.Base
 {
-    public class Person
+    public abstract class Person
     {
         public Guid Id { get; protected set; }
         public string CNP { get; protected set; } = null!;

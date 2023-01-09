@@ -1,19 +1,15 @@
-﻿using MedHub.Application.DTOs;
+﻿using MedHub.Application.Commands.Base;
+using MedHub.Application.DTOs;
 using MedHub.Application.Helpers;
 using MediatR;
 
 namespace MedHub.Application.Commands.ServiceCommands
 {
-    public class UpdateServiceCommand : IRequest<Response<ServiceDto>>
+    public class UpdateServiceCommand : UpdateProductCommand, IRequest<Response<ServiceDto>>
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; } = null!;
-        public string? Description { get; set; }
-        public decimal Price { get; set; }
-
-        public UpdateServiceCommand(CreateServiceCommand command, Guid drugId)
+        public UpdateServiceCommand(CreateServiceCommand command, Guid serviceId)
         {
-            Id = drugId;
+            Id = serviceId;
             Name = command.Name;
             Description = command.Description;
             Price = command.Price;
