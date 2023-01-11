@@ -14,7 +14,5 @@ namespace MedHub.UI.Pages
         {
             Patients =( await PatientDataService.GetAll()).ToList() ;
         }
-
-
     }
 }

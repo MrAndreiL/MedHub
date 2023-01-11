@@ -1,10 +1,18 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "iyNx5hcdd6rkzwVVhDKUCzAqQfqWH0/aFaAODbyzCMthANbGel1AQ7O5iGBgOLTeQR2mAynT5lDP9Auvns1Wjw==",
   "success": true,
   "projectFilePath": "/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.Business/MedHub.Domain.csproj",
   "expectedPackageFiles": [
     "/Users/andrei-sebastianlungu/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.1/microsoft.entityframeworkcore.abstractions.7.0.1.nupkg.sha512"
+=======
+  "dgSpecHash": "2+EybbQzzhNrgonHjRkNbHcTz1YRC4YQyxYUoqKmiHbq00qGsUJYYOpzmNpYpKHsI1YdkNc1i7XTOj/zt3LFbA==",
+  "success": true,
+  "projectFilePath": "C:\\Ifty\\facultate\\Anul 3 Sem 1\\.NET\\proiect feat andrei\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Fifty\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512"
+>>>>>>> f9653c3bbd5b8f19d49b5a63047471a93cd8359f
   ],
   "logs": []
 }

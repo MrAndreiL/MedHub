@@ -1,5 +1,7 @@
 ﻿@page "/doctoroverview"
-<h3>DoctorOverview</h3>
+<h3>Doctor Overview</h3>
+
+<br />
 
 @if (Doctors == null)
 {
@@ -14,8 +16,8 @@ else
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
-                <th>Specializations</th>
-                <th>Cabinet</th>
+                @*<th>Specializations</th>*@
+                @*<th>Cabinet</th>*@
             </thead>
             <tbody>
             @foreach (var doctor in Doctors)
@@ -26,7 +28,7 @@ else
                     <td>@doctor.FirstName</td>
                     <td>@doctor.LastName</td>
                     <td>@doctor.Email</td>
-                    <td>
+                    @*<td>
                     @foreach (var specialization in @doctor.Specializations)
                     {
                         <p>@specialization.SpecializationName</p>
@@ -48,7 +50,7 @@ else
                             </select>
                             <input type="submit" value="Submit" >
                         </form>
-                    </td>
+            </td>*@
                    </tr>
 
             }
@@ -56,4 +58,4 @@ else
 
 
         </table>
-}
+        }

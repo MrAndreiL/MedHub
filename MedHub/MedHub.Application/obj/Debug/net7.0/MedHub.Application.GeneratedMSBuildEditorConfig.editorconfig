@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MedHub.Application
+<<<<<<< HEAD
 build_property.ProjectDir = /Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.Application/
+=======
+build_property.ProjectDir = C:\Ifty\facultate\Anul 3 Sem 1\.NET\proiect feat andrei\MedHub\MedHub\MedHub.Application\
+>>>>>>> f9653c3bbd5b8f19d49b5a63047471a93cd8359f

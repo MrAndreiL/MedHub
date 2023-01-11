@@ -39,6 +39,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("medhubCors", policy =>
     {
+        // with origins 
         policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
 });

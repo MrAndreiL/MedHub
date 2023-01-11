@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.Application/MedHub.Application.csproj": {}
   },
   "projects": {
@@ -15,11 +16,32 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/andrei-sebastianlungu/.nuget/NuGet/NuGet.Config"
+=======
+    "C:\\Ifty\\facultate\\Anul 3 Sem 1\\.NET\\proiect feat andrei\\MedHub\\MedHub\\MedHub.Application\\MedHub.Application.csproj": {}
+  },
+  "projects": {
+    "C:\\Ifty\\facultate\\Anul 3 Sem 1\\.NET\\proiect feat andrei\\MedHub\\MedHub\\MedHub.Application\\MedHub.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Ifty\\facultate\\Anul 3 Sem 1\\.NET\\proiect feat andrei\\MedHub\\MedHub\\MedHub.Application\\MedHub.Application.csproj",
+        "projectName": "MedHub.Application",
+        "projectPath": "C:\\Ifty\\facultate\\Anul 3 Sem 1\\.NET\\proiect feat andrei\\MedHub\\MedHub\\MedHub.Application\\MedHub.Application.csproj",
+        "packagesPath": "C:\\Users\\Fifty\\.nuget\\packages\\",
+        "outputPath": "C:\\Ifty\\facultate\\Anul 3 Sem 1\\.NET\\proiect feat andrei\\MedHub\\MedHub\\MedHub.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Fifty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> f9653c3bbd5b8f19d49b5a63047471a93cd8359f
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+<<<<<<< HEAD
+=======
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+>>>>>>> f9653c3bbd5b8f19d49b5a63047471a93cd8359f
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,7 +75,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+>>>>>>> f9653c3bbd5b8f19d49b5a63047471a93cd8359f
         }
       }
     }

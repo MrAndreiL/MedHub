@@ -9,9 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MedHub.API
 build_property.RootNamespace = MedHub.API
+<<<<<<< HEAD
 build_property.ProjectDir = /Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.API/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = /Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.API
+=======
+build_property.ProjectDir = C:\Ifty\facultate\Anul 3 Sem 1\.NET\proiect feat andrei\MedHub\MedHub\MedHub.API\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Ifty\facultate\Anul 3 Sem 1\.NET\proiect feat andrei\MedHub\MedHub\MedHub.API
+>>>>>>> f9653c3bbd5b8f19d49b5a63047471a93cd8359f
 build_property._RazorSourceGeneratorDebug = 
