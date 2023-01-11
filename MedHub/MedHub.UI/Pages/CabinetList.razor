@@ -1,0 +1,47 @@
+﻿@page "/cabinetlist"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient _httpClient
+
+<h3>Cabinet Overview</h3>
+
+<p>
+    <input type="button"
+           class="btn btn-primary"
+           value="Add New Cabinet"
+           onclick="location.href='/addcabinet'" />
+</p>
+
+<div>
+    @if (cabinetList != null)
+    {
+        <table class="table table-light">
+            <thead class="table-primary">
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach (var cabinet in cabinetList)
+                {
+                    <tr>
+                        <td>@cabinet.Address</td>
+                        <td>@cabinet.PhoneNumber</td>
+                        <td>
+                            <a href="/editcabinet/@cabinet.Id">Edit</a> |
+                            <a href="/deletecabinet/@cabinet.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    List<CabinetViewModel> cabinetList = new List<CabinetViewModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await _httpClient.GetAsync("https://localhost:7260/api/v1/Cabinets");
+        response.EnsureSuccessStatusCode();
+        cabinetList = await response.Content.ReadFromJsonAsync<List<CabinetViewModel>>();
+    }
+}

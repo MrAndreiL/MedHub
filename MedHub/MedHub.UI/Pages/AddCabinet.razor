@@ -1,0 +1,51 @@
+﻿@page "/addcabinet"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Add Cabinet</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Address"> Address *</label>
+            <input form="Address" class="form-control" @bind="@cabinet.Address" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="PhoneNumber"> Phone Number *</label>
+            <input form="PhoneNumber" class="form-control" @bind="@cabinet.PhoneNumber" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    CabinetViewModel cabinet = new CabinetViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("https://localhost:7260/api/v1/Cabinets", @cabinet);
+        CabinetViewModel cabinetResponse = await response.Content.ReadFromJsonAsync<CabinetViewModel>();
+        if (!(Guid.Empty == cabinetResponse?.Id))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("cabinetlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("cabinetlist");
+    }
+}

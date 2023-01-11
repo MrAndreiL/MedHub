@@ -1,0 +1,59 @@
+﻿@page "/deleteappointment/{Id}"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Delete Appointment</h2>
+@if (appointment != null)
+{
+    <p>Are you sure you want to delete this appointment?</p>
+}
+<div class="row">
+    <table class="table">
+        <tr>
+            <td>Start Time</td>
+            <td>@appointment.StartTime</td>
+        </tr>
+        <tr>
+            <td>End Time</td>
+            <td>@appointment.EndTime</td>
+        </tr>
+        <tr>
+        <td>Comment</td>
+            <td>@appointment.Comment</td>
+        </tr>
+    </table>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Delete" value="Delete" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    AppointmentViewModel appointment = new AppointmentViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+        appointment = await Http.GetFromJsonAsync<AppointmentViewModel>("https://localhost:7260/api/v1/Appointments/" + Id);
+    }
+    protected async Task Delete()
+    {
+        var response = await Http.DeleteAsync("https://localhost:7260/api/v1/Appointments/" + Id);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Deleted Successfully!");
+            NavigationManager.NavigateTo("appointmentlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("appointmentlist");
+    }
+}

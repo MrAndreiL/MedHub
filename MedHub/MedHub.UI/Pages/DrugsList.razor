@@ -1,0 +1,49 @@
+﻿@page "/druglist"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient _httpClient
+
+<h3>Drugs Overview</h3>
+
+<p>
+    <input type="button"
+           class="btn btn-primary"
+           value="Add New Drug"
+           onclick="location.href='/adddrug'" />
+</p>
+
+<div>
+    @if (drugList != null)
+    {
+        <table class="table table-light">
+            <thead class="table-primary">
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach (var drug in drugList)
+                {
+                    <tr>
+                        <td>@drug.Name</td>
+                        <td>@drug.Description</td>
+                        <td>@drug.Price</td>
+                        <td>
+                            <a href="/editdrug/@drug.Id">Edit</a> |
+                            <a href="/deletedrug/@drug.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    List<DrugsViewModel> drugList = new List<DrugsViewModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await _httpClient.GetAsync("https://localhost:7260/api/v1/Drugs");
+        response.EnsureSuccessStatusCode();
+        drugList = await response.Content.ReadFromJsonAsync<List<DrugsViewModel>>();
+    }
+}

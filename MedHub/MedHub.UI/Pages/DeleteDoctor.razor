@@ -1,0 +1,62 @@
+﻿@page "/deletedoctor/{Id}"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Delete Doctor</h2>
+@if (doctor != null)
+{
+<div class="row">
+        <table class="table table-light">
+        <tr>
+            <td>CNP</td>
+            <td>@doctor.CNP</td>
+        </tr>
+        <tr>
+            <td>Full Name</td>
+            <td>@doctor.FirstName @doctor.LastName</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@doctor.Email</td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td>@doctor.PhoneNumber</td>
+        </tr>
+    </table>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Delete" value="Delete" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+}
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    DoctorViewModel doctor = new DoctorViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+        doctor = await Http.GetFromJsonAsync<DoctorViewModel>("https://localhost:7260/api/v1/Doctors/" + Id);
+    }
+    protected async Task Delete()
+    {
+        var response = await Http.DeleteAsync("https://localhost:7260/api/v1/Doctors/" + Id);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Deleted Successfully!");
+            NavigationManager.NavigateTo("doctorlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("doctorlist");
+    }
+}

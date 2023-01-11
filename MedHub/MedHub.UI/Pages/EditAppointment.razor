@@ -1,0 +1,64 @@
+﻿@page "/editappointment/{Id}"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+<h2>Edit Appointment</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="StartTime"> Start Time *</label>
+            <input form="StartTime" class="form-control" @bind="@appointment.StartTime" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="EndTime"> End Time *</label>
+            <input form="EndTime" class="form-control" @bind="@appointment.EndTime" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Comment"> Comment *</label>
+            <input form="Comment" class="form-control" @bind="@appointment.Comment" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    AppointmentViewModel appointment = new AppointmentViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+        appointment = await Http.GetFromJsonAsync<AppointmentViewModel>("https://localhost:7260/api/v1/Appointments/" + Id);
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PatchAsJsonAsync("https://localhost:7260/api/v1/Appointments/" + Id, @appointment);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Updated Successfully!");
+            NavigationManager.NavigateTo("appointmentlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("appointmentlist");
+    }
+}

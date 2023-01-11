@@ -1,0 +1,45 @@
+﻿@page "/invoicelist"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient _httpClient
+
+<h3>Invoices Overview</h3>
+
+<p>
+    <input type="button"
+           class="btn btn-primary"
+           value="Add New Invoice"
+           onclick="location.href='/addinvoice'" />
+</p>
+
+<div>
+    @if (invoiceList != null)
+    {
+        <table class="table table-light">
+            <thead class="table-primary">
+            <th>Issued Date</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach (var invoice in invoiceList)
+                {
+                    <tr>
+                        <td>@invoice.IssuedDate</td>
+                        <td>
+                            <a href="/editinvoice/@invoice.Id">Edit</a> |
+                            <a href="/deleteinvoice/@invoice.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    List<InvoiceViewModel> invoiceList = new List<InvoiceViewModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await _httpClient.GetAsync("https://localhost:7260/api/v1/Invoices");
+        response.EnsureSuccessStatusCode();
+        invoiceList = await response.Content.ReadFromJsonAsync<List<InvoiceViewModel>>();
+    }
+}

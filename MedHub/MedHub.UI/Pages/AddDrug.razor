@@ -1,0 +1,57 @@
+﻿@page "/adddrug"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Add Drug</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Name"> Name *</label>
+            <input form="Name" class="form-control" @bind="@drug.Name" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Description"> Description *</label>
+            <input form="Description" class="form-control" @bind="@drug.Description" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Price"> Price *</label>
+            <input form="Price" class="form-control" @bind="@drug.Price" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    DrugsViewModel drug = new DrugsViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("https://localhost:7260/api/v1/Drugs", @drug);
+        DrugsViewModel drugResponse = await response.Content.ReadFromJsonAsync<DrugsViewModel>();
+        if (!(Guid.Empty == drugResponse?.Id))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("druglist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("druglist");
+    }
+}

@@ -1,14 +1,21 @@
-﻿@page "/editallergen/{Id}"
+﻿@page "/editcabinet/{Id}"
 @using MedHub.UI.Pages.Models;
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JsRuntime
-<h2>Edit Allergen</h2>
+<h2>Edit Cabinet</h2>
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="Name"> Allergen Name *</label>
-            <input form="Name" class="form-control" @bind="@allergen.Name" />
+            <label for="Address"> Address *</label>
+            <input form="Address" class="form-control" @bind="@cabinet.Address" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="PhoneNumber"> Phone Number *</label>
+            <input form="PhoneNumber" class="form-control" @bind="@cabinet.PhoneNumber" />
         </div>
     </div>
 </div>
@@ -24,23 +31,23 @@
 @code {
     [Parameter]
     public string Id { get; set; }
-    AllergenViewModel allergen = new AllergenViewModel();
+    CabinetViewModel cabinet = new CabinetViewModel();
     protected override async Task OnInitializedAsync()
     {
-        allergen = await Http.GetFromJsonAsync<AllergenViewModel>("https://localhost:7260/api/v1/Allergens/" + Id);
+        cabinet = await Http.GetFromJsonAsync<CabinetViewModel>("https://localhost:7260/api/v1/Cabinets/" + Id);
     }
     protected async Task Save()
     {
-        var response = await Http.PatchAsJsonAsync("https://localhost:7260/api/v1/Allergens/" + Id, @allergen);
+        var response = await Http.PatchAsJsonAsync("https://localhost:7260/api/v1/Cabinets/" + Id, @cabinet);
 
         if (response.IsSuccessStatusCode)
         {
             await JsRuntime.InvokeVoidAsync("alert", "Updated Successfully!");
-            NavigationManager.NavigateTo("allergenlist");
+            NavigationManager.NavigateTo("cabinetlist");
         }
     }
     void Cancel()
     {
-        NavigationManager.NavigateTo("allergenlist");
+        NavigationManager.NavigateTo("cabinetlist");
     }
 }

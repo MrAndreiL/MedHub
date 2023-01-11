@@ -1,0 +1,51 @@
+﻿@page "/addinvoiceitem"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Add InvoiceItem</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Quantity"> Quantity *</label>
+            <input form="Quantity" class="form-control" @bind="@invoiceitem.Quantity" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="UnitPrice"> Unit Price *</label>
+            <input form="UnitPrice" class="form-control" @bind="@invoiceitem.UnitPrice" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    InvoiceItemViewModel invoiceitem = new InvoiceItemViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("https://localhost:7260/api/v1/InvoiceItems", @invoiceitem);
+        InvoiceItemViewModel invoiceitemResponse = await response.Content.ReadFromJsonAsync<InvoiceItemViewModel>();
+        if (!(Guid.Empty == invoiceitemResponse?.Id))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("invoiceitemlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("invoiceitemlist");
+    }
+}

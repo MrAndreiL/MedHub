@@ -1,0 +1,45 @@
+﻿@page "/addinvoice"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Add Invoice</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="IssuedDate"> Issued Date *</label>
+            <input form="IssuedDate" class="form-control" @bind="@invoice.IssuedDate" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    InvoiceViewModel invoice = new InvoiceViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("https://localhost:7260/api/v1/Invoices", @invoice);
+        InvoiceViewModel invoiceResponse = await response.Content.ReadFromJsonAsync<InvoiceViewModel>();
+        if (!(Guid.Empty == invoiceResponse?.Id))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("invoicelist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("invoicelist");
+    }
+}

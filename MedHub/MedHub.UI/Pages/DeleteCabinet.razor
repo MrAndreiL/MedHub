@@ -1,0 +1,54 @@
+﻿@page "/deletecabinet/{Id}"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Delete Cabinet</h2>
+@if (cabinet != null)
+{
+<div class="row">
+        <table class="table table-light">
+        <tr>
+            <td>Address</td>
+            <td>@cabinet.Address</td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td>@cabinet.PhoneNumber</td>
+        </tr>
+    </table>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Delete" value="Delete" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+}
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    CabinetViewModel cabinet = new CabinetViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+        cabinet = await Http.GetFromJsonAsync<CabinetViewModel>("https://localhost:7260/api/v1/Cabinets/" + Id);
+    }
+    protected async Task Delete()
+    {
+        var response = await Http.DeleteAsync("https://localhost:7260/api/v1/Cabinets/" + Id);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Deleted Successfully!");
+            NavigationManager.NavigateTo("cabinetlist");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("cabinetlist");
+    }
+}

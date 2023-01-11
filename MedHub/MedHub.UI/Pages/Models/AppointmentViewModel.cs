@@ -7,6 +7,7 @@ namespace MedHub.UI.Pages.Models
         public Guid Id { get; set; }
 
         [Required]
+        [DisplayFormat(DataFormatString = "{0: MM/dd/yyyy}")]
         public DateTime StartTime { get; set; }
 
         [Required]

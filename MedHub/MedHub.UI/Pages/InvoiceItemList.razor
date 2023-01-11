@@ -1,0 +1,47 @@
+﻿@page "/invoiceitemlist"
+@using MedHub.UI.Pages.Models;
+@inject HttpClient _httpClient
+
+<h3>InvoiceItems Overview</h3>
+
+<p>
+    <input type="button"
+           class="btn btn-primary"
+           value="Add New InvoiceItem"
+           onclick="location.href='/addinvoiceitem'" />
+</p>
+
+<div>
+    @if (invoiceitemList != null)
+    {
+        <table class="table table-light">
+            <thead class="table-primary">
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach (var invoiceitem in invoiceitemList)
+                {
+                    <tr>
+                        <td>@invoiceitem.Quantity</td>
+                        <td>@invoiceitem.UnitPrice</td>
+                        <td>
+                            <a href="/editinvoiceitem/@invoiceitem.Id">Edit</a> |
+                            <a href="/deleteinvoiceitem/@invoiceitem.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    List<InvoiceItemViewModel> invoiceitemList = new List<InvoiceItemViewModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await _httpClient.GetAsync("https://localhost:7260/api/v1/InvoiceItems");
+        response.EnsureSuccessStatusCode();
+        invoiceitemList = await response.Content.ReadFromJsonAsync<List<InvoiceItemViewModel>>();
+    }
+}

@@ -1,14 +1,14 @@
-﻿@page "/editallergen/{Id}"
+﻿@page "/editinvoice/{Id}"
 @using MedHub.UI.Pages.Models;
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JsRuntime
-<h2>Edit Allergen</h2>
+<h2>Edit Invoice</h2>
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="Name"> Allergen Name *</label>
-            <input form="Name" class="form-control" @bind="@allergen.Name" />
+            <label for="IssuedDate"> Issued Date *</label>
+            <input form="IssuedDate" class="form-control" @bind="@invoice.IssuedDate" />
         </div>
     </div>
 </div>
@@ -24,23 +24,23 @@
 @code {
     [Parameter]
     public string Id { get; set; }
-    AllergenViewModel allergen = new AllergenViewModel();
+    InvoiceViewModel invoice = new InvoiceViewModel();
     protected override async Task OnInitializedAsync()
     {
-        allergen = await Http.GetFromJsonAsync<AllergenViewModel>("https://localhost:7260/api/v1/Allergens/" + Id);
+        invoice = await Http.GetFromJsonAsync<InvoiceViewModel>("https://localhost:7260/api/v1/Invoices/" + Id);
     }
     protected async Task Save()
     {
-        var response = await Http.PatchAsJsonAsync("https://localhost:7260/api/v1/Allergens/" + Id, @allergen);
+        var response = await Http.PatchAsJsonAsync("https://localhost:7260/api/v1/Invoices/" + Id, @invoice);
 
         if (response.IsSuccessStatusCode)
         {
             await JsRuntime.InvokeVoidAsync("alert", "Updated Successfully!");
-            NavigationManager.NavigateTo("allergenlist");
+            NavigationManager.NavigateTo("invoicelist");
         }
     }
     void Cancel()
     {
-        NavigationManager.NavigateTo("allergenlist");
+        NavigationManager.NavigateTo("invoicelist");
     }
 }
