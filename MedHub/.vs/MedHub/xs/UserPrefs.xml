@@ -1,0 +1,106 @@
+﻿<Properties StartupConfiguration="{ABA68975-1B6A-4DBD-8E11-AE3204FA9270}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MedHub.UI/Pages/PatientOverview.razor">
+    <Files>
+      <File FileName="MedHub.Business/Helpers/Result.cs" Line="1" Column="1" />
+      <File FileName="MedHub.IntegrationTests/BaseIntegrationTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.IntegrationTests/CabinetControllerTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Models/Allergen.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Models/Drug.cs" Line="28" Column="10" />
+      <File FileName="MedHub.Business/Interfaces/ILineItem.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Interfaces/IPerson.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Helpers/ResultOfEntity.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Migrations/20221205154122_FixedSpeciatityIssue.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Migrations/20221206140240_Initialize.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/IUnitOfWork.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Models/Cabinet.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Models/Doctor.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Repositories/AllergenRepository.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Repositories/DrugRepository.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Repositories/InvoiceRepository.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Repositories/CabinetRepository.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Repositories/MedicalRecordRepository.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/Controllers/AllergensController.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/DTOs/AllergenDto.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/DTOs/CreateDoctorDto.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/DTOs/CabinetDto.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/DTOs/CreateAllergenDto.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/DTOs/CreateCabinetDto.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/DTOs/CreateDrugDto.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/DTOs/CreateMedicalSpecialityDto.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/DTOs/CreatePatientDto.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Shared/Domain/Allergen.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Shared/Domain/Cabinet.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Shared/Domain/Doctor.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Shared/Domain/MedicalRecord.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Shared/Domain/Drug.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Shared/Domain/MedicalSpeciality.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Shared/Domain/Patient.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Shared/Domain/StockLineItem.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Repositories/Generics/IRepository.cs" Line="9" Column="27" />
+      <File FileName="MedHub.Infrastructure/Repositories/Generics/Repository.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Models/InvoiceLineItem.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Models/MedicalRecord.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Repositories/DoctorRepository.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UnitTests/AllergensTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UnitTests/CabinetTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UnitTests/DoctorTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UnitTests/InvoiceLineItemTests.cs" Line="19" Column="44" />
+      <File FileName="MedHub.UnitTests/StockLineItemTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UnitTests/PatientTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UnitTests/DrugTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UnitTests/Usings.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UnitTests/InvoiceTests.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Infrastructure/Repositories/PatientRepository.cs" Line="1" Column="1" />
+      <File FileName="MedHub.Business/Models/Invoice.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/Controllers/CabinetsController.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/Controllers/DoctorsController.cs" Line="1" Column="1" />
+      <File FileName="MedHub.API/Controllers/DrugsController.cs" Line="1" Column="1" />
+      <File FileName="MedHub.UI/Pages/PatientOverview.razor" Line="19" Column="17" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MedHub" expanded="True">
+            <Node name="src" expanded="True">
+              <Node name="Application" expanded="True">
+                <Node name="MedHub.Application" expanded="True">
+                  <Node name="Dependencies" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Domain" expanded="True">
+                <Node name="MedHub.Domain" expanded="True">
+                  <Node name="Dependencies" expanded="True" />
+                  <Node name="Helpers" expanded="True" />
+                  <Node name="Interfaces" expanded="True" />
+                  <Node name="Models" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="WebUI" expanded="True">
+                <Node name="MedHub.API" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="DTOs" expanded="True" />
+                </Node>
+                <Node name="MedHub.Shared" expanded="True">
+                  <Node name="Domain" expanded="True" />
+                </Node>
+                <Node name="MedHub.UI" expanded="True">
+                  <Node name="Dependencies" expanded="True">
+                    <Node name="PackageDependencies" expanded="True" />
+                  </Node>
+                  <Node name="Pages" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.src.WebUI.MedHub.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+</Properties>

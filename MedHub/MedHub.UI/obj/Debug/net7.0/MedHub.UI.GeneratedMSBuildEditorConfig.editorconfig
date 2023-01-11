@@ -9,49 +9,49 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = MedHub.UI
 build_property.RootNamespace = MedHub.UI
-build_property.ProjectDir = D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.UI\
+build_property.ProjectDir = /Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\facultate\DOTNET\Proiect\MedHub\MedHub\MedHub.UI
+build_property.MSBuildProjectDirectory = /Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/App.razor]
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/Pages/DoctorOverview.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yT3ZlcnZpZXcucmF6b3I=
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/Pages/DoctorOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yT3ZlcnZpZXcucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/Pages/PatientOverview.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudE92ZXJ2aWV3LnJhem9y
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/Pages/PatientOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudE92ZXJ2aWV3LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/Shared/SurveyPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/_Imports.razor]
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-od1sua21rd
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5j2jfic30r
 
-[D:/facultate/DOTNET/Proiect/MedHub/MedHub/MedHub.UI/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-mhe1jep7kz
+[/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.UI/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-btcarj5ffi

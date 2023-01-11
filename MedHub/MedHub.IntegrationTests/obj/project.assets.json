@@ -24,7 +24,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.JsonPatch/7.0.0": {
+      "Microsoft.AspNetCore.JsonPatch/7.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -41,10 +41,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.0": {
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.JsonPatch": "7.0.0",
+          "Microsoft.AspNetCore.JsonPatch": "7.0.1",
           "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Bson": "1.0.2"
         },
@@ -62,10 +62,10 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Mvc.Testing/7.0.0": {
+      "Microsoft.AspNetCore.Mvc.Testing/7.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "7.0.0",
+          "Microsoft.AspNetCore.TestHost": "7.0.1",
           "Microsoft.Extensions.DependencyModel": "7.0.0",
           "Microsoft.Extensions.Hosting": "7.0.0"
         },
@@ -86,7 +86,7 @@
           "buildTransitive/net7.0/Microsoft.AspNetCore.Mvc.Testing.targets": {}
         }
       },
-      "Microsoft.AspNetCore.TestHost/7.0.0": {
+      "Microsoft.AspNetCore.TestHost/7.0.1": {
         "type": "package",
         "dependencies": {
           "System.IO.Pipelines": "7.0.0"
@@ -127,7 +127,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Data.Sqlite.Core/7.0.0": {
+      "Microsoft.Data.Sqlite.Core/7.0.1": {
         "type": "package",
         "dependencies": {
           "SQLitePCLRaw.core": "2.1.2"
@@ -143,11 +143,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/7.0.0": {
+      "Microsoft.EntityFrameworkCore/7.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.0",
-          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.0",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.1",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.1",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0"
@@ -166,7 +166,7 @@
           "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/7.0.0": {
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.1": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
@@ -179,7 +179,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/7.0.0": {
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -188,10 +188,10 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/7.0.0": {
+      "Microsoft.EntityFrameworkCore.Relational/7.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "compile": {
@@ -205,10 +205,10 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite/7.0.0": {
+      "Microsoft.EntityFrameworkCore.Sqlite/7.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "7.0.0",
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "7.0.1",
           "SQLitePCLRaw.bundle_e_sqlite3": "2.1.2"
         },
         "compile": {
@@ -218,11 +218,11 @@
           "lib/net6.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.0": {
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "7.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
+          "Microsoft.Data.Sqlite.Core": "7.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.1",
           "Microsoft.Extensions.DependencyModel": "7.0.0"
         },
         "compile": {
@@ -3057,7 +3057,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "MedHub.Infrastructure": "1.0.0",
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.0",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.1",
           "Swashbuckle.AspNetCore": "6.4.0",
           "System.Data.Common": "4.3.0",
           "System.Data.DataSetExtensions": "4.5.0",
@@ -3077,7 +3077,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.0"
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.1"
         },
         "compile": {
           "bin/placeholder/MedHub.Domain.dll": {}
@@ -3091,8 +3091,8 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "MedHub.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.0",
-          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.0"
+          "Microsoft.EntityFrameworkCore": "7.0.1",
+          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.1"
         },
         "compile": {
           "bin/placeholder/MedHub.Infrastructure.dll": {}
@@ -3187,10 +3187,10 @@
         "lib/netstandard2.1/FluentAssertions.xml"
       ]
     },
-    "Microsoft.AspNetCore.JsonPatch/7.0.0": {
-      "sha512": "svHQiUvLNdI2nac68WNQHNo/ZWyavFpt3Oip09QRnWeFqG9iyakKiNLavXr6KE8y7KxEXZNld96KQYbKz8SJMQ==",
+    "Microsoft.AspNetCore.JsonPatch/7.0.1": {
+      "sha512": "+0+k05C640VxJVEgAQNoezveMNmgANSmJTBNHsEff8NwUlq4gKVGG3SrREuwR+0kiuMSidecfAsFrudvy/Jtqw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.jsonpatch/7.0.0",
+      "path": "microsoft.aspnetcore.jsonpatch/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3202,14 +3202,14 @@
         "lib/net7.0/Microsoft.AspNetCore.JsonPatch.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.xml",
-        "microsoft.aspnetcore.jsonpatch.7.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.jsonpatch.7.0.1.nupkg.sha512",
         "microsoft.aspnetcore.jsonpatch.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.0": {
-      "sha512": "IJOsB1cm6FYGXxhlNoWR6zZYFREEBzeFX76NlBGhrZ7+VMK4piLm3fAgUBliasyEUg5MOOqFz5EGv8nmU5rXWQ==",
+    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.1": {
+      "sha512": "Se/cBFFmR4RVEzlKK5KUgif+wgRQu4jTJ9dybaO+Q6i64mjFw7A/ii1xKZEuTGR3FIqc9DeCRQqPEnuQinyO/A==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/7.0.0",
+      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3217,14 +3217,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll",
         "lib/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.xml",
-        "microsoft.aspnetcore.mvc.newtonsoftjson.7.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.newtonsoftjson.7.0.1.nupkg.sha512",
         "microsoft.aspnetcore.mvc.newtonsoftjson.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.Testing/7.0.0": {
-      "sha512": "nnP13N6hYmAOt0e4/9hBPq3fhHkmb/1nI44A5chdjM/62cqVdggj7HTWdgiCrFRWDuwbTphx/kDjnmsEp4aUIQ==",
+    "Microsoft.AspNetCore.Mvc.Testing/7.0.1": {
+      "sha512": "cf4glkMhGgoZGHdbEEZQGOYfPbMITff8shmOX3h4VphrEENC7MKeoR5vLTcumvXiJ1T/YA8ha8i8oyHSmqk45w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.testing/7.0.0",
+      "path": "microsoft.aspnetcore.mvc.testing/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3234,15 +3234,15 @@
         "buildTransitive/net7.0/Microsoft.AspNetCore.Mvc.Testing.targets",
         "lib/net7.0/Microsoft.AspNetCore.Mvc.Testing.dll",
         "lib/net7.0/Microsoft.AspNetCore.Mvc.Testing.xml",
-        "microsoft.aspnetcore.mvc.testing.7.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.testing.7.0.1.nupkg.sha512",
         "microsoft.aspnetcore.mvc.testing.nuspec",
         "tasks/netstandard2.0/Microsoft.AspNetCore.Mvc.Testing.Tasks.dll"
       ]
     },
-    "Microsoft.AspNetCore.TestHost/7.0.0": {
-      "sha512": "D56j4P78MAVLWnNZ1w84ZiWWAazf4ASeRsXzTfY5tkX25d1MM9ktjcD8ZanLLy5RUJoFUfHIcxtOC6s4DlPzeQ==",
+    "Microsoft.AspNetCore.TestHost/7.0.1": {
+      "sha512": "I58R30e092fSlTfvqe/fWibMtgsOiY/+jeLJAWtNerSXq2iVRuc0fSpt0TR1C6uSx3KSkdWPEZe1ScdfC/SGrg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.testhost/7.0.0",
+      "path": "microsoft.aspnetcore.testhost/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3250,7 +3250,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net7.0/Microsoft.AspNetCore.TestHost.dll",
         "lib/net7.0/Microsoft.AspNetCore.TestHost.xml",
-        "microsoft.aspnetcore.testhost.7.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.testhost.7.0.1.nupkg.sha512",
         "microsoft.aspnetcore.testhost.nuspec"
       ]
     },
@@ -3387,10 +3387,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Data.Sqlite.Core/7.0.0": {
-      "sha512": "WC7SANtaFTmQ/WPyhrE96h88MrH28C7kTBenDf5Eo+IR6CbWM0Uw2pR2++tyYr3qe/zSIsIYroEupB1mLg/adw==",
+    "Microsoft.Data.Sqlite.Core/7.0.1": {
+      "sha512": "g7wJrpQXJFtmT8CaKFyd9rqG/M4TfwnAka8HwdNLeR2TxhsCAm13IO7rln5NkIpFlkNR5YZw0uEDY03lmnFJEQ==",
       "type": "package",
-      "path": "microsoft.data.sqlite.core/7.0.0",
+      "path": "microsoft.data.sqlite.core/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3399,14 +3399,14 @@
         "lib/net6.0/Microsoft.Data.Sqlite.xml",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
-        "microsoft.data.sqlite.core.7.0.0.nupkg.sha512",
+        "microsoft.data.sqlite.core.7.0.1.nupkg.sha512",
         "microsoft.data.sqlite.core.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/7.0.0": {
-      "sha512": "9W+IfmAzMrp2ZpKZLhgTlWljSBM9Erldis1us61DAGi+L7Q6vilTbe1G2zDxtYO8F2H0I0Qnupdx5Cp4s2xoZw==",
+    "Microsoft.EntityFrameworkCore/7.0.1": {
+      "sha512": "uvzJkdmqbB50COlCiNaBjWc4cl3kHBO9P7glPk6wK8xyLrli4xeVip+pmMyT/kYc2shWm1YdxegxFqKeCvQXAA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/7.0.0",
+      "path": "microsoft.entityframeworkcore/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3414,76 +3414,76 @@
         "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props",
         "lib/net6.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.7.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/7.0.0": {
-      "sha512": "Pfu3Zjj5+d2Gt27oE9dpGiF/VobBB+s5ogrfI9sBsXQE1SG49RqVz5+IyeNnzhyejFrPIQsPDRMchhcojy4Hbw==",
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.1": {
+      "sha512": "pPaoi2RHAkrsJ2kcGZGBiJFUXSS1LC+qET6HCn4hXP+X/kvIriJLv8lx6ddI6gTluGvm/lDgPAA0zZDXYaKf3A==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/7.0.0",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.7.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/7.0.0": {
-      "sha512": "Qkd2H+jLe37o5ku+LjT6qf7kAHY75Yfn2bBDQgqr13DTOLYpEy1Mt93KPFjaZvIu/srEcbfGGMRL7urKm5zN8Q==",
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.1": {
+      "sha512": "4A4NFkPFoRMdry24Hjdb5/sOH3tU3hzFePTGnSg8P+VBrFp/EO8kcA4L0hBzwbXj2HGNL8I/quYyS5GVtb4EOg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/7.0.0",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.7.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.7.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/7.0.0": {
-      "sha512": "eQiYygtR2xZ0Uy7KtiFRHpoEx/U8xNwbNRgu1pEJgSxbJLtg6tDL1y2YcIbSuIRSNEljXIIHq/apEhGm1QL70g==",
+    "Microsoft.EntityFrameworkCore.Relational/7.0.1": {
+      "sha512": "F4EYKRhtnkjxp4BhKF3XDn+D3AKok6KIRZYAfaj6knx80CsjFeEUxFpSoqlB9r7ZJTgz30f2oZpHOO4qasIkhA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/7.0.0",
+      "path": "microsoft.entityframeworkcore.relational/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.7.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.7.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Sqlite/7.0.0": {
-      "sha512": "tufYoEHetVeALPRqzCi4YukL+uoS0pBi/6m3uSCuM5NxO/tTbuizvvBRa3qJNYZOvF3K7m4lUmmcCymKr3JSSQ==",
+    "Microsoft.EntityFrameworkCore.Sqlite/7.0.1": {
+      "sha512": "xmZ1TocLFvQG+hS8eBiM/VfWxJ7lG3x5LDEHpg1MY2gBXIMqlw1JgU/T9kj0Ci0UK7r7PkFHLHYGmu9uP3D4lQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlite/7.0.0",
+      "path": "microsoft.entityframeworkcore.sqlite/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/_._",
-        "microsoft.entityframeworkcore.sqlite.7.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.7.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlite.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.0": {
-      "sha512": "aUClrz1PT06fPDY+9f2IeDhYXj3/oPxM0r3I6syiyP3Th59hObVI0QsRu5+y7FbJIkO3NgyAi+e2vzWGhmBVbQ==",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.1": {
+      "sha512": "kIt1qaDioDcgUD8/7oA/IBPEQcxijC/E1CXrTHbDRg61u6Ep64JMWj5YSVHzu63hUx8aJHULtHkfyLwnJ0sZKA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlite.core/7.0.0",
+      "path": "microsoft.entityframeworkcore.sqlite.core/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Sqlite.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Sqlite.xml",
-        "microsoft.entityframeworkcore.sqlite.core.7.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.core.7.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlite.core.nuspec"
       ]
     },
@@ -9050,7 +9050,7 @@
     "net7.0": [
       "FluentAssertions >= 6.8.0",
       "MedHub.API >= 1.0.0",
-      "Microsoft.AspNetCore.Mvc.Testing >= 7.0.0",
+      "Microsoft.AspNetCore.Mvc.Testing >= 7.0.1",
       "Microsoft.NET.Test.Sdk >= 17.4.0",
       "coverlet.collector >= 3.2.0",
       "xunit >= 2.4.2",
@@ -9058,40 +9058,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Andrei\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/andrei-sebastianlungu/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.IntegrationTests\\MedHub.IntegrationTests.csproj",
+      "projectUniqueName": "/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.IntegrationTests/MedHub.IntegrationTests.csproj",
       "projectName": "MedHub.IntegrationTests",
-      "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.IntegrationTests\\MedHub.IntegrationTests.csproj",
-      "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
-      "outputPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.IntegrationTests\\obj\\",
+      "projectPath": "/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.IntegrationTests/MedHub.IntegrationTests.csproj",
+      "packagesPath": "/Users/andrei-sebastianlungu/.nuget/packages/",
+      "outputPath": "/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.IntegrationTests/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/andrei-sebastianlungu/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.API\\MedHub.API.csproj": {
-              "projectPath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.API\\MedHub.API.csproj"
+            "/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.API/MedHub.API.csproj": {
+              "projectPath": "/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.API/MedHub.API.csproj"
             }
           }
         }
@@ -9112,7 +9104,7 @@
           },
           "Microsoft.AspNetCore.Mvc.Testing": {
             "target": "Package",
-            "version": "[7.0.0, )"
+            "version": "[7.0.1, )"
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
@@ -9151,16 +9143,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.IntegrationTests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

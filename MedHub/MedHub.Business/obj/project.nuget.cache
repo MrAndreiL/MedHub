@@ -1,17 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CY3ZvPHVWQB6fdJlVQrZMz2CTbCwrwKVoPzvnKnQBxNYfGd8k9pZVMYimAPLhk+tJ9vFb2p4DU0gTB3OQ5aEmQ==",
+  "dgSpecHash": "iyNx5hcdd6rkzwVVhDKUCzAqQfqWH0/aFaAODbyzCMthANbGel1AQ7O5iGBgOLTeQR2mAynT5lDP9Auvns1Wjw==",
   "success": true,
-  "projectFilePath": "D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\MedHub.Domain.csproj",
+  "projectFilePath": "/Users/andrei-sebastianlungu/University/net/MedHub/MedHub/MedHub.Business/MedHub.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Andrei\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512"
+    "/Users/andrei-sebastianlungu/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.1/microsoft.entityframeworkcore.abstractions.7.0.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\facultate\\DOTNET\\Proiect\\MedHub\\MedHub\\MedHub.Business\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
